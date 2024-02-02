@@ -1,0 +1,80 @@
+﻿<ROOT>
+  <IS_ENABLE>True</IS_ENABLE>
+  <!--<SYSTEM>
+
+    <DESCRIPTION>
+      呼叫者: Local MES UI
+      名稱: connect
+      目的: 與設備連線作業。
+    </DESCRIPTION>
+    <API_NAME>MES連線</API_NAME>
+  </SYSTEM>-->
+
+  <API_SEND>
+    <txnname description="設備裝置保養標準值查詢" type="字串">GetMaintanceData</txnname>
+  </API_SEND>
+
+  <API_REPLY>
+    <returncode description="回傳值" type="整數">0</returncode>
+    <returnmessage description="回傳訊息" type="字串">Hello</returnmessage>
+    <!--<IR_pin_std description="IR探针使用標準次数(單位:次)" type="整數">1000</IR_pin_std>
+    <DCR_pin_std description="DCR探针使用標準次数(單位:次)" type="整數">1000</DCR_pin_std>
+    <Z_pin_std description="Z探针使用標準次数(單位:次)" type="整數">1000</Z_pin_std>
+    <LCR_pin_std description="LCR探针使用標準次数(單位:次)" type="整數">1000</LCR_pin_std>
+    <Suction_spring1_std description="吸嘴弹簧標準次數(單位:次)" type="整數">1000</Suction_spring1_std>
+    <Suction1_std description="吸嘴標準次數(單位:次)" type="整數">1000</Suction1_std>
+    <IR_pos_spring_std description="定位站彈簧標準次數(單位:次)" type="整數">1000</IR_pos_spring_std>
+    <IR_clip description="夾爪使用標準次数(單位:次)" type="整數">1000</IR_clip>
+
+    <IR_pos_clipCY_std description="夾爪汽缸標準次數(單位:次)" type="整數">1000</IR_pos_clipCY_std>
+    <IR_test_upCY_std description="測試站探針上下汽缸標準次數(單位:次)" type="整數">1000</IR_test_upCY_std>
+    <Suction1_spring_std description="1#吸嘴弹簧(單位:次)" type="整數">1000</Suction1_spring_std>
+    <Suction2_spring_std description="2#吸嘴弹簧(單位:次)" type="整數">1000</Suction2_spring_std>
+    <Sealing1_spring_std description="1#封刀弹簧(單位:次)" type="整數">1000</Sealing1_spring_std>
+    <Sealing2_spring_std description="2#封刀弹簧(單位:次)" type="整數">1000</Sealing2_spring_std>
+    <Clip_spring_std description="定位站弹簧(單位:次)" type="整數">1000</Clip_spring_std>
+    <Clip_Jig_std description="定位站夾爪(單位:次)" type="整數">1000</Clip_Jig_std>
+
+    <Suction1_std description="1#吸嘴(單位:次)" type="整數">1000</Suction1_std>
+    <Suction2_std description="2#吸嘴(單位:次)" type="整數">1000</Suction2_std>
+    <Suction_upCY_std description="吸嘴上下氣缸(單位:次)" type="整數">1000</Suction_upCY_std>
+    <Sealing1_upCY_std="" description="1#封刀上下氣缸(單位:次)" type="整數">1000</Sealing1_upCY_std>
+    <Sealing2_upCY_std description="2#封刀上下氣缸(單位:次)" type="整數">1000</Sealing2_upCY_std>
+    <Sealing2_spring_std description="2#封刀弹簧(單位:次)" type="整數">1000</Sealing2_spring_std>
+    <Sealing1_std description="1#封刀(單位:次)" type="整數">1000</Sealing1_std>
+    <Sealing2_std description="2#封刀(單位:次)" type="整數">1000</Sealing2_std>-->
+    <IR_pin_std description="IR探针使用標準次数(單位:次)" type="整數">1000</IR_pin_std>
+    <DCR_pin_std description="DCR探针使用標準次数(單位:次)" type="整數">1000</DCR_pin_std>
+    <Z_pin_std description="Z探针使用標準次数(單位:次)" type="整數">1000</Z_pin_std>
+    <LCR_pin_std description="LCR探针使用標準次数(單位:次)" type="整數">1000</LCR_pin_std>
+    <Suction_spring1_std description="吸嘴弹簧標準次數(單位:次)" type="整數">1000</Suction_spring1_std>
+    <!--<Suction1_std description="吸嘴標準次數(單位:次)" type="整數">1000</Suction1_std>-->
+    <IR_pos_spring_std description="定位站彈簧標準次數(單位:次)" type="整數">1000</IR_pos_spring_std>
+    <IR_clip description="夾爪使用標準次數" type="整數">1000</IR_clip>
+    <IR_pos_clipCY_std description="夾爪汽缸標準次數(單位:次)" type="整數">1000</IR_pos_clipCY_std>
+    <IR_test_upCY_std description="測試站探針上下汽缸標準次數(單位:次)" type="整數">1000</IR_test_upCY_std>
+    <Suction1_spring_std description="1#吸嘴弹簧(單位:次)" type="整數">99999</Suction1_spring_std>
+    <Suction2_spring_std description="2#吸嘴弹簧(單位:次)" type="整數">99999</Suction2_spring_std>
+    <Sealing1_spring_std description="1#封刀弹簧(單位:次)" type="整數">99999</Sealing1_spring_std>
+    <Sealing2_spring_std description="2#封刀弹簧(單位:次)" type="整數">99999</Sealing2_spring_std>
+    <Clip_spring_std description="定位站弹簧(單位:次)" type="整數">99999</Clip_spring_std>
+    <Clip_Jig_std description="定位站夾爪(單位:次)" type="整數">99999</Clip_Jig_std>
+    <Suction1_std description="1#吸嘴(單位:次)" type="整數">99999</Suction1_std>
+    <Suction2_std description="2#吸嘴(單位:次)" type="整數">99999</Suction2_std>
+    <Suction_upCY_std description="吸嘴上下氣缸(單位:次)" type="整數">99999</Suction_upCY_std>
+    <Sealing1_upCY_std description="1#封刀上下氣缸(單位:次)" type="整數">99999</Sealing1_upCY_std>
+    <Sealing2_upCY_std description="2#封刀上下氣缸(單位:次)" type="整數">99999</Sealing2_upCY_std>
+    <Sealing1_std description="1#封刀(單位:次)" type="整數">99999</Sealing1_std>
+    <Sealing2_std description="2#封刀(單位:次)" type="整數">99999</Sealing2_std>
+    <Sealing1 description="1#封刀(單位:次)" type="整數">99999</Sealing1>
+    <Sealing2 description="2#封刀(單位:次)" type="整數">99999</Sealing2>
+
+
+  </API_REPLY>
+
+
+</ROOT>
+
+
+
+

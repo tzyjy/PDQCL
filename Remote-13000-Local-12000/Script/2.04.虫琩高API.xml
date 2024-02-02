@@ -1,0 +1,37 @@
+<ROOT>
+  <IS_ENABLE>True</IS_ENABLE>
+  <SYSTEM>
+    <DESCRIPTION>
+      呼叫者: Local MES UI
+      名稱: connect
+      目的: 與設備連線作業。
+    </DESCRIPTION>
+    <API_NAME>MES連線</API_NAME>
+  </SYSTEM>
+  <API_SEND>
+    <txnname description="交易名稱" type="字串">woquery</txnname>
+    <txnid description="交易ID" type="字串">2020-10-13 12:34:12.123</txnid>
+    <workorderno description="製程編號" type="字串">1CZ2112154</workorderno>
+    <badgeno description="作業員工號" type="字串">739926</badgeno>
+    <equipmentid description="設備編號" type="字串">TP0870</equipmentid>
+  </API_SEND>
+  <API_REPLY>
+    <returncode description="回傳值" type="整數">0</returncode>
+    <returnmessage description="回傳訊息" type="字串">
+    </returnmessage>
+    <partnumber description="產品料號" type="字串">MAT001</partnumber>
+    <workcenterno description="當前站別代碼" type="字串">MOTP0047</workcenterno>
+    <Workcentername description="當前站名" type="字串">MOTP0047</Workcentername>
+    <woquantity description="工單數量" type="字串">123</woquantity>
+    <programname description="電表規格" type="字串">
+      RESISTANCE_TP_HEATER_MAX = 456
+      ,@ RESISTANCE_TP_HEATER_MIN =123
+      ,@ RESISTANCE_TP_FUSE_MAX = 456
+      ,@ RESISTANCE_TP_FUSE_MIN =123
+      ,@ RESISTANCE_TP_HEATER_RANGE= R1
+      ,@ RESISTANCE_TP_FUSE_RANGE = R1
+    </programname>
+    <Ischeckrequired description="MES系統是否需要程式參數明細" type="字串">Y</Ischeckrequired>
+    <woremark description="作業注意事項" type="字串">Hello</woremark>
+  </API_REPLY>
+</ROOT>

@@ -1,0 +1,142 @@
+﻿<UserControl
+    x:Class="ATestPackagingMachineWpf1.Views.ParameterView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:prism="http://prismlibrary.com/"
+    MinWidth="800"
+    MinHeight="450"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+    <!--  按钮资源绑定同一个命令  -->
+    <UserControl.Resources>
+        <Style
+            x:Key="ButtonStyle"
+            BasedOn="{StaticResource MaterialDesignChoiceChipOutlineRadioButton}"
+            TargetType="RadioButton">
+            <Setter Property="Command" Value="{Binding ParameterSwich}" />
+            <Setter Property="ToolTip" Value="提示" />
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="Red" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="Width" Value="100" />
+                    <Setter Property="BorderThickness" Value="1" />
+                </Trigger>
+                <Trigger Property="IsChecked" Value="False">
+                    <Setter Property="Background" Value="Yellow" />
+                </Trigger>
+
+            </Style.Triggers>
+
+
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid>
+    
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            Orientation="Horizontal">
+            <RadioButton
+                IsChecked="True"
+                CommandParameter="DCRParameter"
+                Content="DCR1"
+                Style="{StaticResource ButtonStyle}" />
+            <RadioButton
+                CommandParameter="DCR2View"
+                Content="DCR2"
+                Style="{StaticResource ButtonStyle}" />
+            <RadioButton
+                CommandParameter="DCR3View"
+                Content="DCR3"
+                Style="{StaticResource ButtonStyle}" />
+            <RadioButton
+                CommandParameter="DCR4View"
+                Content="DCR4"
+                Style="{StaticResource ButtonStyle}" />
+            <RadioButton
+                CommandParameter="IRView"
+                Content="IR"
+                Style="{StaticResource ButtonStyle}" />
+            <RadioButton
+                    Visibility="Collapsed"
+                CommandParameter="BoXing1View"
+                Content="波形"
+                Style="{StaticResource ButtonStyle}" />
+            <RadioButton
+            
+                CommandParameter="GanZhi1View"
+                Content="感值1"
+                Style="{StaticResource ButtonStyle}" />
+            <RadioButton
+                CommandParameter="GanZhi2View"
+                Content="感值2"
+                Style="{StaticResource ButtonStyle}" />
+            <RadioButton
+                    Visibility="Collapsed"
+                CommandParameter="GanZhi3View"
+                Content="感值3"
+              
+                Style="{StaticResource ButtonStyle}" />
+            <RadioButton
+                CommandParameter="TempView"
+                Content="温度"
+                Style="{StaticResource ButtonStyle}" />
+            <RadioButton
+                CommandParameter="WarnView"
+                Content="警戒值"
+                Style="{StaticResource ButtonStyle}" />
+            <RadioButton
+                CommandParameter="DeviceParameter"
+                Content="配置"
+                Style="{StaticResource ButtonStyle}" />
+            <RadioButton
+                CommandParameter="OpretionView"
+                Content="操作"
+                Style="{StaticResource ButtonStyle}" />
+            <RadioButton
+                CommandParameter="DIParameter"
+                Content="DI"
+                Style="{StaticResource ButtonStyle}"
+                Visibility="{Binding Manufacturer}" />
+            <RadioButton
+                CommandParameter="DOParameter"
+                Content="DO"
+                Style="{StaticResource ButtonStyle}"
+                Visibility="{Binding Manufacturer}" />
+
+         
+
+            <RadioButton
+                CommandParameter="ManufacturerView"
+                Content="厂家"
+                Style="{StaticResource ButtonStyle}"
+                Visibility="{Binding Manufacturer}" />
+
+            <Button
+                Margin="50,0,0,0"
+                Command="{Binding ViewGo}"
+                Content="下一页"
+                
+                Visibility="Collapsed" />
+            <Button
+                Margin="10,0,0,0"
+                Command="{Binding ViewBack}"
+                Content="上一页"
+                Visibility="Collapsed" />
+        </StackPanel>
+
+        <ContentControl
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            prism:RegionManager.RegionName="ParameterRegion" />
+
+    </Grid>
+</UserControl>

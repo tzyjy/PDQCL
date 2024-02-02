@@ -1,0 +1,143 @@
+﻿<UserControl x:Class="ATestPackagingMachineWpf1.Views.SystemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True"
+                xmlns:myUseControl="clr-namespace:ATestPackagingMachineWpf1.MyUseControl"
+            >
+    <UserControl.Resources>
+        <Style TargetType="myUseControl:UserControlTextBox">
+            <Setter Property="Margin" Value="2"></Setter>
+            <Setter Property="Width" Value="250"></Setter>
+            <Setter Property="Height" Value="40"></Setter>
+            <Setter Property="TextSize" Value="10"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <prism:Dialog.WindowStyle>
+        <Style TargetType="Window">
+            <Setter Property="Width" Value="1200" />
+            <Setter Property="Height" Value="1000" />
+            <Setter Property="WindowStyle" Value="SingleBorderWindow"/>
+            <Setter Property="ResizeMode" Value="CanResize"/>
+            <Setter Property="prism:Dialog.WindowStartupLocation" Value="CenterScreen" />
+
+        </Style>
+    </prism:Dialog.WindowStyle>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border  Background="Beige" Height="40">
+            <TextBlock Text="数据显示界面" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+
+        </Border>
+        <GroupBox Header="生产信息" Grid.Row="1" >
+            <UniformGrid  Columns="5" >
+
+                <myUseControl:UserControlTextBox  TextName="目标包装数量" TextValue="{Binding PLC5U.MuBiaoJuan}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                <myUseControl:UserControlTextBox  TextName="目标包装卷数" TextValue="{Binding PLC5U.DangqianJuanshu}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                <myUseControl:UserControlTextBox  TextName="后空格目标" TextValue="{Binding PLC5U.MubiaoHouKongCount}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                <myUseControl:UserControlTextBox  TextName="后空格数量" TextValue="{Binding PLC5U.HouKongCount}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                <myUseControl:UserControlTextBox  TextName="封刀下压时间" TextValue="10.0"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+
+                <myUseControl:UserControlTextBox  TextName="包装目标" TextValue="{Binding PLC5U.MubiaoBaozhuangCount}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                <myUseControl:UserControlTextBox  TextName="包装数量" TextValue="{Binding PLC5U.BaozhuangCount}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                <myUseControl:UserControlTextBox  TextName="不封带目标" TextValue="0.0"   IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                <myUseControl:UserControlTextBox  TextName="不封带数量" TextValue="0.0"   IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                <myUseControl:UserControlTextBox  TextName="一颗产品时间" TextValue="0.0"   IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+
+                <myUseControl:UserControlTextBox  TextName="前空格目标" TextValue="{Binding PLC5U.MubiaoQianKongCount}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                <myUseControl:UserControlTextBox  TextName="前空格数量" TextValue="{Binding PLC5U.QianKongCount}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                <myUseControl:UserControlTextBox  TextName="尾数目标" TextValue="0.0"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                <myUseControl:UserControlTextBox  TextName="尾数数量" TextValue="0.0"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+
+
+            </UniformGrid>
+        </GroupBox>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <GroupBox Header="系统状态"  Margin="2">
+                <UniformGrid Columns="2">
+                    <StackPanel >
+
+
+                        <myUseControl:UserControlTextBox  TextName="探针1使用次数" TextValue="{Binding PLC5U.TanZhen1Use}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="探针2使用次数" TextValue="{Binding PLC5U.TanZhen2Use}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="探针3使用次数" TextValue="{Binding PLC5U.TanZhen3Use}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="探针4使用次数" TextValue="{Binding PLC5U.TanZhen4Use}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="探针5使用次数" TextValue="{Binding PLC5U.TanZhen5Use}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="探针6使用次数" TextValue="{Binding PLC5U.TanZhen6Use}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="探针7使用次数" TextValue="{Binding PLC5U.TanZhen7Use}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="探针8使用次数" TextValue="{Binding PLC5U.TanZhen8Use}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="前封刀使用次数" TextValue="{Binding PLC5U.QianFengDaoQiGangUse}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="吸嘴使用次数" TextValue="{Binding PLC5U.XIzuiUse}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="校正1气缸使用次数" TextValue="{Binding PLC5U.JZ1QiGangUse}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="校正2气缸使用次数" TextValue="{Binding PLC5U.JZ2QiGangUse}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="校正3气缸使用次数" TextValue="0.0" IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                 
+                    </StackPanel>
+                    <StackPanel >
+
+
+                        <myUseControl:UserControlTextBox  TextName="探针1限制次数" TextValue="{Binding PLC5U.TanZhen1Count}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="探针2限制次数" TextValue="{Binding PLC5U.TanZhen2Count}"   IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="探针3限制次数" TextValue="{Binding PLC5U.TanZhen3Count}"   IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="探针4限制次数" TextValue="{Binding PLC5U.TanZhen4Count}"   IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="探针5限制次数" TextValue="{Binding PLC5U.TanZhen5Count}"   IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="探针6限制次数" TextValue="{Binding PLC5U.TanZhen6Count}"   IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="探针7限制次数" TextValue="{Binding PLC5U.TanZhen7Count}"   IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="探针8限制次数" TextValue="{Binding PLC5U.TanZhen8Count}"   IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="前封刀限制次数" TextValue="{Binding PLC5U.QianFengDaoQiGang}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="吸嘴限制次数" TextValue="{Binding PLC5U.XIzui}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="校正1气缸限制次数" TextValue="{Binding PLC5U.JZ1QiGang}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="校正2气缸限制次数" TextValue="{Binding PLC5U.JZ2QiGang}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="校正3气缸限制次数" TextValue="0.0"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+
+                    </StackPanel>
+                </UniformGrid>
+
+            </GroupBox>
+            <GroupBox Header="系统状态" Grid.Column="1"  Margin="2">
+                <UniformGrid  Columns="2" >
+                    <StackPanel >
+
+
+                        <myUseControl:UserControlTextBox  TextName="后封刀使用次数" TextValue="{Binding PLC5U.HouFengDaoQiGangUse}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="极性片使用次数" TextValue="{Binding PLC5U.JiXing1PianUse}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="校正1片使用次数" TextValue="{Binding PLC5U.JZ1pianUse}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="校正2片使用次数" TextValue="{Binding PLC5U.JZ2pianUse}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="校正3片使用次数" TextValue="{Binding PLC5U.JZ3pianUse}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="剔除1气缸使用次数" TextValue="{Binding PLC5U.Tichu1QigangUse}"   IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="剔除2气缸使用次数" TextValue="{Binding PLC5U.Tichu2QigangUse}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="剔除3气缸使用次数" TextValue="{Binding PLC5U.Tichu3QigangUse}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="剔除1盒子使用次数" TextValue="{Binding PLC5U.Tichu4QigangUse}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="剔除2盒子使用次数" TextValue="{Binding PLC5U.Tichu5QigangUse}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="剔除3盒子使用次数" TextValue="{Binding PLC5U.Tichu6QigangUse}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+            
+
+                    </StackPanel>
+                    <StackPanel >
+                        <myUseControl:UserControlTextBox  TextName="后封刀限制次数" TextValue="{Binding PLC5U.HouFengDaoQiGang}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="极性片限制次数" TextValue="{Binding PLC5U.JiXing1Pian}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="校正1片限制次数" TextValue="{Binding PLC5U.JZ1pian}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="校正2片限制次数" TextValue="{Binding PLC5U.JZ2pian}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="校正3片限制次数" TextValue="{Binding PLC5U.JZ3pian}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="剔除1气缸限制次数" TextValue="{Binding PLC5U.Tichu1Qigang}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="剔除2气缸限制次数" TextValue="{Binding PLC5U.Tichu2Qigang}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="剔除3气缸限制次数" TextValue="{Binding PLC5U.Tichu3Qigang}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="剔除1盒子限制次数" TextValue="{Binding PLC5U.Tichu4Qigang}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="剔除2盒子限制次数" TextValue="{Binding PLC5U.Tichu5Qigang}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                        <myUseControl:UserControlTextBox  TextName="剔除3盒子限制次数" TextValue="{Binding PLC5U.Tichu6Qigang}"  IsShowUnit="False"  TextUnit="个"></myUseControl:UserControlTextBox>
+                    </StackPanel>
+
+                </UniformGrid>
+            </GroupBox>
+        </Grid>
+
+    </Grid>
+</UserControl>

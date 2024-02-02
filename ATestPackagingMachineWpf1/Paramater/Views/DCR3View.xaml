@@ -1,0 +1,121 @@
+﻿<UserControl x:Class="ATestPackagingMachineWpf1.Paramater.Views.DCR3View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"     
+             xmlns:local="clr-namespace:ATestPackagingMachineWpf1.DeviceFile"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <UserControl.Resources>
+        <local:DeviceParameterToView x:Key="DeviciSouce" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <GroupBox Margin="2" Header="DCR">
+            <UniformGrid
+                Width="500"
+                Height="500"
+                Columns="2">
+                <UniformGrid.Resources>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="Margin" Value="3" />
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                    </Style>
+                    <Style TargetType="ComboBox" BasedOn="{StaticResource MaterialDesignComboBox}">
+                        <Setter Property="Width" Value="100"></Setter>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                        <Setter Property="Margin" Value="10,0,0,0"></Setter>
+                    </Style>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
+                        <Setter Property="Width" Value="100"></Setter>
+                        <Setter Property="Margin" Value="10,0,0,0"></Setter>
+                    </Style>
+                </UniformGrid.Resources>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="测试模式" />
+                    <ComboBox
+                        Width="60"
+                        SelectedValue="{Binding AX11520DParameterP.TestMode}"
+                        SelectedValuePath="Content">
+
+                        <ComboBoxItem Content="R" IsSelected="True" />
+                        <ComboBoxItem Content="D" />
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="测试速度" />
+                    <ComboBox
+                        Width="60"
+                        DisplayMemberPath="Name"
+                        ItemsSource="{Binding Source={StaticResource DeviciSouce}, Path=DCRTestSpeed}"
+                        SelectedValue="{Binding AX11520DParameterP.TestSpeed}"
+                        SelectedValuePath="Value" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="测试量程" />
+                    <ComboBox
+                        Width="60"
+                        DisplayMemberPath="Name"
+                        ItemsSource="{Binding Source={StaticResource DeviciSouce}, Path=DCRTestScale}"
+                        SelectedValue="{Binding AX11520DParameterP.TestScale}"
+                        SelectedValuePath="Value" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="蜂鸣方式" />
+                    <ComboBox
+                        Width="60"
+                        DisplayMemberPath="Name"
+                        ItemsSource="{Binding Source={StaticResource DeviciSouce}, Path=DCRBuzzingMode}"
+                        SelectedValue="{Binding AX11520DParameterP.BuzzingMode}"
+                        SelectedValuePath="Value" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="DCR下限" />
+                    <TextBox Width="60" Text="{Binding DCRHiAndLowShow[0]}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="DCR上限" />
+                    <TextBox Width="60" Text="{Binding DCRHiAndLowShow[1]}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="触发方式" />
+                    <ComboBox
+                        Width="60"
+                        DisplayMemberPath="Name"
+                        ItemsSource="{Binding Source={StaticResource DeviciSouce}, Path=DCRTriggerMode}"
+                        SelectedValuePath="Value"
+                        SelectedValue="{Binding AX11520DParameterP.TriggerMode}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="反馈信息" />
+                    <ComboBox
+                        Width="60"
+                        DisplayMemberPath="Name"
+                        ItemsSource="{Binding Source={StaticResource DeviciSouce}, Path=DCRFeedbackInformation}"
+                        SelectedValuePath="Value"
+                        SelectedValue="{Binding AX11520DParameterP.FeedbackInformation}" />
+                </StackPanel>
+            </UniformGrid>
+
+
+
+        </GroupBox>
+
+        <Button
+            Command="{Binding Save}"
+            Grid.Row="1"
+            Width="60"
+            Margin="50"
+            Content="保存" />
+
+
+
+
+
+
+    </Grid>
+</UserControl>

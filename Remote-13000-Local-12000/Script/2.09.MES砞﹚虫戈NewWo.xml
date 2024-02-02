@@ -1,0 +1,21 @@
+<ROOT>
+  <IS_ENABLE>True</IS_ENABLE>
+  <!--<SYSTEM>
+
+    <DESCRIPTION>
+      呼叫者: Local MES UI
+      名稱: connect
+      目的: 與設備連線作業。
+    </DESCRIPTION>
+    <API_NAME>MES連線</API_NAME>
+  </SYSTEM>-->
+  <API_SEND>
+    <txnname description="設定工單資料" type="字串">NewWo</txnname>
+    <wono description="工單號碼" type="字串">5PT8320J1133</wono>
+    <woqty description="工單數量" type="字串">6400</woqty>
+  </API_SEND>
+  <API_REPLY>
+    <returncode description="回傳值" type="整數">0</returncode>
+    <returnmessage description="回傳訊息" type="字串">Hello</returnmessage>
+  </API_REPLY>
+</ROOT>

@@ -1,0 +1,575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{223459C6-69F9-4C0E-A9E2-74B36ACAEC71}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ATestPackagingMachineWpf1</RootNamespace>
+    <AssemblyName>ATestPackagingMachineWpf1</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\图标.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Automation.BDaq4, Version=4.0.0.0, Culture=neutral, PublicKeyToken=463f5928d60183a0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Automation.BDaq4.dll</HintPath>
+    </Reference>
+    <Reference Include="DryIoc, Version=4.7.7.0, Culture=neutral, PublicKeyToken=dfbf2bd50fcf7768, processorArchitecture=MSIL">
+      <HintPath>..\packages\DryIoc.dll.4.7.7\lib\net45\DryIoc.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="HslCommunication, Version=11.6.1.0, Culture=neutral, PublicKeyToken=3d72ad3b6b5ec0e3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\HslCommunication.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.1.4.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.1.4\lib\net462\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.9.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.9.0\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.Common, Version=19.0.40.49152, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NationalInstruments.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.NI4882, Version=13.0.45.161, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NationalInstruments.NI4882.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.8.1.97\lib\net47\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.DryIoc.Wpf, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.DryIoc.8.1.97\lib\net47\Prism.DryIoc.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.8.1.97\lib\net47\Prism.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.CodeFirst, Version=1.7.0.34, Culture=neutral, PublicKeyToken=eb96ba0a78d831a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLite.CodeFirst.1.7.0.34\lib\net45\SQLite.CodeFirst.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.118.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.118.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.7.2\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="thinger.DataConvertLib, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\2楼新机WPF\TestPackagingMachineWpfPro20240103\ATestPackagingMachineWpf1\bin\Debug\thinger.DataConvertLib.dll</HintPath>
+    </Reference>
+    <Reference Include="TouchSocket, Version=1.3.9.0, Culture=neutral, PublicKeyToken=e66400a0f8ce7abb, processorArchitecture=MSIL">
+      <HintPath>..\packages\TouchSocket.1.3.9\lib\net45\TouchSocket.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.2\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Common\CsvHelper.cs" />
+    <Compile Include="Common\DataGridConverter.cs" />
+    <Compile Include="Common\ListBoxScrollToBottomBehavior.cs" />
+    <Compile Include="Common\MessageEvent.cs" />
+    <Compile Include="Common\TextBehavior.cs" />
+    <Compile Include="Common\CommonMethod.cs" />
+    <Compile Include="Common\GV.cs" />
+    <Compile Include="Common\JsonSaveEXT.cs" />
+    <Compile Include="DeviceFile\InstrumentDataParentClass.cs" />
+    <Compile Include="DeviceFile\Instrument\AX1152DBase.cs" />
+    <Compile Include="DeviceFile\Instrument\AX1152DGPIB.cs" />
+    <Compile Include="DeviceFile\Instrument\AX1152DSeriport.cs" />
+    <Compile Include="DeviceFile\CCD\CCDDevice.cs" />
+    <Compile Include="DeviceFile\Instrument\Chrome11210IR.cs" />
+    <Compile Include="DeviceFile\Instrument\Chrome19301.cs" />
+    <Compile Include="DeviceFile\DeviceParameterToView.cs" />
+    <Compile Include="DeviceFile\Instrument\InstrumentE5071C.cs" />
+    <Compile Include="DeviceFile\Instrument\SpareInstruMent.cs" />
+    <Compile Include="DeviceFile\IO\PCI1730WriteAndRead.cs" />
+    <Compile Include="DeviceFile\DeviceParameter\Wave19301Parameter.cs" />
+    <Compile Include="DeviceFile\DeviceParameter\IM3570Prameter.cs" />
+    <Compile Include="DeviceFile\DeviceParameter\IR11210Parameter.cs" />
+    <Compile Include="DeviceFile\Instrument\HIOKI3570.cs" />
+    <Compile Include="DeviceFile\Instrument\InstrumentCommon.cs" />
+    <Compile Include="DeviceFile\DeviceParameter\AX11520DParameter.cs" />
+    <Compile Include="DeviceFile\Instrument\DV.cs" />
+    <Compile Include="DeviceFile\Instrument\DeviceBase.cs" />
+    <Compile Include="DeviceFile\Mes\PCClientMESAPI.cs" />
+    <Compile Include="DeviceFile\Mes\CSACollection.cs" />
+    <Compile Include="DeviceFile\Mes\MESServrMESAPI.cs" />
+    <Compile Include="DeviceFile\PLCFile\FX3USon.cs" />
+    <Compile Include="DeviceFile\PLCFile\FX5USon.cs" />
+    <Compile Include="DeviceFile\PLCFile\PLCBase.cs" />
+    <Compile Include="InterfaceData\IKValueDeal.cs" />
+    <Compile Include="InterfaceData\IOpenHomeView.cs" />
+    <Compile Include="InterfaceData\IShowLogon.cs" />
+    <Compile Include="Common\JsonSaveHelper.cs" />
+    <Compile Include="Common\PassWordBoxHelper.cs" />
+    <Compile Include="MyUseControl\Led.xaml.cs">
+      <DependentUpon>Led.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUseControl\MyButton.xaml.cs">
+      <DependentUpon>MyButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUseControl\UserControlShowLed.xaml.cs">
+      <DependentUpon>UserControlShowLed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUseControl\UserControlTextBox.xaml.cs">
+      <DependentUpon>UserControlTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\Models\DataToColorConverter.cs" />
+    <Compile Include="Paramater\Models\NumericRangeValidationRule.cs" />
+    <Compile Include="Paramater\Views\BoXing1View.xaml.cs">
+      <DependentUpon>BoXing1View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\Views\DCR2View.xaml.cs">
+      <DependentUpon>DCR2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\Views\DCR3View.xaml.cs">
+      <DependentUpon>DCR3View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\Views\DCR4View.xaml.cs">
+      <DependentUpon>DCR4View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\Views\DCRParameter.xaml.cs">
+      <DependentUpon>DCRParameter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\Views\DeviceParameter.xaml.cs">
+      <DependentUpon>DeviceParameter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\Views\DIParameter.xaml.cs">
+      <DependentUpon>DIParameter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\Views\DOParameter.xaml.cs">
+      <DependentUpon>DOParameter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\Views\GanZhi2View.xaml.cs">
+      <DependentUpon>GanZhi2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\Views\GanZhi3View.xaml.cs">
+      <DependentUpon>GanZhi3View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\Views\GanZhi1View.xaml.cs">
+      <DependentUpon>GanZhi1View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\Views\IRView.xaml.cs">
+      <DependentUpon>IRView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\ViewModels\DIParameterViewModel.cs" />
+    <Compile Include="Paramater\ViewModels\DCRParameterViewModel.cs" />
+    <Compile Include="Paramater\ViewModels\DeviceParameterViewModel.cs" />
+    <Compile Include="Paramater\ViewModels\DOParameterViewModel.cs" />
+    <Compile Include="Paramater\Views\ManufacturerView.xaml.cs">
+      <DependentUpon>ManufacturerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\Views\OpretionView.xaml.cs">
+      <DependentUpon>OpretionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\Views\TempView.xaml.cs">
+      <DependentUpon>TempView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\Views\WarnView.xaml.cs">
+      <DependentUpon>WarnView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramater\ViewModels\BoXing1ViewModel.cs" />
+    <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="ViewModels\DataChartViewPViewModel.cs" />
+    <Compile Include="ViewModels\DataShowViewModel.cs" />
+    <Compile Include="Paramater\ViewModels\DCR2ViewModel.cs" />
+    <Compile Include="Paramater\ViewModels\DCR3ViewModel.cs" />
+    <Compile Include="Paramater\ViewModels\DCR4ViewModel.cs" />
+    <Compile Include="ViewModels\EditViewModel.cs" />
+    <Compile Include="Paramater\ViewModels\GanZhi1ViewModel.cs" />
+    <Compile Include="Paramater\ViewModels\GanZhi2ViewModel.cs" />
+    <Compile Include="Paramater\ViewModels\GanZhi3ViewModel.cs" />
+    <Compile Include="ViewModels\HandViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="Paramater\ViewModels\IRViewModel.cs" />
+    <Compile Include="ViewModels\LoadShowViewModel.cs" />
+    <Compile Include="ViewModels\LogonViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Paramater\ViewModels\OpretionViewModel.cs" />
+    <Compile Include="Paramater\ViewModels\ManufacturerViewModel.cs" />
+    <Compile Include="ViewModels\MinLoginViewModel.cs" />
+    <Compile Include="ViewModels\ParameterViewModel.cs" />
+    <Compile Include="ViewModels\SystemViewModel.cs" />
+    <Compile Include="Paramater\ViewModels\TempViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="Paramater\ViewModels\WarnViewModel.cs" />
+    <Compile Include="ViewModels\WarnShowViewModel.cs" />
+    <Compile Include="Views\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataChartViewP.xaml.cs">
+      <DependentUpon>DataChartViewP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataShowView.xaml.cs">
+      <DependentUpon>DataShowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditView.xaml.cs">
+      <DependentUpon>EditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HandView.xaml.cs">
+      <DependentUpon>HandView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoadShowView.xaml.cs">
+      <DependentUpon>LoadShowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogonView.xaml.cs">
+      <DependentUpon>LogonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MinLoginView.xaml.cs">
+      <DependentUpon>MinLoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ParameterView.xaml.cs">
+      <DependentUpon>ParameterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemView.xaml.cs">
+      <DependentUpon>SystemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserView.xaml.cs">
+      <DependentUpon>UserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WarnShowView.xaml.cs">
+      <DependentUpon>WarnShowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ZModels\LogInfo.cs" />
+    <Compile Include="ZModels\OperateLog.cs" />
+    <Compile Include="ZModels\SaveAccountInfo.cs" />
+    <Compile Include="ZModels\MenuBar.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="MyUseControl\Led.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUseControl\MyButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUseControl\UserControlShowLed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUseControl\UserControlTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paramater\Views\BoXing1View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paramater\Views\DCR2View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paramater\Views\DCR3View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paramater\Views\DCR4View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paramater\Views\DCRParameter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paramater\Views\DeviceParameter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paramater\Views\DIParameter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paramater\Views\DOParameter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paramater\Views\GanZhi2View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paramater\Views\GanZhi3View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paramater\Views\GanZhi1View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paramater\Views\IRView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paramater\Views\ManufacturerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paramater\Views\OpretionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paramater\Views\TempView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paramater\Views\WarnView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DataChartViewP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DataShowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HandView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoadShowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LogonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MinLoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ParameterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WarnShowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icoDevice.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\login_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\logo_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\登录界面.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\生涯测试.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BTest\BTest.csproj">
+      <Project>{5E823554-E156-49AD-BF07-079E01A565E9}</Project>
+      <Name>BTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TDLL\TDLL.csproj">
+      <Project>{FA5FB3B3-4FB7-4EBC-B3DE-3DB7B95D08DA}</Project>
+      <Name>TDLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZModels\ZModels.csproj">
+      <Project>{E1E23EE3-4BE7-4317-8942-4B1557185535}</Project>
+      <Name>ZModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\图标.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\电脑.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ec1557ec0ee094ad68a898133496c12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\5379daa2f994a664bec77ac4f584301.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\登录.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\元旦.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\桌面.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\t_bg_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\预警.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\monkey.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+</Project>

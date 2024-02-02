@@ -1,0 +1,49 @@
+﻿<UserControl
+    x:Class="ATestPackagingMachineWpf1.MyUseControl.UserControlTextBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ATestPackagingMachineWpf1.MyUseControl"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    MinWidth="60"
+    MinHeight="30">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Border
+            Grid.Column="0"
+            BorderBrush="Black"
+            BorderThickness="1,1,0,1">
+            <TextBlock
+                x:Name="TextBlockName"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontWeight="Bold" />
+        </Border>
+        <Border
+            Grid.Column="1"
+            BorderBrush="Black"
+            BorderThickness="1">
+            <TextBlock
+                x:Name="TextBlockValue"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontWeight="Bold" />
+        </Border>
+        <Border
+            x:Name="Myborder"
+            Grid.Column="2"
+            BorderBrush="Black"
+            BorderThickness="0,1,1,1">
+            <TextBlock
+                x:Name="TextBlockUnit"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontWeight="Bold" />
+        </Border>
+
+    </Grid>
+</UserControl>
