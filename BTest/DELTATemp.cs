@@ -106,11 +106,11 @@ namespace BTest
                 OperateResult operateResult = modbus.Write(item.Key, (short)(item.Value*10));
                 if (operateResult.IsSuccess)
                 {
-                    result &= true;
+                    result = true;
                 }
                 else
                 {
-                    result &= false;
+                    result = false;
 
 
                 }

@@ -56,7 +56,7 @@ namespace ATestPackagingMachineWpf1.ViewModels
                 keyValuePairs2.Add("18178", TempParameter2.AlarmTempHigh);
                 keyValuePairs2.Add("18179", TempParameter2.AlarmTempLow);
 
-           bool temp1result=       DV.DELTATemp1.Write(keyValuePairs1);
+           bool temp1result=     (bool)  DV.DELTATemp1?.Write(keyValuePairs1);
                 bool temp2result = DV.DELTATemp2.Write(keyValuePairs2);
                 if (temp1result && temp2result)
                 {

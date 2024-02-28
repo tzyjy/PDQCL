@@ -280,11 +280,11 @@ namespace ATestPackagingMachineWpf1.DeviceFile.Mes
 
 
 
-            DV.PLC5U.ReadSystemData();
+            DV.PLC5U?.ReadSystemData();
 
-            fh.Add("packageqty", DV.PLC5U.BaozhuangCount.ToString());
-            fh.Add("beforespaceqty", DV.PLC5U.QianKongCount.ToString());
-            fh.Add("afterspaceqty", DV.PLC5U.HouKongCount.ToString());
+            fh.Add("packageqty", DV.PLC5U?.BaozhuangCount.ToString());
+            fh.Add("beforespaceqty", DV.PLC5U?.QianKongCount.ToString());
+            fh.Add("afterspaceqty", DV.PLC5U?.HouKongCount.ToString());
             fh.Add("matno", GV.MesInfo.Wono == null ? "" : GV.MesInfo.Wono);
             fh.Add("tpno", GV.MesInfo.Tpno == null ? "" : GV.MesInfo.Tpno);
             string qwe = fh.GetCSText();
@@ -304,9 +304,9 @@ namespace ATestPackagingMachineWpf1.DeviceFile.Mes
             try
             {
                 string status = string.Empty;
-                status = DV.PLC5U.ReadDeviceStues().ToString();
+                status = DV.PLC5U?.ReadDeviceStues().ToString();
 
-                DV.PLC5U.ReadSystemData();
+                DV.PLC5U?.ReadSystemData();
 
                 cs.Add("txnname", "GetMachineStatus");
                 cs.Add("returncode", "0");
@@ -320,7 +320,7 @@ namespace ATestPackagingMachineWpf1.DeviceFile.Mes
                 cs.Add("statuscode", status);//设备状态
                 cs.Add("matno", GV.MesInfo.Wono == null ? "" : GV.MesInfo.Wono);//工单号
                 cs.Add("tpno", GV.MesInfo.Tpno == null ? "" : GV.MesInfo.Tpno);//工单数量
-                cs.Add(new CSA("ReelQty", DV.PLC5U.MuBiaoJuan.ToString()));//目标卷数
+                cs.Add(new CSA("ReelQty", DV.PLC5U?.MuBiaoJuan.ToString()));//目标卷数
             }
             catch (Exception)
             {
@@ -554,9 +554,9 @@ namespace ATestPackagingMachineWpf1.DeviceFile.Mes
                 boolList.Add(DV.GanZhi1.Enable);
                 boolList.Add(DV.GanZhi2.Enable);
 
-                DV.PLC5U.WriteEnable(boolList);
+                DV.PLC5U?.WriteEnable(boolList);
 
-                DV.PLC5U.WriteMesData(info);
+                DV.PLC5U?.WriteMesData(info);
                 //扫工单
                 PCI1730WriteAndRead.RrefeshWono();
                 #endregion 
@@ -810,24 +810,24 @@ namespace ATestPackagingMachineWpf1.DeviceFile.Mes
             fh.returnmessage = "OK";
 
 
-            DV.PLC5U.ReadSystemData();
-            fh.Add("Test1_pin_std", DV.PLC5U.TanZhen1Use.ToString());
-            fh.Add("Test2_pin_std", DV.PLC5U.TanZhen2Use.ToString());
-            fh.Add("Test3_pin_std", DV.PLC5U.TanZhen3Use.ToString());
-            fh.Add("Test4_pin_std", DV.PLC5U.TanZhen4Use.ToString());
-            fh.Add("Test5_pin_std", DV.PLC5U.TanZhen5Use.ToString());
-            fh.Add("Test6_pin_std", DV.PLC5U.TanZhen6Use.ToString());
-            fh.Add("Suction_std", DV.PLC5U.XIzuiUse.ToString());
-            fh.Add("Suction_spring_std", DV.PLC5U.XIzuiTanhuangUse.ToString());
-            fh.Add("Correct_clipcy1_std", DV.PLC5U.JZ1QiGangUse.ToString());
-            fh.Add("Correct_clipcy2_std", DV.PLC5U.JZ2QiGangUse.ToString());
-            fh.Add("Correct_clip1_std", DV.PLC5U.JZ1pianUse.ToString());
-            fh.Add("Correct_clip2_std", DV.PLC5U.JZ2pianUse.ToString());
-            fh.Add("Polarity_clip_std", DV.PLC5U.JiXing1PianUse.ToString());
-            fh.Add("Sealing1_upCY_std", DV.PLC5U.QianFengDaoQiGangUse.ToString());
-            fh.Add("Sealing2_upCY_std", DV.PLC5U.HouFengDaoQiGangUse.ToString());
-            fh.Add("Sealing1_std", DV.PLC5U.QianFengDaoQiGangUse.ToString());
-            fh.Add("Sealing2_std", DV.PLC5U.HouFengDaoQiGangUse.ToString());
+            DV.PLC5U?.ReadSystemData();
+            fh.Add("Test1_pin_std", DV.PLC5U?.TanZhen1Use.ToString());
+            fh.Add("Test2_pin_std", DV.PLC5U?.TanZhen2Use.ToString());
+            fh.Add("Test3_pin_std", DV.PLC5U?.TanZhen3Use.ToString());
+            fh.Add("Test4_pin_std", DV.PLC5U?.TanZhen4Use.ToString());
+            fh.Add("Test5_pin_std", DV.PLC5U?.TanZhen5Use.ToString());
+            fh.Add("Test6_pin_std", DV.PLC5U?.TanZhen6Use.ToString());
+            fh.Add("Suction_std", DV.PLC5U?.XIzuiUse.ToString());
+            fh.Add("Suction_spring_std", DV.PLC5U?.XIzuiTanhuangUse.ToString());
+            fh.Add("Correct_clipcy1_std", DV.PLC5U?.JZ1QiGangUse.ToString());
+            fh.Add("Correct_clipcy2_std", DV.PLC5U?.JZ2QiGangUse.ToString());
+            fh.Add("Correct_clip1_std", DV.PLC5U?.JZ1pianUse.ToString());
+            fh.Add("Correct_clip2_std", DV.PLC5U?.JZ2pianUse.ToString());
+            fh.Add("Polarity_clip_std", DV.PLC5U?.JiXing1PianUse.ToString());
+            fh.Add("Sealing1_upCY_std", DV.PLC5U?.QianFengDaoQiGangUse.ToString());
+            fh.Add("Sealing2_upCY_std", DV.PLC5U?.HouFengDaoQiGangUse.ToString());
+            fh.Add("Sealing1_std", DV.PLC5U?.QianFengDaoQiGangUse.ToString());
+            fh.Add("Sealing2_std", DV.PLC5U?.HouFengDaoQiGangUse.ToString());
 
             //成功读取，委托显示
 

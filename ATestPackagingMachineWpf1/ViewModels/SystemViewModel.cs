@@ -69,7 +69,7 @@ namespace ATestPackagingMachineWpf1.ViewModels
             while (!cts.IsCancellationRequested)
             {
 
-                DV.PLC5U.ReadSystemData();
+                DV.PLC5U?.ReadSystemData();
                 PLC5U = DV.PLC5U;
                 Thread.Sleep(300);
 

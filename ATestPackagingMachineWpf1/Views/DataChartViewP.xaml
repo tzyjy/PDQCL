@@ -70,7 +70,7 @@
                     <lvc:CartesianChart.AxisY >
                         <lvc:Axis  >
                             <lvc:Axis.Separator>
-                                <lvc:Separator Step="15" />
+                                <lvc:Separator Step="0.1" />
                             </lvc:Axis.Separator>
                         </lvc:Axis>
                     </lvc:CartesianChart.AxisY>
@@ -83,7 +83,7 @@
                     <lvc:CartesianChart.AxisY >
                         <lvc:Axis  >
                             <lvc:Axis.Separator>
-                                <lvc:Separator Step="15" />
+                                <lvc:Separator Step="0.1" />
                             </lvc:Axis.Separator>
                         </lvc:Axis>
                     </lvc:CartesianChart.AxisY>

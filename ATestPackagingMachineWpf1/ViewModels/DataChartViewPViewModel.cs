@@ -33,15 +33,15 @@ namespace ATestPackagingMachineWpf1.ViewModels
       
 
 
-        private ChartValues<int> _readPressure1 = new ChartValues<int>();
-        public ChartValues<int> ReadPressure1
+        private ChartValues<float> _readPressure1 = new ChartValues<float>();
+        public ChartValues<float> ReadPressure1
         {
             get { return _readPressure1; }
             set { SetProperty(ref _readPressure1, value); }
         }
 
-        private ChartValues<int> _readPressure2 = new ChartValues<int>();
-        public ChartValues<int> ReadPressure2
+        private ChartValues<float> _readPressure2 = new ChartValues<float>();
+        public ChartValues<float> ReadPressure2
         {
             get { return _readPressure2; }
             set { SetProperty(ref _readPressure2, value); }
@@ -92,7 +92,7 @@ namespace ATestPackagingMachineWpf1.ViewModels
             {
 
 
-              float result1=  DV.DELTATemp1.Read();
+              float result1=  (float)DV.DELTATemp1?.Read();
                 ListTemp1.Add(result1);
                 if (ListTemp1.Count>100)
                 {
@@ -106,9 +106,10 @@ namespace ATestPackagingMachineWpf1.ViewModels
                     ListTemp2.RemoveAt(0);
 
                 }
-
-              List<int> ints=  DV.PLC5U.ReadPressure();
-                if (ints.Count==2)
+           
+            
+                List<float> ints = DV.PLC5U?.ReadPressureFloat();
+                if (ints.Count == 2)
                 {
                     ReadPressure1.Add(ints[0]);
                     if (ReadPressure1.Count > 100)
@@ -124,6 +125,7 @@ namespace ATestPackagingMachineWpf1.ViewModels
 
                 }
 
+                Thread.Sleep(1000);
 
 
 
@@ -131,7 +133,6 @@ namespace ATestPackagingMachineWpf1.ViewModels
 
 
 
-                Thread.Sleep(1000);  
             }
 
 

@@ -196,7 +196,7 @@
                                 Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="WrenchClock" />
                                 <TextBlock Margin="0,0,10,0" Text="更新日期:" />
-                                <TextBlock Text="2024.02.02" />
+                                <TextBlock Text="2024.02.28" />
                             </StackPanel>
                         </StatusBarItem>
                     </StackPanel>

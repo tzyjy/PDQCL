@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Input;
 using ZModels;
 using ZModels.DeviceJson;
 
@@ -119,5 +120,26 @@ namespace ATestPackagingMachineWpf1.ViewModels
 
 
         }
+
+      
+
+        private DelegateCommand<object> _asd;
+        public DelegateCommand<object> asd =>
+            _asd ?? (_asd = new DelegateCommand<object>(Executeasd));
+
+        void Executeasd(object parameter)
+        {
+            MessageBox.Show(parameter.ToString());
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }

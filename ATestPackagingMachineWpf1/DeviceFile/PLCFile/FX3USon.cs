@@ -403,5 +403,10 @@ namespace ATestPackagingMachineWpf1.DeviceFile.PLCFile
 
 
         }
+
+        public override List<float> ReadPressureFloat()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

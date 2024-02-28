@@ -294,7 +294,7 @@ namespace ATestPackagingMachineWpf1.ViewModels
 
                 bool GanZhi1T = (ganzhi1test && DV.GanZhi1.Enable) || false;
                 bool GanZhi2T = ganzhi2test && DV.GanZhi2.Enable;
-
+                Console.WriteLine(DCR12T);
 
 
                 if (overSingle)
@@ -1022,7 +1022,7 @@ namespace ATestPackagingMachineWpf1.ViewModels
                     if (cSA == null)
                     {
 
-                        DV.PLC5U.WriteMesAlarm();
+                        DV.PLC5U?.WriteMesAlarm();
                         MesOnlineChecked = false;
                         MesOfflineChecked = true;
                         AddLog(new LogInfo() { OK = false, InfoText = "PC客户端发送Mes服务器失败！！" }); ;

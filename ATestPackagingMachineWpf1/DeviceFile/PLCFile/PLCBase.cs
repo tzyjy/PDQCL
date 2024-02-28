@@ -425,6 +425,12 @@ namespace ATestPackagingMachineWpf1.DeviceFile.PLCFile
 
 
         /// <summary>
+        /// 气压佛点数
+        /// </summary>
+        public abstract List<float> ReadPressureFloat();
+
+
+        /// <summary>
         /// Mes报警
         /// </summary>
         public abstract bool WriteMesAlarm();

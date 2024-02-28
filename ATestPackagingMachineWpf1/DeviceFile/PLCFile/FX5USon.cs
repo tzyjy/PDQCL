@@ -458,5 +458,22 @@ namespace ATestPackagingMachineWpf1.DeviceFile.PLCFile
 
            
         }
+
+        public override List<float> ReadPressureFloat()
+        {
+            List<float> ints = new List<float>();
+            HslCommunication.OperateResult<float[]> PressureList = melsec_netRead.ReadFloat(JsonSaveEXT.deviceParameterJsonGv.PLCDataConfig.PressureAddress, 2);
+            if (PressureList.IsSuccess)
+            {
+                ints.Add(PressureList.Content[0]);
+                ints.Add(PressureList.Content[1]);
+            }
+            else
+            {
+                LOG.WriteLog("PLC读取系统参数失败_气压");
+            }
+
+            return ints;
+        }
     }
 }

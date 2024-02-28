@@ -229,7 +229,7 @@ namespace ATestPackagingMachineWpf1.Paramater.ViewModels
 
             try
             {
-                DV.PLC5U.WriteYTest(PLCAdress, true);
+                DV.PLC5U?.WriteYTest(PLCAdress, true);
             }
             catch (Exception ex)
             {

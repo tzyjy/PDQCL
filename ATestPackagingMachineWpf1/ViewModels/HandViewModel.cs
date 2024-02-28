@@ -63,7 +63,7 @@ namespace ATestPackagingMachineWpf1.ViewModels
             //try
             //{
 
-            bool? result = DV.PLC5U?.WriteEnable(ListEnble.ToList());
+            var result = DV.PLC5U?.WriteEnable(ListEnble.ToList());
 
             DV.DCR1.Enable = ListEnble[0];
             DV.IR.Enable = ListEnble[1];
@@ -77,7 +77,7 @@ namespace ATestPackagingMachineWpf1.ViewModels
 
             GV.ChangeEnableColorMethod();
 
-            if ((bool)result)
+            if ((bool)result&&result!=null)
             {
                 MessageBox.Show("保存成功", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
             }

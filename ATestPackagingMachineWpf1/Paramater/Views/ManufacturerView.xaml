@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:gif="http://wpfanimatedgif.codeplex.com"
     xmlns:prism="http://prismlibrary.com/"
+    xmlns:zmodels="clr-namespace:ZModels;assembly=ZModels"
     prism:ViewModelLocator.AutoWireViewModel="True">
     <UserControl.Resources>
         <Storyboard x:Key="WidthStoryboard" TargetProperty="Width">
@@ -175,9 +176,9 @@
 
                 <GroupBox Header="动态图片">
                     <StackPanel>
-                     
+
                         <Image Height="300" gif:ImageBehavior.AnimatedSource="/Resources/monkey.gif" />
-                     
+
                     </StackPanel>
 
 
@@ -207,9 +208,7 @@
                                 x:Key="Button2Style"
                                 BasedOn="{StaticResource MaterialDesignOutlinedButton}"
                                 TargetType="Button">
-                                <Style.Triggers>
-
-                                </Style.Triggers>
+                                <Style.Triggers />
                             </Style>
 
 
@@ -234,7 +233,7 @@
 
                             </Style>
                         </StackPanel.Resources>
-                     
+
                         <Button Content="属性触发器" Style="{StaticResource Button1Style}" />
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="数据触发器" />
@@ -275,6 +274,12 @@
                                 </Button.Triggers>
 
                             </Button>
+                            <Button Command="{Binding asd}" Content="带一个对象">
+                                <Button.CommandParameter>
+                                    <zmodels:IOReadY />
+                                </Button.CommandParameter>
+                            </Button>
+                            <Button Command="{Binding ApplicationCommands.Open}" Content="预定义命令" />
                         </StackPanel>
                     </StackPanel>
                 </GroupBox>

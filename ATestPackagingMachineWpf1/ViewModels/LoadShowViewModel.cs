@@ -254,7 +254,7 @@ namespace ATestPackagingMachineWpf1.ViewModels
                 int Writeport1 = JsonSaveEXT.deviceParameterJsonGv.PLC_WritePort;
                 int Readport2 = JsonSaveEXT.deviceParameterJsonGv.PLC_ReadPort;
                 DV.PLC5U = new FX5USon(plcip, Writeport1, Readport2);
-                DV.PLC5U.Connect();
+                DV.PLC5U?.Connect();
                 AddLog(true, "PLC连接成功！", LogTpye.LoadLog);
 
 
@@ -294,9 +294,9 @@ namespace ATestPackagingMachineWpf1.ViewModels
                 StopBits StopBits = (StopBits)Enum.Parse(typeof(StopBits), JsonSaveEXT.deviceParameterJsonGv.TempParameter1.StopBits, true);
                 Parity Parity = (Parity)Enum.Parse(typeof(Parity), JsonSaveEXT.deviceParameterJsonGv.TempParameter1.Parity, true);
                 DV.DELTATemp1 = new DELTATemp(PortName, BaudRate, DataBits, StopBits, Parity);
-                DV.DELTATemp1.Connect();
-                float a = DV.DELTATemp1.Read();
-                if (a != 0)
+                DV.DELTATemp1?.Connect();
+                var a =DV.DELTATemp1?.Read();
+                if (a !=0 && a != null)
                 {
 
                     AddLog(true, "温度1连接成功！", LogTpye.LoadLog);
@@ -327,8 +327,8 @@ namespace ATestPackagingMachineWpf1.ViewModels
                 Parity Parity = (Parity)Enum.Parse(typeof(Parity), JsonSaveEXT.deviceParameterJsonGv.TempParameter2.Parity, true);
                 DV.DELTATemp2 = new DELTATemp(PortName, BaudRate, DataBits, StopBits, Parity);
                 DV.DELTATemp2.Connect();
-                float a = DV.DELTATemp2.Read();
-                if (a != 0)
+                var a = DV.DELTATemp2?.Read();
+                if (a != 0&&a!=null)
                 {
 
                     AddLog(true, "温度2连接成功！", LogTpye.LoadLog);
