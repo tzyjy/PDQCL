@@ -1,8 +1,7 @@
 ﻿using ATestPackagingMachineWpf1.Common;
-using ATestPackagingMachineWpf1.DeviceFile;
+
 using ATestPackagingMachineWpf1.InterfaceData;
-using ATestPackagingMachineWpf1.Paramater.ViewModels;
-using ATestPackagingMachineWpf1.Paramater.Views;
+
 using ATestPackagingMachineWpf1.ViewModels;
 using ATestPackagingMachineWpf1.Views;
 using DryIoc;
@@ -44,38 +43,22 @@ namespace ATestPackagingMachineWpf1
             LoadConfig();
             //注册导航
             containerRegistry.RegisterForNavigation<MainWindow, MainWindowViewModel>();
-            containerRegistry.RegisterForNavigation<UserView, UserViewModel>();
-            containerRegistry.RegisterForNavigation<HandView, HandViewModel>();
             containerRegistry.RegisterForNavigation<HomeView, HomeViewModel>();
+            containerRegistry.RegisterForNavigation<HandView, HandViewModel>();
             containerRegistry.RegisterForNavigation<ParameterView, ParameterViewModel>();
+            containerRegistry.RegisterForNavigation<UserView, UserViewModel>();
 
 
-            containerRegistry.RegisterForNavigation<DCRParameter, DCRParameterViewModel>();
-            containerRegistry.RegisterForNavigation<DCR2View, DCR2ViewModel>();
-            containerRegistry.RegisterForNavigation<DCR3View, DCR3ViewModel>();
-            containerRegistry.RegisterForNavigation<DCR4View, DCR4ViewModel>();
-            containerRegistry.RegisterForNavigation<IRView, IRViewModel>();
-            containerRegistry.RegisterForNavigation<GanZhi1View, GanZhi1ViewModel>();
-            containerRegistry.RegisterForNavigation<GanZhi2View, GanZhi2ViewModel>();
-            containerRegistry.RegisterForNavigation<GanZhi3View, GanZhi3ViewModel>();
-            containerRegistry.RegisterForNavigation<DIParameter, DIParameterViewModel>();
-            containerRegistry.RegisterForNavigation<DOParameter, DOParameterViewModel>();
-            containerRegistry.RegisterForNavigation<DeviceParameter, DeviceParameterViewModel>();
-            containerRegistry.RegisterForNavigation<TempView, TempViewModel>();
-            containerRegistry.RegisterForNavigation<WarnView, WarnViewModel>();
-            containerRegistry.RegisterForNavigation<OpretionView, OpretionViewModel>();
-            containerRegistry.RegisterForNavigation<BoXing1View, BoXing1ViewModel>();
-            containerRegistry.RegisterForNavigation<ManufacturerView, ManufacturerViewModel>();
+
+           
          
 
             //注册对话框
             containerRegistry.RegisterDialog<EditView>();
             containerRegistry.RegisterDialog<LogonView>();
-            containerRegistry.RegisterDialog<DataChartViewP>();
-            containerRegistry.RegisterDialog<DataShowView>();
-            containerRegistry.RegisterDialog<SystemView>();
+      
             containerRegistry.RegisterDialog<MinLoginView>();
-            containerRegistry.RegisterDialog<WarnShowView>();
+   
             containerRegistry.RegisterDialog<AboutView>();
             containerRegistry.RegisterDialog<LoadShowView>();
 
@@ -121,7 +104,7 @@ namespace ATestPackagingMachineWpf1
             JsonSaveEXT.deviceParameterJsonGv = JsonSaveEXT.ReadDeviceJson() == null ? new DeviceParameterJson() : JsonSaveEXT.ReadDeviceJson();
             // Activation();
 
-            DV.LoadListDeviceBase();
+       
         }
 
 

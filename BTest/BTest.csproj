@@ -57,13 +57,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdvantechIO\AdvantechPCI1730Device.cs" />
     <Compile Include="Common\DataValidate.cs" />
     <Compile Include="LogHelper\LOG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seriport\SerialPortHelper.cs" />
     <Compile Include="TCPIP\TouchSocketHelper.cs" />
-    <Compile Include="DELTATemp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

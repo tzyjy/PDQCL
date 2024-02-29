@@ -5,7 +5,7 @@
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:prism="http://prismlibrary.com/"
-    Title="CMC测试包装机"
+    Title="模板软件"
     Width="1280"
     Height="1024"
     prism:ViewModelLocator.AutoWireViewModel="True"
@@ -97,8 +97,8 @@
                         <Button
                             Margin="24,0,0,0"
                             materialDesign:RippleAssist.Feedback="{Binding RelativeSource={RelativeSource Self}, Path=Foreground, Converter={StaticResource BrushRoundConverter}}"
-                            Command="{Binding HomeCommand}"
-                            CommandParameter="UserView"
+                            Command="{Binding ShortcutCommand}"
+                            CommandParameter="HomeView"
                             Content="{materialDesign:PackIcon Kind=Home,
                                                               Size=24}"
                             Foreground="White"
@@ -108,7 +108,8 @@
                         <Button
                             Margin="24,0,0,0"
                             Background="Transparent"
-                            Command="{Binding OpenHandview}"
+                            Command="{Binding ShortcutCommand}"
+                            CommandParameter="HandView"
                             Content="{materialDesign:PackIcon Kind=HandWave,
                                                               Size=18}"
                             Foreground="White"
@@ -118,7 +119,8 @@
                         <Button
                             Margin="24,0,0,0"
                             Background="Transparent"
-                            Command="{Binding Test}"
+                            Command="{Binding ShortcutCommand}"
+                            CommandParameter="ParameterView"
                             Content="{materialDesign:PackIcon Kind=Cog,
                                                               Size=18}"
                             Foreground="White"

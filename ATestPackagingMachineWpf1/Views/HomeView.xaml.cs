@@ -1,8 +1,4 @@
-﻿using ATestPackagingMachineWpf1.MyUseControl;
-using System;
-using System.Drawing;
-using System.Windows.Controls;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
 
 namespace ATestPackagingMachineWpf1.Views
 {
@@ -14,22 +10,6 @@ namespace ATestPackagingMachineWpf1.Views
         public HomeView()
         {
             InitializeComponent();
-
-        }
-
-        private void ListBox_Loaded(object sender, System.Windows.RoutedEventArgs e)
-        {
-
-         ListBox listBox= sender as ListBox;
-            if (listBox.Items.Count>0)
-            {
-                listBox.ScrollIntoView(listBox.Items[listBox.Items.Count - 1]);
-            }
-          
         }
     }
 }
-
-
-
-

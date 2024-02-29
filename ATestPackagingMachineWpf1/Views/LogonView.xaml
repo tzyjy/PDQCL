@@ -87,7 +87,7 @@
                  
                     </TextBlock.Foreground>
                            <i:Interaction.Behaviors>
-                            <comn:TextBehavior/>
+                           
                         </i:Interaction.Behaviors>
                 </TextBlock>
             </StackPanel>

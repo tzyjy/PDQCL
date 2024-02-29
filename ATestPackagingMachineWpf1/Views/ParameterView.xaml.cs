@@ -10,7 +10,6 @@ namespace ATestPackagingMachineWpf1.Views
         public ParameterView()
         {
             InitializeComponent();
-
         }
     }
 }

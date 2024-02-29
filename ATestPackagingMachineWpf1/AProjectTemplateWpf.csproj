@@ -154,40 +154,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Common\CsvHelper.cs" />
-    <Compile Include="Common\DataGridConverter.cs" />
-    <Compile Include="Common\ListBoxScrollToBottomBehavior.cs" />
-    <Compile Include="Common\MessageEvent.cs" />
-    <Compile Include="Common\TextBehavior.cs" />
-    <Compile Include="Common\CommonMethod.cs" />
     <Compile Include="Common\GV.cs" />
     <Compile Include="Common\JsonSaveEXT.cs" />
-    <Compile Include="DeviceFile\InstrumentDataParentClass.cs" />
-    <Compile Include="DeviceFile\Instrument\AX1152DBase.cs" />
-    <Compile Include="DeviceFile\Instrument\AX1152DGPIB.cs" />
-    <Compile Include="DeviceFile\Instrument\AX1152DSeriport.cs" />
-    <Compile Include="DeviceFile\CCD\CCDDevice.cs" />
-    <Compile Include="DeviceFile\Instrument\Chrome11210IR.cs" />
-    <Compile Include="DeviceFile\Instrument\Chrome19301.cs" />
-    <Compile Include="DeviceFile\DeviceParameterToView.cs" />
-    <Compile Include="DeviceFile\Instrument\InstrumentE5071C.cs" />
-    <Compile Include="DeviceFile\Instrument\SpareInstruMent.cs" />
-    <Compile Include="DeviceFile\IO\PCI1730WriteAndRead.cs" />
-    <Compile Include="DeviceFile\DeviceParameter\Wave19301Parameter.cs" />
-    <Compile Include="DeviceFile\DeviceParameter\IM3570Prameter.cs" />
-    <Compile Include="DeviceFile\DeviceParameter\IR11210Parameter.cs" />
-    <Compile Include="DeviceFile\Instrument\HIOKI3570.cs" />
-    <Compile Include="DeviceFile\Instrument\InstrumentCommon.cs" />
-    <Compile Include="DeviceFile\DeviceParameter\AX11520DParameter.cs" />
-    <Compile Include="DeviceFile\Instrument\DV.cs" />
-    <Compile Include="DeviceFile\Instrument\DeviceBase.cs" />
-    <Compile Include="DeviceFile\Mes\PCClientMESAPI.cs" />
-    <Compile Include="DeviceFile\Mes\CSACollection.cs" />
-    <Compile Include="DeviceFile\Mes\MESServrMESAPI.cs" />
-    <Compile Include="DeviceFile\PLCFile\FX3USon.cs" />
-    <Compile Include="DeviceFile\PLCFile\FX5USon.cs" />
-    <Compile Include="DeviceFile\PLCFile\PLCBase.cs" />
-    <Compile Include="InterfaceData\IKValueDeal.cs" />
     <Compile Include="InterfaceData\IOpenHomeView.cs" />
     <Compile Include="InterfaceData\IShowLogon.cs" />
     <Compile Include="Common\JsonSaveHelper.cs" />
@@ -204,94 +172,18 @@
     <Compile Include="MyUseControl\UserControlTextBox.xaml.cs">
       <DependentUpon>UserControlTextBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Paramater\Models\DataToColorConverter.cs" />
-    <Compile Include="Paramater\Models\NumericRangeValidationRule.cs" />
-    <Compile Include="Paramater\Views\BoXing1View.xaml.cs">
-      <DependentUpon>BoXing1View.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paramater\Views\DCR2View.xaml.cs">
-      <DependentUpon>DCR2View.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paramater\Views\DCR3View.xaml.cs">
-      <DependentUpon>DCR3View.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paramater\Views\DCR4View.xaml.cs">
-      <DependentUpon>DCR4View.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paramater\Views\DCRParameter.xaml.cs">
-      <DependentUpon>DCRParameter.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paramater\Views\DeviceParameter.xaml.cs">
-      <DependentUpon>DeviceParameter.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paramater\Views\DIParameter.xaml.cs">
-      <DependentUpon>DIParameter.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paramater\Views\DOParameter.xaml.cs">
-      <DependentUpon>DOParameter.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paramater\Views\GanZhi2View.xaml.cs">
-      <DependentUpon>GanZhi2View.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paramater\Views\GanZhi3View.xaml.cs">
-      <DependentUpon>GanZhi3View.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paramater\Views\GanZhi1View.xaml.cs">
-      <DependentUpon>GanZhi1View.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paramater\Views\IRView.xaml.cs">
-      <DependentUpon>IRView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paramater\ViewModels\DIParameterViewModel.cs" />
-    <Compile Include="Paramater\ViewModels\DCRParameterViewModel.cs" />
-    <Compile Include="Paramater\ViewModels\DeviceParameterViewModel.cs" />
-    <Compile Include="Paramater\ViewModels\DOParameterViewModel.cs" />
-    <Compile Include="Paramater\Views\ManufacturerView.xaml.cs">
-      <DependentUpon>ManufacturerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paramater\Views\OpretionView.xaml.cs">
-      <DependentUpon>OpretionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paramater\Views\TempView.xaml.cs">
-      <DependentUpon>TempView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paramater\Views\WarnView.xaml.cs">
-      <DependentUpon>WarnView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paramater\ViewModels\BoXing1ViewModel.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
-    <Compile Include="ViewModels\DataChartViewPViewModel.cs" />
-    <Compile Include="ViewModels\DataShowViewModel.cs" />
-    <Compile Include="Paramater\ViewModels\DCR2ViewModel.cs" />
-    <Compile Include="Paramater\ViewModels\DCR3ViewModel.cs" />
-    <Compile Include="Paramater\ViewModels\DCR4ViewModel.cs" />
     <Compile Include="ViewModels\EditViewModel.cs" />
-    <Compile Include="Paramater\ViewModels\GanZhi1ViewModel.cs" />
-    <Compile Include="Paramater\ViewModels\GanZhi2ViewModel.cs" />
-    <Compile Include="Paramater\ViewModels\GanZhi3ViewModel.cs" />
     <Compile Include="ViewModels\HandViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
-    <Compile Include="Paramater\ViewModels\IRViewModel.cs" />
     <Compile Include="ViewModels\LoadShowViewModel.cs" />
     <Compile Include="ViewModels\LogonViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="Paramater\ViewModels\OpretionViewModel.cs" />
-    <Compile Include="Paramater\ViewModels\ManufacturerViewModel.cs" />
     <Compile Include="ViewModels\MinLoginViewModel.cs" />
     <Compile Include="ViewModels\ParameterViewModel.cs" />
-    <Compile Include="ViewModels\SystemViewModel.cs" />
-    <Compile Include="Paramater\ViewModels\TempViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
-    <Compile Include="Paramater\ViewModels\WarnViewModel.cs" />
-    <Compile Include="ViewModels\WarnShowViewModel.cs" />
     <Compile Include="Views\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\DataChartViewP.xaml.cs">
-      <DependentUpon>DataChartViewP.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\DataShowView.xaml.cs">
-      <DependentUpon>DataShowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditView.xaml.cs">
       <DependentUpon>EditView.xaml</DependentUpon>
@@ -317,14 +209,8 @@
     <Compile Include="Views\ParameterView.xaml.cs">
       <DependentUpon>ParameterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SystemView.xaml.cs">
-      <DependentUpon>SystemView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WarnShowView.xaml.cs">
-      <DependentUpon>WarnShowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ZModels\LogInfo.cs" />
     <Compile Include="ZModels\OperateLog.cs" />
@@ -350,79 +236,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Paramater\Views\BoXing1View.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Paramater\Views\DCR2View.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Paramater\Views\DCR3View.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Paramater\Views\DCR4View.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Paramater\Views\DCRParameter.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Paramater\Views\DeviceParameter.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Paramater\Views\DIParameter.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Paramater\Views\DOParameter.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Paramater\Views\GanZhi2View.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Paramater\Views\GanZhi3View.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Paramater\Views\GanZhi1View.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Paramater\Views\IRView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Paramater\Views\ManufacturerView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Paramater\Views\OpretionView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Paramater\Views\TempView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Paramater\Views\WarnView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\AboutView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\DataChartViewP.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\DataShowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -458,15 +272,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SystemView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\UserView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WarnShowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -559,6 +365,7 @@
   <ItemGroup>
     <Resource Include="Resources\monkey.gif" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

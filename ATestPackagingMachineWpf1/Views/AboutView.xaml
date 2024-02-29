@@ -22,12 +22,22 @@
         </Grid.RowDefinitions>
         <StackPanel>
             <Border Height="50" Background="AliceBlue">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    FontSize="20"
-                    FontWeight="Bold"
-                    Text="版本信息" />
+                <StackPanel>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Text="金动力智能科技(深圳)有限公司" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Text="版本信息" />
+
+                </StackPanel>
+
             </Border>
 
 

@@ -6,7 +6,7 @@ using System.Threading;
 using System;
 using System.Windows;
 using System.Threading.Tasks;
-using ATestPackagingMachineWpf1.DeviceFile;
+
 
 namespace ATestPackagingMachineWpf1.Views
 {
@@ -80,8 +80,7 @@ namespace ATestPackagingMachineWpf1.Views
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             source.Cancel();
-            PCI1730WriteAndRead.ReadyOff();
-            DV.SaveListDeviceBase();
+ 
             Console.WriteLine("取消任务");
 
         }

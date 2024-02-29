@@ -79,17 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AllProductNumber.cs" />
-    <Compile Include="DeviceJson\TestInfo.cs" />
-    <Compile Include="DeviceJson\Manufacturer.cs" />
-    <Compile Include="DeviceJson\PLCDataConfig.cs" />
-    <Compile Include="DeviceJson\WarningValue.cs" />
-    <Compile Include="MesInfo.cs" />
-    <Compile Include="WorkorderInfo.cs" />
     <Compile Include="DeviceJson\DeviceParameterJson.cs" />
-    <Compile Include="DeviceJson\IOReadY.cs" />
-    <Compile Include="DeviceJson\IOWriteX.cs" />
-    <Compile Include="DeviceJson\TempParameter.cs" />
     <Compile Include="TestPackagingContext.cs" />
     <Compile Include="LogonPeson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
