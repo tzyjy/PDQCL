@@ -33,26 +33,14 @@
             <TextBlock
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Text="索引" />
+                Text="输入" />
             <TextBlock
                 x:Name="text1Suoyin"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center" />
 
         </UniformGrid>
-        <UniformGrid Grid.Row="2" Columns="2">
-            <TextBlock
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Foreground="Red"
-                Text="引脚" />
-            <TextBlock
-                x:Name="text2Yinjiao"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Foreground="Red" />
-
-        </UniformGrid>
+       
 
     </Grid>
 

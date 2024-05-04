@@ -82,7 +82,7 @@
       <HintPath>bin\Debug\NationalInstruments.NI4882.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Prism, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Core.8.1.97\lib\net47\Prism.dll</HintPath>
@@ -154,8 +154,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\DV.cs" />
     <Compile Include="Common\GV.cs" />
     <Compile Include="Common\JsonSaveEXT.cs" />
+    <Compile Include="DeviceFile\HTTPHuShi.cs" />
+    <Compile Include="DeviceFile\IODevice.cs" />
+    <Compile Include="DeviceFile\PLC3UTCP.cs" />
     <Compile Include="InterfaceData\IOpenHomeView.cs" />
     <Compile Include="InterfaceData\IShowLogon.cs" />
     <Compile Include="Common\JsonSaveHelper.cs" />

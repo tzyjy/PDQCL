@@ -16,12 +16,16 @@ using ZModels;
 using System.IO.Ports;
 using System.Collections.ObjectModel;
 using System.Threading;
+using ATestPackagingMachineWpf1.DeviceFile;
 
 
 namespace ATestPackagingMachineWpf1.ViewModels
 {
     public class LoadShowViewModel : BindableBase, IDialogAware
-    {
+    {   /// <summary>
+        /// 线程取消
+        /// </summary>
+    
         private string CurrentTime
         {
             get { return DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); }
@@ -73,6 +77,8 @@ namespace ATestPackagingMachineWpf1.ViewModels
         public void OnDialogOpened(IDialogParameters parameters)
         {
           Task.Run(new Action(() => { LoadDevice(); }))  ;
+
+           
         }
 
         public void LoadDevice()
@@ -83,7 +89,33 @@ namespace ATestPackagingMachineWpf1.ViewModels
             LOG.WriteLog("加载设备中-------------------------------------------------------------------------");
 
             JsonSaveHelper jsonSaveHelper = new JsonSaveHelper();
-        
+            //try
+            //{
+            //    DV.iODevice = new IODevice();
+            //    DV.iODevice.Connect();
+            //    AddLog(true, "IO板卡连接成功！", LogTpye.LoadLog);
+            //}
+            //catch (Exception ex)
+            //{
+            //    DV.iODevice = null;
+            //    AddLog(false,  ex.Message, LogTpye.LoadLog);
+            //   ;
+            //}
+            try
+            {
+                DV.PLC = new PLC3UTCP();
+                DV.PLC.Connect();
+                AddLog(true, "PLC连接成功！", LogTpye.LoadLog);
+            }
+            catch (Exception ex)
+            {
+                DV.iODevice = null;
+                AddLog(false, ex.Message, LogTpye.LoadLog);
+                ;
+            }
+
+
+
 
             Thread.Sleep(2000);
             LOG.WriteLog($"加载设备完成-------------------------------------------------------------------------耗时时间为{loadtime.ElapsedMilliseconds}");
@@ -102,6 +134,7 @@ namespace ATestPackagingMachineWpf1.ViewModels
 
         }
 
+      
         private void AddLog(bool OK, string text, LogTpye logTpye = LogTpye.Other)
         {
             App.Current.Dispatcher.Invoke(() =>

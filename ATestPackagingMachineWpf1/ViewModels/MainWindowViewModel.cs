@@ -3,7 +3,7 @@ using ATestPackagingMachineWpf1.Views;using ATestPackagingMachineWpf1.ZModels;
 using Prism.Commands;using Prism.Events;using Prism.Ioc;using Prism.Mvvm;using Prism.Regions;using Prism.Services.Dialogs;
 using System;using System.Collections.Generic;using System.Collections.ObjectModel;
 using System.Diagnostics;using System.Linq;using System.Runtime.InteropServices;using System.Threading;using System.Windows;using System.Windows.Controls.Primitives;namespace ATestPackagingMachineWpf1.ViewModels{    public class MainWindowViewModel : BindableBase, IShowLogon, INavigationAware, IOpenHomeView    {
-        #region 属性                                                                                                                                                                                                                                                               private bool _isLeftDrawerOpenValue;
+        #region 属性                                                                                                                                                                                                                                                            
 
         private bool _menuToggleButtonChecked;
         public bool MenuToggleButtonChecked
@@ -20,7 +20,7 @@ using System.Diagnostics;using System.Linq;using System.Runtime.InteropService
             set { SetProperty(ref _mySelectIndex, value); }
         }
 
-        private MenuBar selectitem;        public MenuBar Selectitem        {            get { return selectitem; }            set { SetProperty(ref selectitem, value); }        }        private string _title = "模板软件";        public string Title        {            get { return _title; }            set { SetProperty(ref _title, value); }        }        private string _LogonName;        public string LogonName        {            get { return _LogonName; }            set { SetProperty(ref _LogonName, value); }        }        private List<MenuBar> _menuBars;        public List<MenuBar> MenuBars        {            get { return _menuBars; }            set { SetProperty(ref _menuBars, value); }        }
+        private MenuBar selectitem;        public MenuBar Selectitem        {            get { return selectitem; }            set { SetProperty(ref selectitem, value); }        }        private string _title = "软件";        public string Title        {            get { return _title; }            set { SetProperty(ref _title, value); }        }        private string _LogonName;        public string LogonName        {            get { return _LogonName; }            set { SetProperty(ref _LogonName, value); }        }        private List<MenuBar> _menuBars;        public List<MenuBar> MenuBars        {            get { return _menuBars; }            set { SetProperty(ref _menuBars, value); }        }
 
 
 

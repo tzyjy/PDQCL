@@ -56,7 +56,7 @@ namespace ATestPackagingMachineWpf1.MyUseControl
         }
 
         private string _diindex;
-        [System.ComponentModel.Description("索引")]
+        [System.ComponentModel.Description("输入")]
         public string DIIndex
         {
             get { return _diindex; }
@@ -69,19 +69,7 @@ namespace ATestPackagingMachineWpf1.MyUseControl
         }
 
 
-        private string _diyinjiao;
-        [System.ComponentModel.Description("引脚")]
-        public string DiYinjiao
-        {
-            get { return _diyinjiao; }
-            set {
-                _diyinjiao = value;
-
-                this.text2Yinjiao.Text = value;
-
-
-            }
-        }
+     
 
 
     }

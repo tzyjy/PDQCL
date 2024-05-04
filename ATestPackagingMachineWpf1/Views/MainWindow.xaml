@@ -5,7 +5,7 @@
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:prism="http://prismlibrary.com/"
-    Title="模板软件"
+    Title="软件"
     Width="1280"
     Height="1024"
     prism:ViewModelLocator.AutoWireViewModel="True"
@@ -69,6 +69,10 @@
             </materialDesign:DrawerHost.LeftDrawerContent>
 
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="31*"/>
+                    <ColumnDefinition Width="1249*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60" />
                     <RowDefinition Height="*" />
@@ -77,10 +81,9 @@
 
                 <Grid
                     x:Name="GridTitle"
-                    Grid.Row="0"
                     Height="60"
-                    VerticalAlignment="Top"
-                    Background="#FF1368BD">
+                    VerticalAlignment="Center"
+                    Background="#FF1368BD" Grid.ColumnSpan="2">
 
 
 
@@ -171,7 +174,7 @@
 
 
                 </Grid>
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,0,28" Grid.RowSpan="2">
 
                     <ContentControl prism:RegionManager.RegionName="ContentRegion" />
 

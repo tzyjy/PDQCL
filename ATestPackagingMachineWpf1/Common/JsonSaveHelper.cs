@@ -123,9 +123,9 @@ namespace ATestPackagingMachineWpf1.Common
             {
                 t = (T)JsonConvert.DeserializeObject(json, typeof(T));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                t = default(T);
+                throw new Exception(ex.Message);
             }
 
             return t;

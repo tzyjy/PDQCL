@@ -43,6 +43,9 @@
     <Reference Include="Microsoft.Data.Sqlite, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Data.Sqlite.Core.8.0.0\lib\netstandard2.0\Microsoft.Data.Sqlite.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="SQLite.CodeFirst, Version=1.7.0.34, Culture=neutral, PublicKeyToken=eb96ba0a78d831a7, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLite.CodeFirst.1.7.0.34\lib\net45\SQLite.CodeFirst.dll</HintPath>
     </Reference>
@@ -80,9 +83,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeviceJson\DeviceParameterJson.cs" />
+    <Compile Include="RequestParameter.cs" />
     <Compile Include="TestPackagingContext.cs" />
     <Compile Include="LogonPeson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UploadData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
