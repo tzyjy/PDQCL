@@ -113,6 +113,8 @@ namespace BTest
 
             var http = HttpClientFactory.GetHttpClient();
 
+            var text = JsonConvert.SerializeObject(data);
+
             var content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
 
             var response = http.PostAsync(url, content).Result;

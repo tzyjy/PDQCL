@@ -11,89 +11,155 @@
             <RowDefinition Height="auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <UniformGrid Width="600" Columns="2">
-            <TextBlock
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="30"
-                Text="工单号：" />
-            <StackPanel
-                Margin="0,30,0,30"
-                HorizontalAlignment="Center"
-                Orientation="Horizontal">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <GroupBox Header="操作">
+                <UniformGrid Width="600" Columns="2">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="30"
+                        Text="工单号：" />
+                    <StackPanel
+                        Margin="0,30,0,30"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
 
-                <TextBox
-                    Width="300"
-                    Margin="0,5,0,0"
-                    VerticalAlignment="Top"
-                    VerticalContentAlignment="Bottom"
-                    materialDesign:HintAssist.Background="#FFFFFF "
-                    materialDesign:HintAssist.Foreground="#12226c"
-                    materialDesign:HintAssist.HelperTextFontSize="14"
-                    materialDesign:HintAssist.Hint="请输入工单号"
-                    BorderBrush="#12226c"
-                    FontSize="14"
-                    Foreground="Black"
-                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                    Text="{Binding RequestWorkOrderInfoPra.wo}" />
-            </StackPanel>
-            <TextBlock
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="30"
-                Text="设备编码：" />
-            <StackPanel
-                Margin="0,30,0,30"
-                HorizontalAlignment="Center"
-                Orientation="Horizontal">
+                        <TextBox
+                            Width="300"
+                            Margin="0,5,0,0"
+                            VerticalAlignment="Top"
+                            VerticalContentAlignment="Bottom"
+                            materialDesign:HintAssist.Background="#FFFFFF "
+                            materialDesign:HintAssist.Foreground="#12226c"
+                            materialDesign:HintAssist.HelperTextFontSize="14"
+                            materialDesign:HintAssist.Hint="请输入工单号"
+                            BorderBrush="#12226c"
+                            FontSize="14"
+                            Foreground="Black"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            Text="{Binding RequestWorkOrderInfoPra.wo}" />
+                    </StackPanel>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="30"
+                        Text="设备编码：" />
+                    <StackPanel
+                        Margin="0,30,0,30"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
 
-                <TextBox
-                    Width="300"
-                    Margin="0,5,0,0"
-                    VerticalAlignment="Top"
-                    VerticalContentAlignment="Bottom"
-                    materialDesign:HintAssist.Background="#FFFFFF "
-                    materialDesign:HintAssist.Foreground="#12226c"
-                    materialDesign:HintAssist.HelperTextFontSize="14"
-                    materialDesign:HintAssist.Hint="请输入设备编码"
-                    BorderBrush="#12226c"
-                    FontSize="14"
-                    Foreground="Black"
-                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                    Text="{Binding RequestWorkOrderInfoPra.mach_code}" />
-            </StackPanel>
-            <TextBlock
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="30"
-                Text="作业员工号：" />
-            <StackPanel
-                Margin="0,30,0,30"
-                HorizontalAlignment="Center"
-                Orientation="Horizontal">
+                        <TextBox
+                            Width="300"
+                            Margin="0,5,0,0"
+                            VerticalAlignment="Top"
+                            VerticalContentAlignment="Bottom"
+                            materialDesign:HintAssist.Background="#FFFFFF "
+                            materialDesign:HintAssist.Foreground="#12226c"
+                            materialDesign:HintAssist.HelperTextFontSize="14"
+                            materialDesign:HintAssist.Hint="请输入设备编码"
+                            BorderBrush="#12226c"
+                            FontSize="14"
+                            Foreground="Black"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            Text="{Binding RequestWorkOrderInfoPra.mach_code}" />
+                    </StackPanel>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="30"
+                        Text="作业员工号：" />
+                    <StackPanel
+                        Margin="0,30,0,30"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
 
-                <TextBox
-                    Width="300"
-                    Margin="0,5,0,0"
-                    VerticalAlignment="Top"
-                    VerticalContentAlignment="Bottom"
-                    materialDesign:HintAssist.Background="#FFFFFF "
-                    materialDesign:HintAssist.Foreground="#12226c"
-                    materialDesign:HintAssist.HelperTextFontSize="14"
-                    materialDesign:HintAssist.Hint="请输入作业员工号"
-                    BorderBrush="#12226c"
-                    FontSize="14"
-                    Foreground="Black"
-                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                    Text="{Binding RequestWorkOrderInfoPra.op_name}" />
-            </StackPanel>
-            <TextBlock
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="30"
-                Text="发送数据：" />
-            <Button Command="{Binding Send}" Content="发送" />
-        </UniformGrid>
+                        <TextBox
+                            Width="300"
+                            Margin="0,5,0,0"
+                            VerticalAlignment="Top"
+                            VerticalContentAlignment="Bottom"
+                            materialDesign:HintAssist.Background="#FFFFFF "
+                            materialDesign:HintAssist.Foreground="#12226c"
+                            materialDesign:HintAssist.HelperTextFontSize="14"
+                            materialDesign:HintAssist.Hint="请输入作业员工号"
+                            BorderBrush="#12226c"
+                            FontSize="14"
+                            Foreground="Black"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            Text="{Binding RequestWorkOrderInfoPra.op_name}" />
+                    </StackPanel>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="30"
+                        Text="发送数据：" />
+                    <Button Command="{Binding Send}" Content="发送" />
+                    <Button Command="{Binding HuiChuan}" Content="回传" />
+                </UniformGrid>
+            </GroupBox>
+
+            <GroupBox Grid.Column="1" Header="扫码后信息">
+                <UniformGrid>
+                    <WrapPanel>
+                        <TextBlock VerticalAlignment="Center" Text="时间：" />
+                        <TextBox
+                            Width="200"
+                            IsReadOnly="True"
+                            Text="{Binding ReturnWorkOrderInfo.status_code}" />
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock VerticalAlignment="Center" Text="API调用结果：" />
+                        <TextBox
+                            Width="200"
+                            IsReadOnly="True"
+                            Text="{Binding ReturnWorkOrderInfo.message}" />
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock VerticalAlignment="Center" Text="厂内工程号：" />
+                        <TextBox
+                            Width="200"
+                            IsReadOnly="True"
+                            Text="{Binding ReturnWorkOrderInfo.cp_rev}" />
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock VerticalAlignment="Center" Text="当前站别：" />
+                        <TextBox
+                            Width="200"
+                            IsReadOnly="True"
+                            Text="{Binding ReturnWorkOrderInfo.dept_code}" />
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock VerticalAlignment="Center" Text="线速：" />
+                        <TextBox
+                            Width="200"
+                            IsReadOnly="True"
+                            Text="{Binding ReturnWorkOrderInfo.speed}" />
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock VerticalAlignment="Center" Text="是否关闭微蚀：" />
+                        <TextBox
+                            Width="200"
+                            IsReadOnly="True"
+                            Text="{Binding ReturnWorkOrderInfo.wc_switch_off}" />
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock VerticalAlignment="Center" Text="是否关闭高压水洗：" />
+                        <TextBox
+                            Width="200"
+                            IsReadOnly="True"
+                            Text="{Binding ReturnWorkOrderInfo.gysx_switch_off}" />
+                    </WrapPanel>
+                </UniformGrid>
+
+            </GroupBox>
+
+        </Grid>
+
         <DataGrid
             Grid.Row="1"
             AutoGenerateColumns="False"
@@ -111,7 +177,7 @@
                 <DataGridTextColumn
                     Width="230"
                     Binding="{Binding status_code}"
-                    Header="测试时间"
+                    Header="状态编码"
                     Visibility="Visible" />
 
                 <DataGridTextColumn

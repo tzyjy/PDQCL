@@ -15,11 +15,11 @@ namespace ATestPackagingMachineWpf1.ViewModels
 {
     public class HomeViewModel : BindableBase
     {
-        private HTTPHuShi  hTTPHuShi;
+        private HTTPHuShi hTTPHuShi;
         private IDialogService dialogService;
         public HomeViewModel(IDialogService dialogService)
         {
-            hTTPHuShi=new HTTPHuShi();
+            hTTPHuShi = new HTTPHuShi();
             this.dialogService = dialogService;
             LoadDevice();
         }
@@ -29,7 +29,7 @@ namespace ATestPackagingMachineWpf1.ViewModels
         /// <summary>
         /// 记录
         /// </summary>
-        private ObservableCollection<ReturnWorkOrderInfo> _ReturnWorkOrderInfoList=new ObservableCollection<ReturnWorkOrderInfo>();
+        private ObservableCollection<ReturnWorkOrderInfo> _ReturnWorkOrderInfoList = new ObservableCollection<ReturnWorkOrderInfo>();
 
         public ObservableCollection<ReturnWorkOrderInfo> ReturnWorkOrderInfoList
         {
@@ -38,11 +38,16 @@ namespace ATestPackagingMachineWpf1.ViewModels
         }
 
 
+        private ReturnWorkOrderInfo _ReturnWorkOrderInfo;
+        public ReturnWorkOrderInfo ReturnWorkOrderInfo
+        {
+            get { return _ReturnWorkOrderInfo; }
+            set { SetProperty(ref _ReturnWorkOrderInfo, value); }
+        }
 
 
 
-
-
+        public string StartDateTime { get; set; }
 
 
         /// <summary>
@@ -55,7 +60,7 @@ namespace ATestPackagingMachineWpf1.ViewModels
             get { return _operateLogList; }
             set { SetProperty(ref _operateLogList, value); }
         }
-        private RequestWorkOrderInfoPra _RequestWorkOrderInfoPra=new RequestWorkOrderInfoPra();
+        private RequestWorkOrderInfoPra _RequestWorkOrderInfoPra = new RequestWorkOrderInfoPra();
         public RequestWorkOrderInfoPra RequestWorkOrderInfoPra
         {
             get { return _RequestWorkOrderInfoPra; }
@@ -74,7 +79,7 @@ namespace ATestPackagingMachineWpf1.ViewModels
                 }
             });
 
-           
+
         }
 
         #endregion 加载设备配置
@@ -87,27 +92,72 @@ namespace ATestPackagingMachineWpf1.ViewModels
         {
             try
             {
-                ReturnWorkOrderInfo returnWorkOrderInfo = hTTPHuShi.Get(RequestWorkOrderInfoPra);
-                
-                if (returnWorkOrderInfo != null)
+                StartDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss FFF");
+                ReturnWorkOrderInfo = hTTPHuShi.Get(RequestWorkOrderInfoPra);
+
+                if (ReturnWorkOrderInfo != null)
                 {
-                    ReturnWorkOrderInfoList.Add(returnWorkOrderInfo);
-                    DV.PLC.WriteData(returnWorkOrderInfo, RequestWorkOrderInfoPra.wo);
+                    ReturnWorkOrderInfoList.Add(ReturnWorkOrderInfo);
+                    DV.PLC.WriteData(ReturnWorkOrderInfo, RequestWorkOrderInfoPra.wo);
                 }
                 MessageBox.Show("获取数据成功！");
 
-             
 
 
-            
+
+
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
             }
-        
-           
+
+
+        }
+
+
+
+
+        private DelegateCommand _HuiChuan;
+        public DelegateCommand HuiChuan =>
+            _HuiChuan ?? (_HuiChuan = new DelegateCommand(ExecuteHuiChuan));
+
+        void ExecuteHuiChuan()
+        {
+            try
+            {
+                UploadData uploadData = new UploadData()
+                {
+                    cp_rev = ReturnWorkOrderInfo.cp_rev,
+                    dept_code = ReturnWorkOrderInfo.dept_code,
+                    end_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss FFF"),
+                    gysx_switch_off = ReturnWorkOrderInfo.wc_switch_off,
+                    mach_code = RequestWorkOrderInfoPra.mach_code,
+                    op_name = RequestWorkOrderInfoPra.op_name,
+                    speed = ReturnWorkOrderInfo.speed,
+                    start_time = StartDateTime,
+                    wc_switch_off = ReturnWorkOrderInfo.wc_switch_off,
+                    wo = RequestWorkOrderInfoPra.wo
+                };
+
+
+
+                var resut = hTTPHuShi.Post(uploadData);
+
+
+                MessageBox.Show(resut.message + resut.status_code);
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
