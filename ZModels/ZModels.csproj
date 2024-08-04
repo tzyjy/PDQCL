@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeviceJson\DeviceParameterJson.cs" />
+    <Compile Include="GMXHParameter.cs" />
     <Compile Include="RequestParameter.cs" />
     <Compile Include="TestPackagingContext.cs" />
     <Compile Include="LogonPeson.cs" />

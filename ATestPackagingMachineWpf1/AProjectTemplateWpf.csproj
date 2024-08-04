@@ -154,11 +154,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\UpTrigger.cs" />
+    <Compile Include="Common\CommonMethod.cs" />
     <Compile Include="Common\DV.cs" />
     <Compile Include="Common\GV.cs" />
     <Compile Include="Common\JsonSaveEXT.cs" />
+    <Compile Include="DeviceFile\HSXianYing.cs" />
     <Compile Include="DeviceFile\HTTPHuShi.cs" />
     <Compile Include="DeviceFile\IODevice.cs" />
+    <Compile Include="DeviceFile\PDQCLAPI.cs" />
     <Compile Include="DeviceFile\PLC3UTCP.cs" />
     <Compile Include="InterfaceData\IOpenHomeView.cs" />
     <Compile Include="InterfaceData\IShowLogon.cs" />
@@ -166,6 +170,9 @@
     <Compile Include="Common\PassWordBoxHelper.cs" />
     <Compile Include="MyUseControl\Led.xaml.cs">
       <DependentUpon>Led.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUseControl\Led2.xaml.cs">
+      <DependentUpon>Led2.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyUseControl\MyButton.xaml.cs">
       <DependentUpon>MyButton.xaml</DependentUpon>
@@ -176,18 +183,27 @@
     <Compile Include="MyUseControl\UserControlTextBox.xaml.cs">
       <DependentUpon>UserControlTextBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UIConfig\ProportionConverter.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="ViewModels\DeviceParameterViewModel.cs" />
     <Compile Include="ViewModels\EditViewModel.cs" />
     <Compile Include="ViewModels\HandViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\LoadShowViewModel.cs" />
     <Compile Include="ViewModels\LogonViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\ManufacturerViewModel.cs" />
     <Compile Include="ViewModels\MinLoginViewModel.cs" />
-    <Compile Include="ViewModels\ParameterViewModel.cs" />
+    <Compile Include="ViewModels\IOViewModel.cs" />
+    <Compile Include="ViewModels\SetView2Model.cs" />
+    <Compile Include="ViewModels\SetViewModel.cs" />
+    <Compile Include="ViewModels\SysTemParameterViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="Views\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DeviceParameterView.xaml.cs">
+      <DependentUpon>DeviceParameterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditView.xaml.cs">
       <DependentUpon>EditView.xaml</DependentUpon>
@@ -207,24 +223,42 @@
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ManufacturerView.xaml.cs">
+      <DependentUpon>ManufacturerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MinLoginView.xaml.cs">
       <DependentUpon>MinLoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ParameterView.xaml.cs">
-      <DependentUpon>ParameterView.xaml</DependentUpon>
+    <Compile Include="Views\IOView.xaml.cs">
+      <DependentUpon>IOView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SetView.xaml.cs">
+      <DependentUpon>SetView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SetView2.xaml.cs">
+      <DependentUpon>SetView2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SysTemParameterView.xaml.cs">
+      <DependentUpon>SysTemParameterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ZModels\LogInfo.cs" />
     <Compile Include="ZModels\OperateLog.cs" />
+    <Compile Include="ZModels\ReadDataInfo.cs" />
     <Compile Include="ZModels\SaveAccountInfo.cs" />
     <Compile Include="ZModels\MenuBar.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ZModels\WonoInfo.cs" />
     <Page Include="MyUseControl\Led.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUseControl\Led2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -240,7 +274,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UIConfig\UserLimit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DeviceParameterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -268,11 +310,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ManufacturerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MinLoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ParameterView.xaml">
+    <Page Include="Views\IOView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SetView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SetView2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SysTemParameterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -104,22 +104,20 @@ namespace ATestPackagingMachineWpf1.ViewModels
             try
             {
                 DV.PLC = new PLC3UTCP();
-                DV.PLC.Connect();
+                DV.PLC.Connect(JsonSaveEXT.deviceParameterJsonGv.PLC_Ipadress, JsonSaveEXT.deviceParameterJsonGv.PLC_Port);
                 AddLog(true, "PLC连接成功！", LogTpye.LoadLog);
+     
             }
             catch (Exception ex)
             {
                 DV.iODevice = null;
                 AddLog(false, ex.Message, LogTpye.LoadLog);
-                ;
+              
             }
 
-
-
-
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
             LOG.WriteLog($"加载设备完成-------------------------------------------------------------------------耗时时间为{loadtime.ElapsedMilliseconds}");
-            App.Current.Dispatcher.Invoke(() =>
+            System.Windows.Application.Current.Dispatcher.Invoke(() =>
             {
                 DialogParameters dialogParameters = new DialogParameters();
                 dialogParameters.Add("OperateLogList", OperateLogList);

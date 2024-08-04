@@ -1,0 +1,103 @@
+﻿<UserControl
+    x:Class="ATestPackagingMachineWpf1.Views.ManufacturerView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ATestPackagingMachineWpf1.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Storyboard x:Key="WidthStoryboard" TargetProperty="Width">
+            <DoubleAnimation
+                AutoReverse="True"
+                RepeatBehavior="Forever"
+                From="50"
+                To="100"
+                Duration="0:0:1.5" />
+        </Storyboard>
+        <Storyboard x:Key="HeightStoryboard" TargetProperty="Height">
+            <DoubleAnimation
+                AutoReverse="True"
+                RepeatBehavior="Forever"
+                From="50"
+                To="100"
+                Duration="0:0:1.5" />
+        </Storyboard>
+
+    </UserControl.Resources>
+
+    <Grid>
+        <ScrollViewer>
+            <StackPanel>
+
+                <GroupBox Header="厂家设置">
+                    <StackPanel>
+                        <GroupBox
+                            Margin="5"
+                            Header="厂家调试设置"
+                            Style="{StaticResource MaterialDesignHeaderedContentControl}">
+                            <UniformGrid Columns="2">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock VerticalAlignment="Center" Text="PLCIP地址:" />
+                                    <TextBox
+                                        Width="100"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding DeviceParameterJson.PLC_Ipadress}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock VerticalAlignment="Center" Text="PLC端口:" />
+                                    <TextBox
+                                        Width="100"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding DeviceParameterJson.PLC_Port}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock VerticalAlignment="Center" Text="设备编号:" />
+                                    <TextBox
+                                        Width="100"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding DeviceParameterJson.EquipmentNum}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock VerticalAlignment="Center" Text="作业员ID:" />
+                                    <TextBox
+                                        Width="100"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding DeviceParameterJson.OperatorName}" />
+                                </StackPanel>
+
+                            </UniformGrid>
+                        </GroupBox>
+
+
+
+
+                        <StackPanel
+                            Margin="10"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+
+
+                            <Button
+                                Width="100"
+                                HorizontalAlignment="Center"
+                                Command="{Binding SaveData}"
+                                Content="保存" />
+                        </StackPanel>
+                    </StackPanel>
+
+
+                </GroupBox>
+
+
+
+
+
+            </StackPanel>
+        </ScrollViewer>
+
+
+    </Grid>
+</UserControl>

@@ -1,9 +1,13 @@
-﻿using Newtonsoft.Json;
+﻿using BTest.Common;
+using BTest.LogHelper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Sockets;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -28,15 +32,39 @@ namespace BTest
         public static string Get(string url)
 
         {
-        
-            var http = HttpClientFactory.GetHttpClient();
-            http.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            var response1 = http.GetAsync(url).Result;
 
-            string result= response1.Content.ReadAsStringAsync().Result.Trim(new char[] { '\"' }); ;
 
-            var result2 = Regex.Unescape(result);
-            return result2;
+            try
+            {
+                var http = HttpClientFactory.GetHttpClient();
+                http.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var response1 = http.GetAsync(url).Result;
+                string result = response1.Content.ReadAsStringAsync().Result;
+                return result;
+
+            }
+     
+            catch (Exception ex) 
+            
+            {
+                if (ex.InnerException!=null)
+                {
+                    CommonMethod.MutMessge = string.Empty;
+                    CommonMethod.InnerExDeal(ex);
+                var result=    CommonMethod.MutMessge;
+                    throw new Exception(result);
+                }
+                else
+                {
+                    throw new Exception(ex.Message);
+                }
+              
+            }
+           
+
+
+
+
 
 
         }

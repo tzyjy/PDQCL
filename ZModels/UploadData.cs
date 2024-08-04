@@ -11,7 +11,7 @@ namespace ZModels
     {
 
         /// <summary>
-        /// 厂内工单号
+        /// 厂内批号
         /// </summary>
         public string wo { get; set; }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BTest.LogHelper
@@ -28,20 +29,23 @@ namespace BTest.LogHelper
         public static void WriteLog(string text)
         {
 
-            string text2 = DealInfo(text);
+       
 
-            string path = DateTime.Now.ToString("yyyy_MM_dd");
-            string path1 = @"D:\PCLogs\";
-            string path2 = path1 + path + "Log.log";
-            if (!Directory.Exists(path1))
-            {
-                Directory.CreateDirectory(path1);
-            }
-            StreamWriter sw;
             try
             {
+                string text2 = DealInfo(text);
+
+                string path = DateTime.Now.ToString("yyyy_MM_dd");
+                string path1 = @"D:\PCLogs\";
+                string path2 = path1 + path + "Log.log";
+                if (!Directory.Exists(path1))
+                {
+                    Directory.CreateDirectory(path1);
+                }
+                StreamWriter sw;
+      
                 sw = new StreamWriter(path2, true, Encoding.Default);
-                sw.Write(text2, Encoding.Default);
+                sw.Write(text2);
                 sw.Flush();
                 sw.Close();
             }
@@ -57,6 +61,42 @@ namespace BTest.LogHelper
 
         #endregion
 
+        #region 日志
+        public static void WriteMesLog(string text)
+        {
 
+
+            try
+            {
+                string text2 = DealInfo(text);
+
+                string path = DateTime.Now.ToString("yyyy_MM_dd");
+                string path1 = @"D:\PCLogs\WebApiLog\";
+                string path2 = path1 + path + "Log.log";
+                if (!Directory.Exists(path1))
+                {
+                    Directory.CreateDirectory(path1);
+                }
+                StreamWriter sw;
+    
+                sw = new StreamWriter(path2, true, Encoding.Default);
+                sw.Write(text2);
+                sw.Flush();
+                sw.Close();
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+
+
+        #endregion
     }
 }

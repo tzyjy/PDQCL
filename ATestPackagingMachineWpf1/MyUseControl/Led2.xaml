@@ -1,0 +1,19 @@
+﻿<UserControl
+    x:Class="ATestPackagingMachineWpf1.MyUseControl.Led2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ATestPackagingMachineWpf1.MyUseControl"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid>
+        <Viewbox Grid.Row="0">
+            <Border
+                Name="Dot1"
+                Width="40"
+                Height="40"
+                Background="LightGray"
+                CornerRadius="40" />
+        </Viewbox>
+    </Grid>
+</UserControl>

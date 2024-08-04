@@ -54,8 +54,8 @@
                             SelectedValuePath="Content"
                             Style="{StaticResource MaterialDesignOutlinedComboBox}"
                             Text="{Binding LoginName}">
-                            <ComboBoxItem Content="操作员" IsSelected="True" />
-                            <ComboBoxItem Content="技术员" />
+                            <!--<ComboBoxItem Content="操作员" IsSelected="True" />-->
+                            <ComboBoxItem Content="管理员" IsSelected="True" />
                             <ComboBoxItem Content="工程师" />
                         </ComboBox>
                     </StackPanel>

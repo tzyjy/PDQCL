@@ -21,6 +21,18 @@ namespace ATestPackagingMachineWpf1.Common
         public static DeviceParameterJson ReadDeviceJson()
         {
             DeviceParameterJson deviceParameterJson = jsonSaveHelper.ReadOneJson<DeviceParameterJson>(path);
+            if (deviceParameterJson == null) {
+                deviceParameterJson = new DeviceParameterJson();
+                deviceParameterJson.PLC_Port = 5000;
+                deviceParameterJson.PLC_Ipadress = "192.168.1.67";
+                deviceParameterJson.WebApi_Ipadress = "192.168.1.77";
+                deviceParameterJson.WebApi_Port = 4999;
+                deviceParameterJson.NTP_Ipadress = "192.168.1.78";
+            
+                deviceParameterJson.GMXHParameterList = new List<GMXHParameter>();
+
+
+            }
             return deviceParameterJson;
         }
 

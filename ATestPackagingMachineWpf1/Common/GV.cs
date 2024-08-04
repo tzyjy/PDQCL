@@ -22,6 +22,8 @@ namespace ATestPackagingMachineWpf1.Common
         public static LogonPeson CurrentLogonPeson;
 
 
+        public static bool PLCConnectOK { get; set; }
+
 
         public static LogonPeson ManufacturerLogonPeson { get; set; } = new LogonPeson()
         {

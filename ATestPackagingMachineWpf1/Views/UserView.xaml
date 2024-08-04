@@ -8,7 +8,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
             <RowDefinition Height="*" />
-
         </Grid.RowDefinitions>
         <GroupBox
             Grid.Row="0"
@@ -28,42 +27,38 @@
                                 <TextBlock Text="密码：" />
                                 <TextBox Width="100" Text="{Binding LogonPesonData.LoginPwd}" />
                             </WrapPanel>
-
-
                         </UniformGrid>
-
                     </StackPanel>
                     <StackPanel>
                         <UniformGrid Columns="8">
                             <WrapPanel>
-                                <TextBlock Text="仪器禁用：" />
+                                <TextBlock Text="{StaticResource FunctionPermission100}" />
                                 <CheckBox Width="20" IsChecked="{Binding LogonPesonData.FunctionPermission100}" />
                             </WrapPanel>
                             <WrapPanel>
-                                <TextBlock Text="仪器参数设置：" />
+                                <TextBlock Text="{StaticResource FunctionPermission101}" />
                                 <CheckBox Width="20" IsChecked="{Binding LogonPesonData.FunctionPermission101}" />
                             </WrapPanel>
                             <WrapPanel>
-                                <TextBlock Text="产品清零：" />
+                                <TextBlock Text="{StaticResource FunctionPermission102}" />
                                 <CheckBox Width="20" IsChecked="{Binding LogonPesonData.FunctionPermission102}" />
                             </WrapPanel>
                             <WrapPanel>
-                                <TextBlock Text="警戒值设置：" />
+                                <TextBlock Text="{StaticResource FunctionPermission103}" />
                                 <CheckBox Width="20" IsChecked="{Binding LogonPesonData.FunctionPermission103}" />
                             </WrapPanel>
                             <WrapPanel>
-                                <TextBlock Text="温度设置：" />
+                                <TextBlock Text="{StaticResource FunctionPermission104}" />
                                 <CheckBox Width="20" IsChecked="{Binding LogonPesonData.FunctionPermission104}" />
                             </WrapPanel>
                             <WrapPanel>
-                                <TextBlock Text="设备参数设置：" />
+                                <TextBlock Text="{StaticResource FunctionPermission105}" />
                                 <CheckBox Width="20" IsChecked="{Binding LogonPesonData.FunctionPermission105}" />
                             </WrapPanel>
                             <WrapPanel>
-                                <TextBlock Text="用户管理：" />
+                                <TextBlock Text="{StaticResource FunctionPermission106}" />
                                 <CheckBox Width="20" IsChecked="{Binding LogonPesonData.FunctionPermission106}" />
                             </WrapPanel>
-
                         </UniformGrid>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Right">
@@ -79,18 +74,15 @@
                             FontSize="10"
                             Foreground="White" />
                     </StackPanel>
-
                 </UniformGrid>
-
-
             </StackPanel>
-
         </GroupBox>
         <GroupBox Grid.Row="1" Header="编辑账户">
             <DataGrid
                 AutoGenerateColumns="False"
                 CanUserAddRows="False"
                 CanUserDeleteRows="False"
+                IsReadOnly="True"
                 ItemsSource="{Binding LogonPesons}">
                 <DataGrid.Columns>
                     <DataGridTextColumn
@@ -105,42 +97,40 @@
                         Width="*"
                         Binding="{Binding LoginPwd}"
                         Header="登录密码" />
-                    <DataGridTextColumn
+                    <DataGridCheckBoxColumn
                         Width="*"
                         Binding="{Binding FunctionPermission100}"
-                        Header="仪器禁用" />
-                    <DataGridTextColumn
+                        Header="{StaticResource FunctionPermission100}" />
+                    <DataGridCheckBoxColumn
                         Width="*"
                         Binding="{Binding FunctionPermission101}"
-                        Header="仪器参数设置" />
-                    <DataGridTextColumn
+                        Header="{StaticResource FunctionPermission101}" />
+                    <DataGridCheckBoxColumn
                         Width="*"
                         Binding="{Binding FunctionPermission102}"
-                        Header="产品清零" />
-                    <DataGridTextColumn
+                        Header="{StaticResource FunctionPermission102}" />
+                    <DataGridCheckBoxColumn
                         Width="*"
                         Binding="{Binding FunctionPermission103}"
-                        Header="警戒值设置" />
-                    <DataGridTextColumn
+                        Header="{StaticResource FunctionPermission103}" />
+                    <DataGridCheckBoxColumn
                         Width="*"
                         Binding="{Binding FunctionPermission104}"
-                        Header="温度设置" />
-                    <DataGridTextColumn
+                        Header="{StaticResource FunctionPermission104}" />
+                    <DataGridCheckBoxColumn
                         Width="*"
                         Binding="{Binding FunctionPermission105}"
-                        Header="设备参数配置" />
-                    <DataGridTextColumn
+                        Header="{StaticResource FunctionPermission105}" />
+                    <DataGridCheckBoxColumn
                         Width="*"
                         Binding="{Binding FunctionPermission106}"
-                        Header="用户管理" />
-
+                        Header="{StaticResource FunctionPermission106}" />
 
                     <DataGridTemplateColumn Width="2*" Header="操作">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Grid>
                                     <StackPanel Orientation="Horizontal">
-
 
                                         <Button
                                             Margin="0,0,10,0"
@@ -152,22 +142,13 @@
                                             Command="{Binding DataContext.Remove, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"
                                             CommandParameter="{Binding ID}"
                                             Content="删除" />
-
                                     </StackPanel>
                                 </Grid>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
-
-
             </DataGrid>
         </GroupBox>
-
-
-
-
-
-
     </Grid>
 </UserControl>

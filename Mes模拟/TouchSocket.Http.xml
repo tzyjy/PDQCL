@@ -1,0 +1,3235 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TouchSocket.Http</name>
+    </assembly>
+    <members>
+        <member name="T:TouchSocket.Http.FileCachePool">
+            <summary>
+            静态文件缓存池
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.FileCachePool.InsertHandler">
+            <summary>
+            添加委托
+            </summary>
+            <param name="cache"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="millisecondsTimeout"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TouchSocket.Http.FileCachePool.Empty">
+            <summary>
+            Is the file cache empty?
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.FileCachePool.Size">
+            <summary>
+            Get the file cache size
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.FileCachePool.Add(System.String,System.Byte[],System.TimeSpan)">
+            <summary>
+            Add a new cache value with the given millisecondsTimeout into the file cache
+            </summary>
+            <param name="key">Key to add</param>
+            <param name="value">Value to add</param>
+            <param name="millisecondsTimeout">Cache millisecondsTimeout (default is 0 - no millisecondsTimeout)</param>
+            <returns>'true' if the cache value was added, 'false' if the given key was not added</returns>
+        </member>
+        <member name="M:TouchSocket.Http.FileCachePool.Find(System.String,System.Byte[]@)">
+            <summary>
+            Try to find the cache value by the given key
+            </summary>
+            <param name="key">Key to find</param>
+            <param name="data"></param>
+            <returns>'true' and cache value if the cache value was found, 'false' if the given key was not found</returns>
+        </member>
+        <member name="M:TouchSocket.Http.FileCachePool.Remove(System.String)">
+            <summary>
+            Remove the cache value with the given key from the file cache
+            </summary>
+            <param name="key">Key to remove</param>
+            <returns>'true' if the cache value was removed, 'false' if the given key was not found</returns>
+        </member>
+        <member name="M:TouchSocket.Http.FileCachePool.InsertPath(System.String,System.String,System.String,System.TimeSpan,TouchSocket.Http.FileCachePool.InsertHandler)">
+            <summary>
+            Insert a new cache path with the given millisecondsTimeout into the file cache
+            </summary>
+            <param name="path">Path to insert</param>
+            <param name="prefix">Cache prefix (default is "/")</param>
+            <param name="filter">Cache filter (default is "*.*")</param>
+            <param name="millisecondsTimeout">Cache millisecondsTimeout (default is 0 - no millisecondsTimeout)</param>
+            <param name="handler">Cache insert handler (default is 'return cache.Add(key, value, millisecondsTimeout)')</param>
+            <returns>'true' if the cache path was setup, 'false' if failed to setup the cache path</returns>
+        </member>
+        <member name="M:TouchSocket.Http.FileCachePool.FindPath(System.String)">
+            <summary>
+            Try to find the cache path
+            </summary>
+            <param name="path">Path to find</param>
+            <returns>'true' if the cache path was found, 'false' if the given path was not found</returns>
+        </member>
+        <member name="M:TouchSocket.Http.FileCachePool.RemovePath(System.String)">
+            <summary>
+            Remove the cache path from the file cache
+            </summary>
+            <param name="path">Path to remove</param>
+            <returns>'true' if the cache path was removed, 'false' if the given path was not found</returns>
+        </member>
+        <member name="M:TouchSocket.Http.FileCachePool.Clear">
+            <summary>
+            Clear the memory cache
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.FileCachePool.Dispose(System.Boolean)">
+            <summary>
+            释放
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:TouchSocket.Http.FileCachePool.Finalize">
+            <summary>
+            析构函数
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.HttpBase">
+            <summary>
+            Http基础头部
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpBase.ServerVersion">
+            <summary>
+            服务器版本
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpBase.CanWrite">
+            <summary>
+            能否写入。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpBase.Client">
+            <summary>
+            客户端
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpBase.ContentComplated">
+            <summary>
+            内容填充完成
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpBase.ContentLength">
+            <summary>
+            内容长度
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpBase.KeepAlive">
+            <summary>
+            保持连接。
+            <para>
+            一般的，当是http1.1时，如果没有显式的Connection: close，即返回true。当是http1.0时，如果没有显式的Connection: Keep-Alive，即返回false。
+            </para>
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpBase.ContentType">
+            <summary>
+            内容类型
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpBase.AcceptEncoding">
+            <summary>
+            允许编码
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpBase.Accept">
+            <summary>
+            可接受MIME类型
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpBase.Flag">
+            <summary>
+            传递标识
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpBase.Headers">
+            <summary>
+            请求头集合
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpBase.Protocols">
+            <summary>
+            协议名称，默认HTTP
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpBase.ProtocolVersion">
+            <summary>
+            HTTP协议版本，默认1.1
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpBase.RequestLine">
+            <summary>
+            请求行
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpBase.ParsingHeader(TouchSocket.Core.ByteBlock,System.Int32)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <param name="byteBlock"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpBase.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            从Request中持续读取数据。
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpBase.ReadHeaders(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            从内存中读取
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpBase.SetContent(System.Byte[])">
+            <summary>
+            设置一次性内容
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpBase.TryGetContent(System.Byte[]@)">
+            <summary>
+            获取一次性内容。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpBase.WriteContent(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            持续写入内容。
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpBase.Dispose(System.Boolean)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpBase.LoadHeaderProterties">
+            <summary>
+            读取信息
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpBase.Reset">
+            <summary>
+            重置Http状态。
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.HttpContext">
+            <summary>
+            Http上下文
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpContext.#ctor(TouchSocket.Http.HttpRequest)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpContext.#ctor(TouchSocket.Http.HttpRequest,TouchSocket.Http.HttpResponse)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="request"></param>
+            <param name="response"></param>
+        </member>
+        <member name="P:TouchSocket.Http.HttpContext.Request">
+            <summary>
+            Http请求
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpContext.Response">
+            <summary>
+            Http响应
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.HttpMethod">
+            <summary>
+            HttpMethod
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpMethod.m_value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpMethod.Get">
+            <summary>
+            Get
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpMethod.Post">
+            <summary>
+            Post
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpMethod.Put">
+            <summary>
+            Put
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpMethod.Delete">
+            <summary>
+            Delete
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpMethod.#ctor(System.String)">
+            <summary>
+            表示
+            </summary>
+            <param name="value">值</param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpMethod.ToString">
+            <summary>
+            转换为字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpMethod.GetHashCode">
+            <summary>
+            获取哈希码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpMethod.Equals(System.Object)">
+            <summary>
+            比较是否和目标相等
+            </summary>
+            <param name="obj">目标</param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpMethod.op_Equality(TouchSocket.Http.HttpMethod,TouchSocket.Http.HttpMethod)">
+            <summary>
+            等于
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpMethod.op_Inequality(TouchSocket.Http.HttpMethod,TouchSocket.Http.HttpMethod)">
+            <summary>
+            不等于
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.HttpProxy">
+            <summary>
+            Http代理
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpProxy.#ctor(TouchSocket.Sockets.IPHost)">
+            <summary>
+            不带基本验证的代理
+            </summary>
+            <param name="host"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpProxy.#ctor(TouchSocket.Sockets.IPHost,System.String,System.String)">
+            <summary>
+            带基本验证的代理
+            </summary>
+            <param name="host"></param>
+            <param name="userName"></param>
+            <param name="passWord"></param>
+        </member>
+        <member name="P:TouchSocket.Http.HttpProxy.Credential">
+            <summary>
+            验证代理
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpProxy.Host">
+            <summary>
+            代理的地址
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.HttpRange">
+            <summary>
+            Range: bytes=0-499 表示第 0-499 字节范围的内容
+            Range: bytes=500-999 表示第 500-999 字节范围的内容
+            Range: bytes=-500 表示最后 500 字节的内容
+            Range: bytes=500- 表示从第 500 字节开始到文件结束部分的内容
+            Range: bytes=0-0,-1 表示第一个和最后一个字节
+            Range: bytes=500-600,601-999 同时指定几个范围
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRange.GetRanges(System.String,System.Int64)">
+            <summary>
+            转换获取的集合
+            </summary>
+            <param name="rangeStr"></param>
+            <param name="size"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRange.GetRange(System.String,System.Int64)">
+            <summary>
+            转换获取的集合
+            </summary>
+            <param name="rangeStr"></param>
+            <param name="size"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TouchSocket.Http.HttpRange.Start">
+            <summary>
+            起始位置
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpRange.Length">
+            <summary>
+            长度
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.HttpRequest">
+            <summary>
+            HTTP请求定义
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRequest.#ctor(TouchSocket.Sockets.ITcpClientBase)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="client"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRequest.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpRequest.CanRead">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpRequest.CanWrite">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpRequest.Client">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpRequest.Forms">
+            <summary>
+            表单数据
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpRequest.Method">
+            <summary>
+            HTTP请求方式。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpRequest.Params">
+            <summary>
+            Body参数
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpRequest.Query">
+            <summary>
+            url参数
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpRequest.RelativeURL">
+            <summary>
+            相对路径（不含参数）
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpRequest.URL">
+            <summary>
+            Url全地址，包含参数
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRequest.Build(TouchSocket.Core.ByteBlock)">
+            <summary>
+             构建响应数据。
+            <para>当数据较大时，不建议这样操作，可直接<see cref="M:TouchSocket.Http.HttpRequest.WriteContent(System.Byte[],System.Int32,System.Int32)"/></para>
+            </summary>
+            <param name="byteBlock"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRequest.BuildAsBytes">
+            <summary>
+            构建数据为字节数组。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRequest.SetContent(System.Byte[])">
+            <summary>
+            设置内容
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRequest.SetProxyHost(System.String)">
+            <summary>
+            设置代理Host
+            </summary>
+            <param name="host"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRequest.SetUrl(System.String)">
+            <summary>
+            设置Url，可带参数
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRequest.ToString">
+            <summary>
+            输出
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRequest.TryGetContent(System.Byte[]@)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRequest.WriteContent(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRequest.Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRequest.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRequest.LoadHeaderProterties">
+            <summary>
+            从内存中读取
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRequest.BuildHeader(TouchSocket.Core.ByteBlock)">
+            <summary>
+            构建响应头部
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpRequest.Read(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TouchSocket.Http.HttpResponse">
+            <summary>
+            Http响应
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.#ctor(TouchSocket.Sockets.ITcpClientBase)">
+            <summary>
+            Http响应
+            </summary>
+            <param name="client"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.#ctor(TouchSocket.Http.HttpRequest)">
+            <summary>
+            从<see cref="T:TouchSocket.Http.HttpRequest"/>创建一个Http响应
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpResponse.CanRead">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpResponse.CanWrite">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpResponse.Client">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpResponse.IsChunk">
+            <summary>
+            是否分块
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpResponse.IsProxyAuthenticationRequired">
+            <summary>
+            是否代理权限验证。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpResponse.IsRedirect">
+            <summary>
+            是否重定向
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpResponse.Responsed">
+            <summary>
+            是否已经响应数据。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpResponse.StatusCode">
+            <summary>
+            状态码，默认200
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpResponse.StatusMessage">
+            <summary>
+            状态消息，默认Success
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.Answer">
+            <summary>
+            构建数据并回应。
+            <para>该方法仅在具有Client实例时有效。</para>
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.AnswerAsync">
+            <summary>
+            构建数据并回应。
+            <para>该方法仅在具有Client实例时有效。</para>
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.Build(TouchSocket.Core.ByteBlock,System.Boolean)">
+            <summary>
+             构建响应数据。
+            <para>当数据较大时，不建议这样操作，可直接<see cref="M:TouchSocket.Http.HttpResponse.WriteContent(System.Byte[],System.Int32,System.Int32)"/></para>
+            </summary>
+            <param name="byteBlock"></param>
+            <param name="responsed"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.ToString">
+            <summary>
+            输出
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.BuildAsBytes">
+            <summary>
+            构建数据为字节数组。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.Read(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.Complete">
+            <summary>
+            当传输模式是Chunk时，用于结束传输。
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.SetContent(System.Byte[])">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.TryGetContent(System.Byte[]@)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.WriteContent(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.Dispose(System.Boolean)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.LoadHeaderProterties">
+            <summary>
+            读取数据
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.BuildHeader(TouchSocket.Core.ByteBlock)">
+            <summary>
+            构建响应头部
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpResponse.Reset">
+            <inheritdoc/>
+        </member>
+        <member name="T:TouchSocket.Http.HttpTools">
+            <summary>
+            Http工具
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpTools.GetContentTypeFromExtension(System.String)">
+            <summary>
+            从扩展名获取ContentType
+            </summary>
+            <param name="extension"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.MultifileCollection">
+            <summary>
+            多文件集合
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.MultifileCollection.#ctor(TouchSocket.Http.HttpRequest)">
+            <summary>
+            多文件集合
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:TouchSocket.Http.MultifileCollection.GetEnumerator">
+            <summary>
+            获取一个迭代器。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.TouchSocketHttpUtility">
+            <summary>
+            HttpUtility
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.TouchSocketHttpUtility.NoCacheMaxSize">
+            <summary>
+            非缓存上限
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.AuthenticationChallenge">
+            <summary>
+            处理代理认证凭证
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.AuthenticationChallenge.#ctor(System.String,TouchSocket.Http.NetworkCredential,System.UInt32)">
+            <summary>
+            构造
+            </summary>
+            <param name="value">服务器返回的凭证认证类型</param>
+            <param name="credential">基本凭证用户名密码</param>
+            <param name="nonceCount">暂时不知道是什么</param>
+        </member>
+        <member name="P:TouchSocket.Http.AuthenticationChallenge.NonceCount">
+            <summary>
+            暂时不知
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.AuthenticationChallenge.Parameters">
+            <summary>
+            其实用不用他都一样
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.AuthenticationChallenge.Type">
+            <summary>
+            凭证类型
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.AuthenticationChallenge.ToString">
+            <summary>
+            转换成凭证本文
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="T:TouchSocket.Http.AuthenticationType">
+            <summary>
+            代理身份认证类型
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.AuthenticationType.None">
+            <summary>
+            不允许身份认证
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.AuthenticationType.Digest">
+            <summary>
+            指定摘要身份验证。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.AuthenticationType.Basic">
+            <summary>
+            指定基本身份验证。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.AuthenticationType.Anonymous">
+            <summary>
+            指定匿名身份验证。
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.NetworkCredential">
+            <summary>
+            代理身份认证
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.NetworkCredential.#ctor(System.String,System.String,System.String,System.String[])">
+            <summary>
+            构造
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="domain">基本认证应该不需要这个</param>
+            <param name="roles"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="P:TouchSocket.Http.NetworkCredential.Username">
+            <summary>
+            凭证用户名
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.NetworkCredential.Password">
+            <summary>
+            凭证密码
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.NetworkCredential.Domain">
+            <summary>
+            Domain
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.NetworkCredential.Roles">
+            <summary>
+            Roles
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.HttpClient">
+            <summary>
+            Http客户端
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.HttpClientBase">
+            <summary>
+            Http客户端基类
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientBase.Connect(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientBase.ConnectAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientBase.Request(TouchSocket.Http.HttpRequest,System.Boolean,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientBase.RequestAsync(TouchSocket.Http.HttpRequest,System.Boolean,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientBase.RequestContent(TouchSocket.Http.HttpRequest,System.Boolean,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientBase.RequestContentAsync(TouchSocket.Http.HttpRequest,System.Boolean,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientBase.Dispose(System.Boolean)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientBase.OnConnecting(TouchSocket.Sockets.ConnectingEventArgs)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientBase.OnDisconnected(TouchSocket.Sockets.DisconnectEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientBase.ReceivedData(TouchSocket.Sockets.ReceivedDataEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TouchSocket.Http.HttpClientPool">
+            <summary>
+            HttpClient客户端连接池
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpClientPool.MaxCount">
+            <summary>
+            最大连接数量。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpClientPool.RemoteIPHost">
+            <summary>
+            目标地址
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientPool.Clear">
+            <summary>
+            清除现有的所有链接
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientPool.RequestContent(TouchSocket.Http.HttpRequest,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            发起请求，并获取数据体
+            </summary>
+            <param name="request">请求体</param>
+            <param name="millisecondsTimeout">等待超时时间</param>
+            <param name="token">结束等待令箭</param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientPool.RequestContentAsync(TouchSocket.Http.HttpRequest,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            发起请求，并获取数据体
+            </summary>
+            <param name="request">请求体</param>
+            <param name="millisecondsTimeout">等待超时时间</param>
+            <param name="token">结束等待令箭</param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientPool.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientPool.LoadConfig(TouchSocket.Core.TouchSocketConfig)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TouchSocket.Http.HttpService`1">
+            <summary>
+            HTTP/HTTPS服务器
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.HttpService">
+            <summary>
+            HTTP/HTTPS服务器
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.HttpSocketClient">
+            <summary>
+            http辅助类
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpSocketClient.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpSocketClient.WebSocket">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpSocketClient.SwitchProtocolToWebSocket(TouchSocket.Http.HttpContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpSocketClient.OnConnecting(TouchSocket.Sockets.ConnectingEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpSocketClient.OnDisconnected(TouchSocket.Sockets.DisconnectEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpSocketClient.OnReceivedHttpRequest(TouchSocket.Http.HttpRequest)">
+            <summary>
+            当收到到Http请求时。覆盖父类方法将不会触发插件。
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpSocketClient.ReceivedData(TouchSocket.Sockets.ReceivedDataEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpSocketClient.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TouchSocket.Http.IHttpClient">
+            <summary>
+            Http终端接口
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.IHttpClient.Request(TouchSocket.Http.HttpRequest,System.Boolean,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            发起请求
+            </summary>
+            <param name="request">请求体</param>
+            <param name="onlyRequest">仅仅请求，而不等待结果</param>
+            <param name="millisecondsTimeout">等待超时时间</param>
+            <param name="token">结束等待令箭</param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.IHttpClient.RequestAsync(TouchSocket.Http.HttpRequest,System.Boolean,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            发起请求
+            </summary>
+            <param name="request">请求体</param>
+            <param name="onlyRequest">仅仅请求，而不等待结果</param>
+            <param name="millisecondsTimeout">等待超时时间</param>
+            <param name="token">结束等待令箭</param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.IHttpClient.RequestContent(TouchSocket.Http.HttpRequest,System.Boolean,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            发起请求，并获取数据体
+            </summary>
+            <param name="request">请求体</param>
+            <param name="onlyRequest">仅仅请求，而不等待结果</param>
+            <param name="millisecondsTimeout">等待超时时间</param>
+            <param name="token">结束等待令箭</param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.IHttpClient.RequestContentAsync(TouchSocket.Http.HttpRequest,System.Boolean,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            发起请求，并获取数据体
+            </summary>
+            <param name="request">请求体</param>
+            <param name="onlyRequest">仅仅请求，而不等待结果</param>
+            <param name="millisecondsTimeout">等待超时时间</param>
+            <param name="token">结束等待令箭</param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.IHttpClientBase">
+            <summary>
+            Http终端基础接口
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.IHttpService`1">
+            <summary>
+            IHttpService
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.IHttpService">
+            <summary>
+            IHttpService
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.IHttpServiceBase">
+            <summary>
+            IHttpServiceBase
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.IHttpSocketClient">
+            <summary>
+            Http服务器终端接口
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.IHttpSocketClient.WebSocket">
+            <summary>
+            当该连接是WebSocket时，可获取该对象，否则为null。
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.IHttpSocketClient.SwitchProtocolToWebSocket(TouchSocket.Http.HttpContext)">
+            <summary>
+            转化Protocol协议标识为<see cref="F:TouchSocket.Sockets.Protocol.WebSocket"/>
+            </summary>
+            <param name="httpContext">Http上下文</param>
+        </member>
+        <member name="T:TouchSocket.Http.CorsBuilder">
+            <summary>
+            CorsBuilder
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.CorsBuilder.Credentials">
+            <summary>
+            允许客户端携带验证信息
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.CorsBuilder.Headers">
+            <summary>
+            请求头
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.CorsBuilder.Methods">
+            <summary>
+            允许跨域的方法。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.CorsBuilder.Origin">
+            <summary>
+            允许跨域的域名
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.CorsBuilder.AllowAnyHeaders">
+            <summary>
+            允许所有的Header
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.CorsBuilder.AllowAnyMethod">
+            <summary>
+            允许任何Method。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.CorsBuilder.AllowAnyOrigin">
+            <summary>
+            允许所有的源
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.CorsBuilder.AllowCredentials">
+            <summary>
+            允许客户端携带验证信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.CorsBuilder.WithHeaders(System.String[])">
+            <summary>
+            允许跨域的Header
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.CorsBuilder.WithMethods(System.String[])">
+            <summary>
+            允许跨域的方法。
+            例如“PUT,POST,GET,DELETE,OPTIONS,HEAD,PATCH”
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.CorsBuilder.WithOrigin(System.String)">
+            <summary>
+            允许跨域的域名
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.CorsBuilder.Build">
+            <summary>
+            构建
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.CorsOptions">
+            <summary>
+            跨域相关配置
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.CorsOptions.CorsPolicys">
+            <summary>
+            跨域策略集
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.CorsOptions.Add(System.String,System.Action{TouchSocket.Http.CorsBuilder})">
+            <summary>
+            添加跨域策略
+            </summary>
+            <param name="policyName"></param>
+            <param name="corsBuilderAction"></param>
+        </member>
+        <member name="M:TouchSocket.Http.CorsOptions.Add(System.String,TouchSocket.Http.CorsPolicy)">
+            <summary>
+            添加跨域策略
+            </summary>
+            <param name="policyName"></param>
+            <param name="corsResult"></param>
+        </member>
+        <member name="T:TouchSocket.Http.CorsPlugin">
+            <summary>
+            可以配置跨域的插件
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.CorsPlugin.#ctor(TouchSocket.Http.ICorsService,System.String)">
+            <summary>
+            可以配置跨域的插件
+            </summary>
+            <param name="corsService"></param>
+            <param name="policyName"></param>
+        </member>
+        <member name="M:TouchSocket.Http.CorsPlugin.Loaded(TouchSocket.Core.IPluginManager)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TouchSocket.Http.CorsPolicy">
+            <summary>
+            CorsResult
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.CorsPolicy.#ctor(System.Boolean,System.String,System.String,System.String)">
+            <summary>
+            CorsResult
+            </summary>
+            <param name="credentials"></param>
+            <param name="headers"></param>
+            <param name="methods"></param>
+            <param name="origin"></param>
+        </member>
+        <member name="P:TouchSocket.Http.CorsPolicy.Credentials">
+            <summary>
+            允许客户端携带验证信息
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.CorsPolicy.Headers">
+            <summary>
+            请求头
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.CorsPolicy.Methods">
+            <summary>
+            允许跨域的方法。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.CorsPolicy.Origin">
+            <summary>
+            允许跨域的域名
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.CorsPolicy.Apply(TouchSocket.Http.HttpContext)">
+            <summary>
+            应用跨域策略
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:TouchSocket.Http.ICorsService">
+            <summary>
+            跨域相关的服务类接口
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.ICorsService.GetPolicy(System.String)">
+            <summary>
+            按照策略名称，获取策略
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.HttpClientDataHandlingAdapter">
+            <summary>
+            Http客户端数据处理适配器
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpClientDataHandlingAdapter.tempByteBlock">
+            <summary>
+            缓存数据，如果需要手动释放，请先判断，然后到调用<see cref="M:System.IDisposable.Dispose"/>后，再置空；
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpClientDataHandlingAdapter.CanSplicingSend">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientDataHandlingAdapter.OnLoaded(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpClientDataHandlingAdapter.PreviewReceived(TouchSocket.Core.ByteBlock)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <param name="byteBlock"></param>
+        </member>
+        <member name="T:TouchSocket.Http.HttpServerDataHandlingAdapter">
+            <summary>
+            Http服务器数据处理适配器
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpServerDataHandlingAdapter.tempByteBlock">
+            <summary>
+            缓存数据，如果需要手动释放，请先判断，然后到调用<see cref="M:System.IDisposable.Dispose"/>后，再置空；
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpServerDataHandlingAdapter.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.HttpServerDataHandlingAdapter.CanSplicingSend">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpServerDataHandlingAdapter.OnLoaded(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.HttpServerDataHandlingAdapter.PreviewReceived(TouchSocket.Core.ByteBlock)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <param name="byteBlock"></param>
+        </member>
+        <member name="T:TouchSocket.Http.HttpContextEventHandler`1">
+            <summary>
+            HTTP上下文事件委托
+            </summary>
+            <typeparam name="TClient"></typeparam>
+            <param name="client"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:TouchSocket.Http.HttpHeaders">
+            <summary>
+            请求头枚举
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.CacheControl">
+            <summary>
+            Cache-Control 标头，指定请求/响应链上所有缓存控制机制必须服从的指令。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Connection">
+            <summary>
+            Connection 标头，指定特定连接需要的选项。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Date">
+            <summary>
+            Date 标头，指定开始创建请求的日期和时间。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.KeepAlive">
+            <summary>
+            Keep-Alive 标头，指定用以维护持久性连接的参数。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Pragma">
+            <summary>
+            Pragma 标头，指定可应用于请求/响应链上的任何代理的特定于实现的指令。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Trailer">
+            <summary>
+            Trailer 标头，指定标头字段显示在以 chunked 传输编码方式编码的消息的尾部。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.TransferEncoding">
+            <summary>
+            Transfer-Encoding 标头，指定对消息正文应用的转换的类型（如果有）。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Upgrade">
+            <summary>
+            Upgrade 标头，指定客户端支持的附加通信协议。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Via">
+            <summary>
+            Via 标头，指定网关和代理程序要使用的中间协议。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Warning">
+            <summary>
+            Warning 标头，指定关于可能未在消息中反映的消息的状态或转换的附加信息。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Allow">
+            <summary>
+            Allow 标头，指定支持的 HTTP 方法集。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.ContentLength">
+            <summary>
+            Content-Length 标头，指定伴随正文数据的长度（以字节为单位）。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.ContentType">
+            <summary>
+            Content-Type 标头，指定伴随正文数据的 MIME 类型。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.ContentEncoding">
+            <summary>
+            Content-Encoding 标头，指定已应用于伴随正文数据的编码。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.ContentLanguage">
+            <summary>
+            Content-Langauge 标头，指定伴随正文数据的自然语言。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.ContentLocation">
+            <summary>
+            Content-Location 标头，指定可从其中获得伴随正文的 URI。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.ContentMd5">
+            <summary>
+            Content-MD5 标头，指定伴随正文数据的 MD5 摘要，用于提供端到端消息完整性检查。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.ContentRange">
+            <summary>
+            Content-Range 标头，指定在完整正文中应用伴随部分正文数据的位置。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Expires">
+            <summary>
+            Expires 标头，指定日期和时间，在此之后伴随的正文数据应视为陈旧的。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.LastModified">
+            <summary>
+            Last-Modified 标头，指定上次修改伴随的正文数据的日期和时间。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Accept">
+            <summary>
+            Accept 标头，指定响应可接受的 MIME 类型。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.AcceptCharset">
+            <summary>
+            Accept-Charset 标头，指定响应可接受的字符集。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.AcceptEncoding">
+            <summary>
+            Accept-Encoding 标头，指定响应可接受的内容编码。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.AcceptLanguage">
+            <summary>
+            Accept-Langauge 标头，指定响应首选的自然语言。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Authorization">
+            <summary>
+            Authorization 标头，指定客户端为向服务器验证自身身份而出示的凭据。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Cookie">
+            <summary>
+            Cookie 标头，指定向服务器提供的 Cookie 数据。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Expect">
+            <summary>
+            Expect 标头，指定客户端要求的特定服务器行为。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.From">
+            <summary>
+            From 标头，指定控制请求用户代理的用户的 Internet 电子邮件地址。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Host">
+            <summary>
+            Host 标头，指定所请求资源的主机名和端口号。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.IfMatch">
+            <summary>
+            If-Match 标头，指定仅当客户端的指示资源的缓存副本是最新的时，才执行请求的操作。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.IfModifiedSince">
+            <summary>
+            If-Modified-Since 标头，指定仅当自指示的数据和时间之后修改了请求的资源时，才执行请求的操作。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.IfNoneMatch">
+            <summary>
+            If-None-Match 标头，指定仅当客户端的指示资源的缓存副本都不是最新的时，才执行请求的操作。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.IfRange">
+            <summary>
+            If-Range 标头，指定如果客户端的缓存副本是最新的，仅发送指定范围的请求资源。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.IfUnmodifiedSince">
+            <summary>
+            If-Unmodified-Since 标头，指定仅当自指示的日期和时间之后修改了请求的资源时，才执行请求的操作。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.MaxForwards">
+            <summary>
+            Max-Forwards 标头，指定一个整数，表示此请求还可转发的次数。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.ProxyAuthorization">
+            <summary>
+            Proxy-Authorization 标头，指定客户端为向代理验证自身身份而出示的凭据。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Referer">
+            <summary>
+            Referer 标头，指定从中获得请求 URI 的资源的 URI。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Range">
+            <summary>
+            Range 标头，指定代替整个响应返回的客户端请求的响应的子范围。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Te">
+            <summary>
+            TE 标头，指定响应可接受的传输编码方式。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Translate">
+            <summary>
+            Translate 标头，与 WebDAV 功能一起使用的 HTTP 规范的 Microsoft 扩展。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.UserAgent">
+            <summary>
+            User-Agent 标头，指定有关客户端代理的信息。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.AcceptRanges">
+            <summary>
+            Accept-Ranges 标头，指定服务器接受的范围。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Age">
+            <summary>
+            Age 标头，指定自起始服务器生成响应以来的时间长度（以秒为单位）。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.ETag">
+            <summary>
+            Etag 标头，指定请求的变量的当前值。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Location">
+            <summary>
+            Location 标头，指定为获取请求的资源而将客户端重定向到的 URI。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.ProxyAuthenticate">
+            <summary>
+            Proxy-Authenticate 标头，指定客户端必须对代理验证其自身。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.RetryAfter">
+            <summary>
+            Retry-After 标头，指定某个时间（以秒为单位）或日期和时间，在此时间之后客户端可以重试其请求。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Server">
+            <summary>
+            Server 标头，指定关于起始服务器代理的信息。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.SetCookie">
+            <summary>
+            Set-Cookie 标头，指定提供给客户端的 Cookie 数据。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Vary">
+            <summary>
+            Vary 标头，指定用于确定缓存的响应是否为新响应的请求标头。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.WwwAuthenticate">
+            <summary>
+            WWW-Authenticate 标头，指定客户端必须对服务器验证其自身。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.Origin">
+            <summary>
+            Origin。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.HttpHeaders.ContentDisposition">
+            <summary>
+            Content-Disposition
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.HttpContextEventArgs">
+            <summary>
+            Http请求事件类
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpContextEventArgs.Context">
+            <summary>
+            Http上下文
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpContextEventArgs.#ctor(TouchSocket.Http.HttpContext)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:TouchSocket.Http.HttpContainerExtension">
+            <summary>
+            HttpContainerExtension
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpContainerExtension.AddCors(TouchSocket.Core.IRegistrator,System.Action{TouchSocket.Http.CorsOptions})">
+            <summary>
+            向注册器中添加跨域服务。
+            </summary>
+            <param name="registrator"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.HttpExtensions">
+            <summary>
+            Http扩展辅助
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.GetEnum``1(System.String,``0@)">
+            <summary>
+            根据字符串获取枚举
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="str"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.AddHeader``1(``0,System.String,System.String)">
+            <summary>
+            添加Header参数
+            </summary>
+            <param name="request"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.AddHeader``1(``0,TouchSocket.Http.HttpHeaders,System.String)">
+            <summary>
+            添加Header参数
+            </summary>
+            <param name="request"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.FromJson``1(``0,System.String)">
+            <summary>
+            从Json
+            </summary>
+            <param name="request"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.FromText``1(``0,System.String)">
+            <summary>
+            从文本
+            </summary>
+            <param name="request"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.FromXML``1(``0,System.String)">
+            <summary>
+            从Xml格式
+            </summary>
+            <param name="request"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.GetBody(TouchSocket.Http.HttpBase)">
+            <summary>
+            获取Body的字符串
+            </summary>
+            <param name="httpBase"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.GetBoundary(TouchSocket.Http.HttpBase)">
+            <summary>
+            当数据类型为multipart/form-data时，获取boundary
+            </summary>
+            <param name="httpBase"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.SetContent``1(``0,System.String,System.Text.Encoding)">
+            <summary>
+            设置内容
+            </summary>
+            <param name="httpBase"></param>
+            <param name="content"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.SetContentLength``1(``0,System.Int64)">
+            <summary>
+            设置数据体长度
+            </summary>
+            <param name="httpBase"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.SetContentTypeByExtension``1(``0,System.String)">
+            <summary>
+            从扩展名设置内容类型，必须以“.”开头
+            </summary>
+            <param name="httpBase"></param>
+            <param name="extension"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.WriteContent``1(``0,System.Byte[])">
+            <summary>
+            写入
+            </summary>
+            <param name="httpBase"></param>
+            <param name="buffer"></param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.GetMultifileCollection``1(``0)">
+            <summary>
+            获取多文件集合。如果不存在，则返回null。
+            </summary>
+            <typeparam name="TRequest"></typeparam>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.InitHeaders``1(``0)">
+            <summary>
+            初始化常规的请求头。
+            <para>包含：</para>
+            <list type="number">
+            <item>Connection:keep-alive</item>
+            <item>Pragma:no-cache</item>
+            <item>UserAgent:TouchSocket.Http</item>
+            </list>
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.SetHost``1(``0,System.String)">
+            <summary>
+            添加Host请求头
+            </summary>
+            <param name="request"></param>
+            <param name="host"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.AddQuery``1(``0,System.String,System.String)">
+            <summary>
+            添加Query参数
+            </summary>
+            <param name="request"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.UrlEquals``1(``0,System.String)">
+            <summary>
+            对比不包含参数的Url。其中有任意一方为null，则均返回False。
+            </summary>
+            <param name="request"></param>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.AsDelete``1(``0)">
+            <summary>
+            作为Delete访问
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.AsGet``1(``0)">
+            <summary>
+            作为Get访问
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.AsMethod``1(``0,System.String)">
+            <summary>
+            作为指定函数
+            </summary>
+            <param name="request"></param>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.AsPost``1(``0)">
+            <summary>
+            作为Post访问
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.AsPut``1(``0)">
+            <summary>
+            作为Put访问
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.IsDelete``1(``0)">
+            <summary>
+            是否作为Delete访问
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.IsGet``1(``0)">
+            <summary>
+            是否作为Get访问
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.IsMethod``1(``0,System.String)">
+            <summary>
+            是否作为指定函数
+            </summary>
+            <param name="request"></param>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.IsPost``1(``0)">
+            <summary>
+            是否作为Post访问
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.IsPut``1(``0)">
+            <summary>
+            是否作为Put访问
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.IsUpgrade``1(``0)">
+            <summary>
+            是否在headers中包含升级连接
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.SetContentTypeFromFileName``1(``0,System.String)">
+            <summary>
+            设置文件类型。
+            </summary>
+            <param name="response"></param>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.IsSuccess``1(``0,System.Nullable{System.Int32})">
+            <summary>
+            判断返回的状态码是否为成功。
+            </summary>
+            <param name="response"></param>
+            <param name="status">
+            当不指定具体的状态码时，只要状态码在200-299之间则为<see langword="true"/>。
+            当指定时，状态码不仅必须要在200-299之间，还必须是指定的状态码才会返回<see langword="true"/>。
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.SetStatus``1(``0,System.Int32,System.String)">
+            <summary>
+            设置状态，并且附带时间戳。
+            </summary>
+            <param name="response"></param>
+            <param name="status"></param>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.SetStatus``1(``0)">
+            <summary>
+            设置默认Success状态，并且附带时间戳。
+            </summary>
+            <typeparam name="TResponse"></typeparam>
+            <param name="response"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.UrlNotFind``1(``0)">
+            <summary>
+            路径文件没找到
+            </summary>
+            <param name="response"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.FromFile(TouchSocket.Http.HttpResponse,System.String,TouchSocket.Http.HttpRequest,System.String,System.Int32,System.Int32)">
+            <summary>
+            从文件响应。
+            <para>当response支持持续写入时，会直接回复响应。并阻塞执行，直到完成。所以在执行该方法之前，请确保已设置完成所有状态字</para>
+            <para>当response不支持持续写入时，会填充Content，且不会响应，需要自己执行Build，并发送。</para>
+            </summary>
+            <param name="response">响应</param>
+            <param name="request">请求头，用于尝试续传，为null时则不续传。</param>
+            <param name="filePath">文件路径</param>
+            <param name="fileName">文件名，不设置时会获取路径文件名</param>
+            <param name="maxSpeed">最大速度（仅企业版有效）。</param>
+            <param name="bufferLen">读取长度。</param>
+            <exception cref="T:System.Exception"></exception>
+            <exception cref="T:System.Exception"></exception>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.FromFile(TouchSocket.Http.HttpContext,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            从文件响应。
+            <para>当response支持持续写入时，会直接回复响应。并阻塞执行，直到完成。所以在执行该方法之前，请确保已设置完成所有状态字</para>
+            <para>当response不支持持续写入时，会填充Content，且不会响应，需要自己执行Build，并发送。</para>
+            </summary>
+            <param name="context">上下文</param>
+            <param name="filePath">文件路径</param>
+            <param name="fileName">文件名，不设置时会获取路径文件名</param>
+            <param name="maxSpeed">最大速度（仅企业版有效）。</param>
+            <param name="bufferLen">读取长度。</param>
+            <exception cref="T:System.Exception"></exception>
+            <exception cref="T:System.Exception"></exception>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.FromFileAsync(TouchSocket.Http.HttpResponse,System.String,TouchSocket.Http.HttpRequest,System.String,System.Int32,System.Int32)">
+            <summary>
+            从文件响应。
+            <para>当response支持持续写入时，会直接回复响应。并阻塞执行，直到完成。所以在执行该方法之前，请确保已设置完成所有状态字</para>
+            <para>当response不支持持续写入时，会填充Content，且不会响应，需要自己执行Build，并发送。</para>
+            </summary>
+            <param name="response">响应</param>
+            <param name="request">请求头，用于尝试续传，为null时则不续传。</param>
+            <param name="filePath">文件路径</param>
+            <param name="fileName">文件名，不设置时会获取路径文件名</param>
+            <param name="maxSpeed">最大速度（仅企业版有效）。</param>
+            <param name="bufferLen">读取长度。</param>
+            <exception cref="T:System.Exception"></exception>
+            <exception cref="T:System.Exception"></exception>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpExtensions.FromFileAsync(TouchSocket.Http.HttpContext,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            从文件响应。
+            <para>当response支持持续写入时，会直接回复响应。并阻塞执行，直到完成。所以在执行该方法之前，请确保已设置完成所有状态字</para>
+            <para>当response不支持持续写入时，会填充Content，且不会响应，需要自己执行Build，并发送。</para>
+            </summary>
+            <param name="context">上下文</param>
+            <param name="filePath">文件路径</param>
+            <param name="fileName">文件名，不设置时会获取路径文件名</param>
+            <param name="maxSpeed">最大速度（仅企业版有效）。</param>
+            <param name="bufferLen">读取长度。</param>
+            <exception cref="T:System.Exception"></exception>
+            <exception cref="T:System.Exception"></exception>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.IContentTypeProvider">
+            <summary>
+            IContentTypeProvider
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.IContentTypeProvider.TryGetContentType(System.String,System.String@)">
+            <summary>
+            给定文件路径，确定MIME类型
+            </summary>
+            <param name="subpath"></param>
+            <param name="contentType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.IFormFile">
+            <summary>
+            表单文件
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.IFormFile.ContentDisposition">
+            <summary>
+            获取Content-Disposition
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.IFormFile.ContentType">
+            <summary>
+            获取Content-Type
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.IFormFile.Data">
+            <summary>
+            实际的数据
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.IFormFile.DataPair">
+            <summary>
+            数据对
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.IFormFile.FileName">
+            <summary>
+            获取file name
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.IFormFile.Length">
+            <summary>
+            文件长度。在数据接收完成之前，该值为-1;
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.IFormFile.Name">
+            <summary>
+             获取name字段
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.IHttpHeader">
+            <summary>
+            表示http的headers
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.IHttpHeader.Get(System.String)">
+            <summary>
+            获取Header
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.IHttpHeader.Get(TouchSocket.Http.HttpHeaders)">
+            <summary>
+            获取Header
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.IHttpHeader.Add(TouchSocket.Http.HttpHeaders,System.String)">
+            <summary>
+            添加Header
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="P:TouchSocket.Http.IHttpHeader.Item(TouchSocket.Http.HttpHeaders)">
+            <summary>
+            获取、添加Header
+            </summary>
+            <param name="headers"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.IHttpParams">
+            <summary>
+            Http参数
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.IHttpParams.Get(System.String)">
+            <summary>
+            获取参数
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.DefaultHttpServicePlugin">
+            <summary>
+            默认的Http服务。为Http做兜底拦截。该插件应该最后添加。
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.DefaultHttpServicePlugin.Loaded(TouchSocket.Core.IPluginManager)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.DefaultHttpServicePlugin.OnHttpRequest(TouchSocket.Http.IHttpSocketClient,TouchSocket.Http.HttpContextEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TouchSocket.Http.IHttpPlugin`1">
+            <summary>
+            IHttpPlugin
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.IHttpPlugin`1.OnHttpRequest(`0,TouchSocket.Http.HttpContextEventArgs)">
+            <summary>
+            在收到Http请求。
+            </summary>
+            <param name="client"></param>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.IHttpPlugin">
+            <summary>
+            IHttpPlugin
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.FileExtensionContentTypeProvider">
+            <summary>
+            FileExtensionContentTypeProvider
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.FileExtensionContentTypeProvider.#ctor">
+            <summary>
+            FileExtensionContentTypeProvider
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.FileExtensionContentTypeProvider.#ctor(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            FileExtensionContentTypeProvider
+            </summary>
+            <param name="mapping"></param>
+        </member>
+        <member name="P:TouchSocket.Http.FileExtensionContentTypeProvider.Mappings">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.FileExtensionContentTypeProvider.TryGetContentType(System.String,System.String@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TouchSocket.Http.HttpStaticPagePlugin">
+            <summary>
+            Http静态内容插件
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpStaticPagePlugin.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpStaticPagePlugin.Loaded(TouchSocket.Core.IPluginManager)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.HttpStaticPagePlugin.ContentTypeProvider">
+            <summary>
+            提供文件扩展名和MIME类型之间的映射。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpStaticPagePlugin.FileCache">
+            <summary>
+            静态文件缓存。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpStaticPagePlugin.NavigateAction">
+            <summary>
+            重新导航
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.HttpStaticPagePlugin.ResponseAction">
+            <summary>
+            在响应之前调用。
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpStaticPagePlugin.AddFolder(System.String,System.String,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            添加静态
+            </summary>
+            <param name="path">Static content path</param>
+            <param name="prefix">Cache prefix (default is "/")</param>
+            <param name="filter">Cache filter (default is "*.*")</param>
+            <param name="millisecondsTimeout">Refresh cache millisecondsTimeout (default is 1 hour)</param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpStaticPagePlugin.ClearFolder">
+            <summary>
+            Clear static content cache
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.HttpStaticPagePlugin.RemoveFolder(System.String)">
+            <summary>
+            Remove static content cache
+            </summary>
+            <param name="path">Static content path</param>
+        </member>
+        <member name="M:TouchSocket.Http.HttpStaticPagePlugin.SetContentTypeProvider(TouchSocket.Http.IContentTypeProvider)">
+            <summary>
+            设置提供文件扩展名和MIME类型之间的映射。
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpStaticPagePlugin.SetNavigateAction(System.Func{TouchSocket.Http.HttpRequest,System.Threading.Tasks.Task{System.String}})">
+            <summary>
+            设定重新导航
+            </summary>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpStaticPagePlugin.SetNavigateAction(System.Func{TouchSocket.Http.HttpRequest,System.String})">
+            <summary>
+            设定重新导航
+            </summary>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpStaticPagePlugin.SetResponseAction(System.Func{TouchSocket.Http.HttpContext,System.Threading.Tasks.Task})">
+            <summary>
+            在响应之前调用。
+            </summary>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.HttpStaticPagePlugin.SetResponseAction(System.Action{TouchSocket.Http.HttpContext})">
+            <summary>
+            在响应之前调用。
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.StaticPageOptions">
+            <summary>
+            静态页面配置
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.WebSocketOption">
+            <summary>
+            WebSocket配置
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketOption.Version">
+            <summary>
+            版本
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.WebSocketReceiveResult">
+            <summary>
+            WebSocketReceiveResult
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketReceiveResult.#ctor(System.Action,TouchSocket.Http.WebSockets.WSDataFrame)">
+            <summary>
+            WebSocketReceiveResult
+            </summary>
+            <param name="disAction"></param>
+            <param name="dataFrame"></param>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketReceiveResult.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketReceiveResult.DataFrame">
+            <summary>
+            WebSocket数据帧
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketReceiveResult.IsClosed">
+            <summary>
+            连接已关闭
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.WSDataFrame">
+            <summary>
+            WebSocket数据帧
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WSDataFrame.FIN">
+            <summary>
+            是否为最后数据帧。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WSDataFrame.IsBinary">
+            <summary>
+            是否是二进制数据类型
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WSDataFrame.IsClose">
+            <summary>
+            是否是关闭请求
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WSDataFrame.IsPing">
+            <summary>
+            是否是Ping
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WSDataFrame.IsPong">
+            <summary>
+            是否是Pong
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WSDataFrame.IsText">
+            <summary>
+            是否是文本类型
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WSDataFrame.Mask">
+            <summary>
+            计算掩码
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WSDataFrame.MaskingKey">
+            <summary>
+            掩码值
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WSDataFrame.Opcode">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WSDataFrame.PayloadData">
+            <summary>
+            有效数据
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WSDataFrame.PayloadLength">
+            <summary>
+            有效载荷数据长度
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WSDataFrame.RSV1">
+            <summary>
+            标识RSV-1。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WSDataFrame.RSV2">
+            <summary>
+            标识RSV-2。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WSDataFrame.RSV3">
+            <summary>
+            标识RSV-3。
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WSDataFrame.Build(TouchSocket.Core.ByteBlock)">
+            <summary>
+            构建数据
+            </summary>
+            <param name="byteBlock"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WSDataFrame.GetTotalSize">
+            <summary>
+            TotalSize
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WSDataFrame.SetMaskString(System.String)">
+            <summary>
+            设置Mask。
+            </summary>
+            <param name="mask"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WSDataFrame.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.WSTools">
+            <summary>
+            WSTools
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.WebSockets.WSTools.acceptMask">
+            <summary>
+            应答。
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WSTools.Build(TouchSocket.Core.ByteBlock,TouchSocket.Http.WebSockets.WSDataFrame,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            构建数据
+            </summary>
+            <param name="byteBlock"></param>
+            <param name="dataFrame"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WSTools.CalculateBase64Key(System.String)">
+            <summary>
+            计算Base64值
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WSTools.CreateBase64Key">
+            <summary>
+            获取Base64随即字符串。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WSTools.DoMask(System.Byte[],System.Int32,System.Byte[],System.Int32,System.Int32,System.Byte[])">
+            <summary>
+            掩码运算
+            </summary>
+            <param name="storeBuf"></param>
+            <param name="sOffset"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="length"></param>
+            <param name="masks"></param>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WSTools.GetWSRequest(System.String,System.String,System.String,System.String@)">
+            <summary>
+            获取WS的请求头
+            </summary>
+            <param name="host"></param>
+            <param name="url"></param>
+            <param name="version"></param>
+            <param name="base64Key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WSTools.TryGetResponse(TouchSocket.Http.HttpRequest,TouchSocket.Http.HttpResponse)">
+            <summary>
+            获取响应
+            </summary>
+            <param name="request"></param>
+            <param name="response"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.SetupClientWebSocket">
+            <summary>
+            SetupClientWebSocket
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.SetupClientWebSocket.#ctor">
+            <summary>
+            SetupClientWebSocket
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.SetupClientWebSocket.Connect(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.SetupClientWebSocket.ConnectAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.SetupClientWebSocket.LastReceivedTime">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.SetupClientWebSocket.LastSendTime">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.SetupClientWebSocket.Protocol">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.SetupClientWebSocket.RemoteIPHost">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.SetupClientWebSocket.ProtectedIsHandshaked">
+            <summary>
+            是否已完成连接
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.SetupClientWebSocket.Client">
+            <summary>
+            通讯实际客户端
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.SetupClientWebSocket.Close(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.SetupClientWebSocket.BreakOut(System.String,System.Boolean)">
+            <summary>
+            中断连接
+            </summary>
+            <param name="msg"></param>
+            <param name="manual"></param>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.SetupClientWebSocket.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.SetupClientWebSocket.LoadConfig(TouchSocket.Core.TouchSocketConfig)">
+            <summary>
+            加载配置
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.SetupClientWebSocket.OnDisconnected(TouchSocket.Sockets.DisconnectEventArgs)">
+            <summary>
+            已断开连接。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.SetupClientWebSocket.OnReceived(System.Net.WebSockets.WebSocketReceiveResult,TouchSocket.Core.ByteBlock)">
+            <summary>
+            收到数据
+            </summary>
+            <param name="result"></param>
+            <param name="byteBlock"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.WebSocketClient">
+            <summary>
+            WebSocketClient用户终端简单实现。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketClient.Received">
+            <summary>
+            收到WebSocket数据
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClient.OnReceivedWSDataFrame(TouchSocket.Http.WebSockets.WSDataFrameEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.WebSocketClientBase">
+            <summary>
+            WebSocket用户终端。
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.#ctor">
+            <summary>
+            WebSocket用户终端
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.Connect(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            连接到ws服务器
+            </summary>
+            <param name="millisecondsTimeout"></param>
+            <param name="token"></param>
+            <exception cref="T:TouchSocket.Http.WebSockets.WebSocketConnectException"></exception>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.ConnectAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketClientBase.AllowAsyncRead">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketClientBase.Client">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketClientBase.Config">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketClientBase.Handshaked">
+            <summary>
+            表示完成握手后。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketClientBase.Handshaking">
+            <summary>
+            表示在即将握手连接时。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketClientBase.IsHandshaked">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketClientBase.LastReceivedTime">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketClientBase.LastSendTime">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketClientBase.Logger">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketClientBase.PluginManager">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketClientBase.Protocol">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketClientBase.Resolver">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketClientBase.Version">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.OnHandshaked(TouchSocket.Http.HttpContextEventArgs)">
+            <summary>
+            表示完成握手后。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.OnHandshaking(TouchSocket.Http.HttpContextEventArgs)">
+            <summary>
+            表示在即将握手连接时。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.Close(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.GetValue``1(TouchSocket.Core.IDependencyProperty{``0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.HasValue``1(TouchSocket.Core.IDependencyProperty{``0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.Ping">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.PingAsync">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.Pong">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.PongAsync">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.ReadAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.RemoveValue``1(TouchSocket.Core.IDependencyProperty{``0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.Send(TouchSocket.Http.WebSockets.WSDataFrame,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.Send(System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.Send(System.Byte[],System.Int32,System.Int32,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.Send(TouchSocket.Core.ByteBlock,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.Send(System.Byte[],System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.SendAsync(TouchSocket.Http.WebSockets.WSDataFrame,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.SendAsync(System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.SendAsync(System.Byte[],System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.SendAsync(System.Byte[],System.Int32,System.Int32,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.Setup(TouchSocket.Core.TouchSocketConfig)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.SetupAsync(TouchSocket.Core.TouchSocketConfig)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.SetValue``1(TouchSocket.Core.IDependencyProperty{``0},``0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.TryGetValue``1(TouchSocket.Core.IDependencyProperty{``0},``0@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.TryRemoveValue``1(TouchSocket.Core.IDependencyProperty{``0},``0@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.OnReceivedWSDataFrame(TouchSocket.Http.WebSockets.WSDataFrameEventArgs)">
+            <summary>
+            当收到WS数据时。
+            </summary>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketClientBase.PrivateHttpClient.OnDisconnected(TouchSocket.Sockets.DisconnectEventArgs)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.WebSocketDataHandlingAdapter">
+            <summary>
+            WebSocket适配器
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.WebSockets.WebSocketDataHandlingAdapter.m_surPlusLength">
+            <summary>
+            数据包剩余长度
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.WebSockets.WebSocketDataHandlingAdapter.m_tempByteBlock">
+            <summary>
+            临时包
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketDataHandlingAdapter.DecodingFromBytes(System.Byte[],System.Int32@,System.Int32,TouchSocket.Http.WebSockets.WSDataFrame@)">
+            <summary>
+            解码
+            </summary>
+            <param name="dataBuffer"></param>
+            <param name="offset"></param>
+            <param name="length"></param>
+            <param name="dataFrame"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketDataHandlingAdapter.PreviewReceived(TouchSocket.Core.ByteBlock)">
+            <summary>
+            当接收到数据时处理数据
+            </summary>
+            <param name="byteBlock">数据流</param>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketDataHandlingAdapter.Reset">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketDataHandlingAdapter.SplitPackage(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            分解包
+            </summary>
+            <param name="dataBuffer"></param>
+            <param name="offset"></param>
+            <param name="length"></param>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.WSDataFrameEventHandler`1">
+            <summary>
+            收到WebSocket数据
+            </summary>
+            <param name="client"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.WSDataType">
+            <summary>
+            WebSocket数据类型
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.WebSockets.WSDataType.Cont">
+            <summary>
+            表示一个中间数据包
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.WebSockets.WSDataType.Text">
+            <summary>
+            表示一个text类型数据包
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.WebSockets.WSDataType.Binary">
+            <summary>
+            表示一个binary类型数据包
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.WebSockets.WSDataType.Close">
+            <summary>
+            表示一个断开连接类型数据包
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.WebSockets.WSDataType.Ping">
+            <summary>
+            表示一个ping类型数据包
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.WebSockets.WSDataType.Pong">
+            <summary>
+            表示一个pong类型数据包
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.WSDataFrameEventArgs">
+            <summary>
+            WS数据事件类
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WSDataFrameEventArgs.#ctor(TouchSocket.Http.WebSockets.WSDataFrame)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="dataFrame"></param>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WSDataFrameEventArgs.DataFrame">
+            <summary>
+            WS数据帧。
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.WebSocketConnectException">
+            <summary>
+            WebSocket连接异常。
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketConnectException.#ctor(System.String,TouchSocket.Http.HttpContext)">
+            <summary>
+            WebSocket连接异常
+            </summary>
+            <param name="mes"></param>
+            <param name="context"></param>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketConnectException.Context">
+            <summary>
+            HttpContext
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.WebSocketClientExtension">
+            <summary>
+            WebSocketClientExtension
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.WebSocketDataFrameExtension">
+            <summary>
+            WSDataFrame辅助扩展类
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketDataFrameExtension.AppendBinary(TouchSocket.Http.WebSockets.WSDataFrame,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            追加二进制流
+            </summary>
+            <param name="dataFrame"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketDataFrameExtension.AppendText(TouchSocket.Http.WebSockets.WSDataFrame,System.String,System.Text.Encoding)">
+            <summary>
+            追加文本
+            </summary>
+            <param name="dataFrame"></param>
+            <param name="text"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketDataFrameExtension.BuildRequest(TouchSocket.Http.WebSockets.WSDataFrame,TouchSocket.Core.ByteBlock)">
+            <summary>
+            构建请求数据（含Make）
+            </summary>
+            <param name="dataFrame"></param>
+            <param name="byteBlock"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketDataFrameExtension.BuildRequestToBytes(TouchSocket.Http.WebSockets.WSDataFrame)">
+            <summary>
+            构建请求数据（含Make）
+            </summary>
+            <param name="dataFrame"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketDataFrameExtension.BuildResponse(TouchSocket.Http.WebSockets.WSDataFrame,TouchSocket.Core.ByteBlock)">
+            <summary>
+            构建响应数据（无Make）
+            </summary>
+            <param name="dataFrame"></param>
+            <param name="byteBlock"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketDataFrameExtension.BuildResponseToBytes(TouchSocket.Http.WebSockets.WSDataFrame)">
+            <summary>
+            构建响应数据（无Make）
+            </summary>
+            <param name="dataFrame"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketDataFrameExtension.ToText(TouchSocket.Http.WebSockets.WSDataFrame,System.Text.Encoding)">
+            <summary>
+            当<see cref="F:TouchSocket.Http.WebSockets.WSDataType.Text"/>时，转换为Text消息。
+            </summary>
+            <param name="dataFrame"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.IWebSocket">
+            <summary>
+            IWebSocket
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.IWebSocket.Version">
+            <summary>
+            WebSocket版本
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.IWebSocket.AllowAsyncRead">
+            <summary>
+            允许异步Read读取
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.IWebSocket.Client">
+            <summary>
+            使用的Http客户端
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocket.Ping">
+            <summary>
+            发送Ping报文。
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocket.PingAsync">
+            <summary>
+            发送Ping报文
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocket.Pong">
+            <summary>
+            发送Pong报文。
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocket.PongAsync">
+            <summary>
+            发送Pong报文
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocket.ReadAsync(System.Threading.CancellationToken)">
+            <summary>
+            异步等待读取数据
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocket.Send(TouchSocket.Http.WebSockets.WSDataFrame,System.Boolean)">
+            <summary>
+            采用WebSocket协议，发送WS数据。发送结束后，请及时释放<see cref="T:TouchSocket.Http.WebSockets.WSDataFrame"/>
+            </summary>
+            <param name="dataFrame"></param>
+            <param name="endOfMessage"></param>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocket.Send(System.String,System.Boolean)">
+            <summary>
+            发送文本消息
+            </summary>
+            <param name="text"></param>
+            <param name="endOfMessage"></param>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocket.Send(System.Byte[],System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            发送二进制消息
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="length"></param>
+            <param name="endOfMessage"></param>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocket.Send(TouchSocket.Core.ByteBlock,System.Boolean)">
+            <summary>
+            发送二进制消息
+            </summary>
+            <param name="byteBlock"></param>
+            <param name="endOfMessage"></param>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocket.Send(System.Byte[],System.Boolean)">
+            <summary>
+            发送二进制消息
+            </summary>
+            <param name="buffer"></param>
+            <param name="endOfMessage"></param>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocket.SendAsync(TouchSocket.Http.WebSockets.WSDataFrame,System.Boolean)">
+            <summary>
+            采用WebSocket协议，发送WS数据。发送结束后，请及时释放<see cref="T:TouchSocket.Http.WebSockets.WSDataFrame"/>
+            </summary>
+            <param name="dataFrame"></param>
+            <param name="endOfMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocket.SendAsync(System.String,System.Boolean)">
+            <summary>
+            发送文本消息
+            </summary>
+            <param name="text"></param>
+            <param name="endOfMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocket.SendAsync(System.Byte[],System.Boolean)">
+            <summary>
+            发送二进制消息
+            </summary>
+            <param name="buffer"></param>
+            <param name="endOfMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocket.SendAsync(System.Byte[],System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            发送二进制消息
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="length"></param>
+            <param name="endOfMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.IWebSocketClient">
+            <summary>
+            用户终端接口
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.IWebSocketClosingPlugin`1">
+            <summary>
+            IWebSocketClosingPlugin
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocketClosingPlugin`1.OnWebSocketClosing(`0,TouchSocket.Core.MsgPermitEventArgs)">
+            <summary>
+            表示收到断开连接报文。如果对方直接断开连接，此方法则不会触发。
+            </summary>
+            <param name="client"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.IWebSocketClosingPlugin">
+            <summary>
+            IWebSocketClosingPlugin
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.IWebSocketHandshakedPlugin`1">
+            <summary>
+            IWebSocketHandshakedPlugin
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocketHandshakedPlugin`1.OnWebSocketHandshaked(`0,TouchSocket.Http.HttpContextEventArgs)">
+            <summary>
+            表示完成握手后。
+            </summary>
+            <param name="client"></param>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.IWebSocketHandshakedPlugin">
+            <summary>
+            IWebSocketHandshakedPlugin
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.IWebSocketHandshakingPlugin`1">
+            <summary>
+            IWebSocketHandshakingPlugin
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocketHandshakingPlugin`1.OnWebSocketHandshaking(`0,TouchSocket.Http.HttpContextEventArgs)">
+            <summary>
+            表示在即将握手连接时。
+            </summary>
+            <param name="client"></param>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.IWebSocketHandshakingPlugin">
+            <summary>
+            IWebSocketHandshakingPlugin
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.IWebSocketReceivedPlugin`1">
+            <summary>
+            IWebSocketReceivedPlugin
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.IWebSocketReceivedPlugin`1.OnWebSocketReceived(`0,TouchSocket.Http.WebSockets.WSDataFrameEventArgs)">
+            <summary>
+            当收到WS数据时。
+            </summary>
+            <param name="client"></param>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.IWebSocketReceivedPlugin">
+            <summary>
+            IWebSocketReceivedPlugin
+            </summary>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.WebSocketCommandLinePlugin">
+            <summary>
+            WS命令行插件。
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketCommandLinePlugin.#ctor(TouchSocket.Core.ILog)">
+            <summary>
+            WSCommandLinePlugin
+            </summary>
+            <param name="logger"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketCommandLinePlugin.Loaded(TouchSocket.Core.IPluginManager)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketCommandLinePlugin.Converter">
+            <summary>
+            字符串转换器，默认支持基础类型和Json。可以自定义。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketCommandLinePlugin.ReturnException">
+            <summary>
+            是否返回执行异常。
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketCommandLinePlugin.NoReturnException">
+            <summary>
+            当有执行异常时，不返回异常。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketCommandLinePlugin.OnWebSocketReceived(TouchSocket.Http.WebSockets.IWebSocket,TouchSocket.Http.WebSockets.WSDataFrameEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.WebSocketFeature">
+            <summary>
+            基于Http的WebSocket的扩展。
+            <para>此组件只能挂载在<see cref="T:TouchSocket.Http.HttpService"/>中</para>
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.WebSockets.WebSocketFeature.AutoCloseProperty">
+            <summary>
+            自动响应Close报文
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Http.WebSockets.WebSocketFeature.AutoPongProperty">
+            <summary>
+            自动响应Ping报文
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketFeature.#ctor">
+            <summary>
+            WebSocketFeature
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketFeature.AutoClose">
+            <summary>
+            是否默认处理Close报文。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketFeature.AutoPong">
+            <summary>
+            当收到ping报文时，是否自动回应pong。
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketFeature.VerifyConnection">
+            <summary>
+            验证连接
+            </summary>
+        </member>
+        <member name="P:TouchSocket.Http.WebSockets.WebSocketFeature.WSUrl">
+            <summary>
+            用于WebSocket连接的路径，默认为“/ws”
+            <para>如果设置为null或空，则意味着所有的连接都将解释为WS</para>
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketFeature.NoAutoClose">
+            <summary>
+            不处理Close报文。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketFeature.SetVerifyConnection(System.Func{TouchSocket.Http.IHttpSocketClient,TouchSocket.Http.HttpContext,System.Boolean})">
+            <summary>
+            验证连接
+            </summary>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketFeature.SetVerifyConnection(System.Func{TouchSocket.Http.IHttpSocketClient,TouchSocket.Http.HttpContext,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            验证连接
+            </summary>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketFeature.SetWSUrl(System.String)">
+            <summary>
+            用于WebSocket连接的路径，默认为“/ws”
+            <para>如果设置为null或空，则意味着所有的连接都将解释为WS</para>
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketFeature.UseAutoPong">
+            <summary>
+            当收到ping报文时，自动回应pong。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketFeature.Loaded(TouchSocket.Core.IPluginManager)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TouchSocket.Http.WebSockets.WebSocketHeartbeatPlugin">
+            <summary>
+            初始化一个适用于WebSocket的心跳插件
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Http.WebSockets.WebSocketHeartbeatPlugin.Loaded(TouchSocket.Core.IPluginManager)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TouchSocket.Sockets.HttpConfigExtensions">
+            <summary>
+            HttpConfigExtensions
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Sockets.HttpConfigExtensions.BuildWithHttpClient``1(TouchSocket.Core.TouchSocketConfig)">
+            <summary>
+            构建Http类客户端，并连接
+            </summary>
+            <typeparam name="TClient"></typeparam>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Sockets.HttpConfigExtensions.BuildWithHttpClient(TouchSocket.Core.TouchSocketConfig)">
+            <summary>
+            构建Http类客户端，并连接
+            </summary>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Sockets.HttpConfigExtensions.BuildWithHttpService``1(TouchSocket.Core.TouchSocketConfig)">
+            <summary>
+            构建Http类服务器，并启动。
+            </summary>
+            <typeparam name="TService"></typeparam>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Sockets.HttpConfigExtensions.BuildWithHttpService(TouchSocket.Core.TouchSocketConfig)">
+            <summary>
+            构建Http类服务器，并启动。
+            </summary>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="F:TouchSocket.Sockets.HttpConfigExtensions.HttpProxyProperty">
+            <summary>
+            Http代理
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Sockets.HttpConfigExtensions.SetHttpProxy(TouchSocket.Core.TouchSocketConfig,TouchSocket.Http.HttpProxy)">
+             <summary>
+            设置Http代理
+             </summary>
+             <param name="config"></param>
+             <param name="value"></param>
+             <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Sockets.WebSocketConfigExtension">
+            <summary>
+            WebSocketConfigExtensions
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Sockets.WebSocketConfigExtension.BuildWithWebSocketClient``1(TouchSocket.Core.TouchSocketConfig)">
+            <summary>
+            构建WebSocketClient类客户端，并连接
+            </summary>
+            <typeparam name="TClient"></typeparam>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Sockets.WebSocketConfigExtension.BuildWithWebSocketClient(TouchSocket.Core.TouchSocketConfig)">
+            <summary>
+            构建WebSocketClient类客户端，并连接
+            </summary>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="F:TouchSocket.Sockets.WebSocketConfigExtension.WebSocketOptionProperty">
+            <summary>
+            WebSocket配置属性
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Sockets.WebSocketConfigExtension.SetWebSocketOption(TouchSocket.Core.TouchSocketConfig,TouchSocket.Http.WebSockets.WebSocketOption)">
+            <summary>
+            设置WebSocket的相关配置
+            </summary>
+            <param name="config"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Core.HttpPluginManagerExtension">
+            <summary>
+            HttpPluginManagerExtension
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Core.HttpPluginManagerExtension.UseDefaultHttpServicePlugin(TouchSocket.Core.IPluginManager)">
+            <summary>
+            默认的Http服务。为Http做兜底拦截。该插件应该最后添加。
+            </summary>
+            <param name="pluginManager"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Core.HttpPluginManagerExtension.UseHttpStaticPage(TouchSocket.Core.IPluginManager)">
+            <summary>
+            使用Http静态页面。
+            </summary>
+            <param name="pluginManager"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TouchSocket.Core.HttpPluginManagerExtension.UseCors(TouchSocket.Core.IPluginManager,System.String)">
+            <summary>
+            使用跨域
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TouchSocket.Core.WebSocketPluginManagerExtension">
+            <summary>
+            WebSocketPluginManagerExtension
+            </summary>
+        </member>
+        <member name="M:TouchSocket.Core.WebSocketPluginManagerExtension.UseWebSocket(TouchSocket.Core.IPluginManager)">
+            <summary>
+            使用WebSocket插件。
+            </summary>
+            <returns>插件类型实例</returns>
+        </member>
+        <member name="M:TouchSocket.Core.WebSocketPluginManagerExtension.UseWebSocketHeartbeat(TouchSocket.Core.IPluginManager)">
+            <summary>
+            使用WebSocket心跳插件，客户端、服务器均有效。但是一般建议客户端使用即可。
+            </summary>
+            <returns>插件类型实例</returns>
+        </member>
+        <member name="T:TouchSocket.Resources.TouchSocketHttpResource">
+            <summary>
+            TouchSocketHttp资源枚举
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Resources.TouchSocketHttpResource.UnknownError">
+            <summary>
+            未知错误
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Resources.TouchSocketHttpResource.Success">
+            <summary>
+            操作成功
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Resources.TouchSocketHttpResource.Overtime">
+            <summary>
+            操作超时
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Resources.TouchSocketHttpResource.Canceled">
+            <summary>
+            用户主动取消操作。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Resources.TouchSocketHttpResource.ArgumentNull">
+            <summary>
+            参数‘{0}’为空。
+            </summary>
+        </member>
+        <member name="F:TouchSocket.Resources.TouchSocketHttpResource.Exception">
+             <summary>
+            发生异常，信息：{0}。
+             </summary>
+        </member>
+    </members>
+</doc>

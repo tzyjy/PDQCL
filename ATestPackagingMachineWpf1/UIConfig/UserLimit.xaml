@@ -1,0 +1,15 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="clr-namespace:System;assembly=mscorlib">
+
+    <s:String x:Key="DeviceName">软件名称</s:String>
+    <s:String x:Key="FunctionPermission100">设备参数</s:String>
+    <s:String x:Key="FunctionPermission101">工艺参数</s:String>
+    <s:String x:Key="FunctionPermission102">备用</s:String>
+    <s:String x:Key="FunctionPermission103">备用</s:String>
+    <s:String x:Key="FunctionPermission104">备用</s:String>
+    <s:String x:Key="FunctionPermission105">备用</s:String>
+    <s:String x:Key="FunctionPermission106">账户管理</s:String>
+
+</ResourceDictionary>

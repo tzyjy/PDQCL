@@ -5,9 +5,9 @@
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:prism="http://prismlibrary.com/"
-    Title="软件"
-    Width="1280"
-    Height="1024"
+    Title="PD影像软件"
+    Width="1024"
+    Height="768"
     prism:ViewModelLocator.AutoWireViewModel="True"
     Closing="Window_Closing"
     Icon="/Resources/图标.ico"
@@ -59,20 +59,12 @@
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </ListBox>
-
-
-
-
                     </StackPanel>
-
                 </DockPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
 
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="31*"/>
-                    <ColumnDefinition Width="1249*"/>
-                </Grid.ColumnDefinitions>
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60" />
                     <RowDefinition Height="*" />
@@ -81,11 +73,10 @@
 
                 <Grid
                     x:Name="GridTitle"
+
                     Height="60"
                     VerticalAlignment="Center"
-                    Background="#FF1368BD" Grid.ColumnSpan="2">
-
-
+                    Background="#FF1368BD">
 
                     <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal">
                         <ToggleButton
@@ -106,7 +97,7 @@
                                                               Size=24}"
                             Foreground="White"
                             Style="{StaticResource MaterialDesignToolButton}"
-                            ToolTip="Home" />
+                            ToolTip="Home" Cursor="Hand" />
 
                         <Button
                             Margin="24,0,0,0"
@@ -117,22 +108,20 @@
                                                               Size=18}"
                             Foreground="White"
                             Style="{StaticResource MaterialDesignToolButton}"
-                            ToolTip="手动界面" />
+                            ToolTip="手动界面"
+                            Visibility="Collapsed" />
 
                         <Button
                             Margin="24,0,0,0"
                             Background="Transparent"
                             Command="{Binding ShortcutCommand}"
-                            CommandParameter="ParameterView"
+                            CommandParameter="SysTemParameterView"
                             Content="{materialDesign:PackIcon Kind=Cog,
                                                               Size=18}"
                             Foreground="White"
                             Style="{StaticResource MaterialDesignToolButton}"
                             ToolTip="设置参数" />
-
-
                     </StackPanel>
-
 
                     <TextBlock
                         HorizontalAlignment="Center"
@@ -141,7 +130,6 @@
                         Foreground="White"
                         Text="{Binding Title}"
                         TextAlignment="Center" />
-
 
                     <StackPanel
                         Grid.Column="1"
@@ -170,16 +158,16 @@
                             </StackPanel>
                         </materialDesign:PopupBox>
                     </StackPanel>
-
-
-
                 </Grid>
-                <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,0,28" Grid.RowSpan="2">
+                <Grid
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    Grid.ColumnSpan="3"
+                    Margin="0,0,0,28">
 
                     <ContentControl prism:RegionManager.RegionName="ContentRegion" />
-
                 </Grid>
-                <StatusBar Grid.Row="2" Grid.ColumnSpan="2">
+                <StatusBar Grid.Row="2" Grid.ColumnSpan="3">
                     <StackPanel>
                         <StatusBarItem>
                             <StackPanel
@@ -201,7 +189,7 @@
                                 Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="WrenchClock" />
                                 <TextBlock Margin="0,0,10,0" Text="更新日期:" />
-                                <TextBlock Text="2024.05.04" />
+                                <TextBlock Text="2024.08.04" />
                             </StackPanel>
                         </StatusBarItem>
                     </StackPanel>
@@ -221,17 +209,10 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center" />
                             </StackPanel>
-
                         </StatusBarItem>
                     </StackPanel>
-
-
-
                 </StatusBar>
-
             </Grid>
-
-
         </materialDesign:DrawerHost>
     </materialDesign:DialogHost>
 </Window>

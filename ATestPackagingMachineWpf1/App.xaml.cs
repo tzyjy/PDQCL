@@ -45,13 +45,16 @@ namespace ATestPackagingMachineWpf1
             containerRegistry.RegisterForNavigation<MainWindow, MainWindowViewModel>();
             containerRegistry.RegisterForNavigation<HomeView, HomeViewModel>();
             containerRegistry.RegisterForNavigation<HandView, HandViewModel>();
-            containerRegistry.RegisterForNavigation<ParameterView, ParameterViewModel>();
+            containerRegistry.RegisterForNavigation<IOView, IOViewModel>();
             containerRegistry.RegisterForNavigation<UserView, UserViewModel>();
+            containerRegistry.RegisterForNavigation<SysTemParameterView, SysTemParameterViewModel>();
+            containerRegistry.RegisterForNavigation<ManufacturerView, ManufacturerViewModel>();
 
+            containerRegistry.RegisterForNavigation<SetView, SetViewModel>();
 
+            containerRegistry.RegisterForNavigation<SetView2, SetView2Model>();
+            containerRegistry.RegisterForNavigation<DeviceParameterView, DeviceParameterViewModel>();
 
-           
-         
 
             //注册对话框
             containerRegistry.RegisterDialog<EditView>();
@@ -65,9 +68,9 @@ namespace ATestPackagingMachineWpf1
         }
         protected override void OnInitialized()
         {
+            bool result = true;
 
-
-            if (!JsonSaveEXT.deviceParameterJsonGv.IsTestMode)
+            if (!result)
             {
                 var dialog = Container.Resolve<IDialogService>();
                 dialog.ShowDialog("LogonView", callback =>
@@ -102,7 +105,7 @@ namespace ATestPackagingMachineWpf1
         private void LoadConfig()
         {
             JsonSaveEXT.deviceParameterJsonGv = JsonSaveEXT.ReadDeviceJson() == null ? new DeviceParameterJson() : JsonSaveEXT.ReadDeviceJson();
-            // Activation();
+           Activation();
 
        
         }
@@ -113,13 +116,26 @@ namespace ATestPackagingMachineWpf1
 
         static void Activation()
         {
+            //try
+            //{
+            //    List<int> list = new List<int>() { 1, 2, 3 };
+            //    var result = list[4];
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    throw;
+            //}
+       
             if (HslCommunication.Authorization.SetAuthorizationCode("8cb26b16-6848-46b8-a9e4-6f57336b2872"))
             {
+                Console.WriteLine("激活成功！");
             }
             {
                 Console.WriteLine("Authorization failed! The current program can only be used for 8 hours!");
                 return;
             }
+ 
 
 
         }

@@ -27,11 +27,11 @@
                     <StackPanel Style="{StaticResource StackPanelStyle}">
                         <UniformGrid Columns="2">
                             <WrapPanel>
-                                <TextBlock Text="仪器禁用：" />
+                                <TextBlock Text="{StaticResource FunctionPermission100}" />
                                 <CheckBox IsChecked="{Binding LogonPesonData.FunctionPermission100}"  Width="20" />
                             </WrapPanel>
                             <WrapPanel>
-                                <TextBlock Text="仪器参数设置：" />
+                                <TextBlock Text="{StaticResource FunctionPermission101}" />
                                 <CheckBox IsChecked="{Binding LogonPesonData.FunctionPermission101}"  Width="20" />
                             </WrapPanel>
                         </UniformGrid>
@@ -39,11 +39,11 @@
                     <StackPanel  Style="{StaticResource StackPanelStyle}">
                         <UniformGrid Columns="2">
                             <WrapPanel>
-                                <TextBlock Text="产品清零：" />
+                                <TextBlock Text="{StaticResource FunctionPermission102}" />
                                 <CheckBox IsChecked="{Binding LogonPesonData.FunctionPermission102}"  Width="20" />
                             </WrapPanel>
                             <WrapPanel>
-                                <TextBlock Text="警戒值设置：" />
+                                <TextBlock Text="{StaticResource FunctionPermission103}" />
                                 <CheckBox IsChecked="{Binding LogonPesonData.FunctionPermission103}"  Width="20" />
                             </WrapPanel>
                         </UniformGrid>
@@ -51,11 +51,11 @@
                     <StackPanel  Style="{StaticResource StackPanelStyle}">
                         <UniformGrid Columns="2">
                             <WrapPanel>
-                                <TextBlock Text="温度设置：" />
+                                <TextBlock Text="{StaticResource FunctionPermission104}" />
                                 <CheckBox IsChecked="{Binding LogonPesonData.FunctionPermission104}"  Width="20" />
                             </WrapPanel>
                             <WrapPanel>
-                                <TextBlock Text="设备参数设置：" />
+                                <TextBlock Text="{StaticResource FunctionPermission105}" />
                                 <CheckBox IsChecked="{Binding LogonPesonData.FunctionPermission105}"  Width="20" />
                             </WrapPanel>
                         </UniformGrid>
@@ -63,7 +63,7 @@
                     <StackPanel  Style="{StaticResource StackPanelStyle}">
                         <UniformGrid Columns="2">
                             <WrapPanel>
-                                <TextBlock Text="用户管理：" />
+                                <TextBlock Text="{StaticResource FunctionPermission106}" />
                                 <CheckBox IsChecked="{Binding LogonPesonData.FunctionPermission106}"  Width="20" />
                             </WrapPanel>
                          

@@ -10,19 +10,43 @@ namespace ZModels
 {
     public class DeviceParameterJson
     {
+
         /// <summary>
-        /// PLCIP地址
+        /// PLC地址
         /// </summary>
         public string PLC_Ipadress { get; set; }
         /// <summary>
-        /// PLC写端口号
+        /// PLC端口号
         /// </summary>
-        public int PLC_WritePort { get; set; }
+        public int PLC_Port { get; set; }
 
         /// <summary>
-        /// PLC读端口号
+        /// 设备编号
         /// </summary>
-        public int PLC_ReadPort { get; set; }
+        public string EquipmentNum { get; set; }
+
+
+        /// <summary>
+        /// 作业员ID
+        /// </summary>
+        //public string OperatorName { get; set; }
+
+
+
+
+        /// <summary>
+        /// WebApiIP地址
+        /// </summary>
+        public string WebApi_Ipadress { get; set; }
+        /// <summary>
+        /// Webapi写端口号
+        /// </summary>
+        public int WebApi_Port { get; set; }
+
+        /// <summary>
+        /// NTP
+        /// </summary>
+        public string NTP_Ipadress { get; set; }
 
         /// <summary>
         /// 调机模式
@@ -36,17 +60,15 @@ namespace ZModels
         /// </summary>
         public int TimeHour { get; set; }
 
-   
-
         /// <summary>
-        /// LS1_LS2上限设置
+        /// Mes测试
         /// </summary>
-        public decimal LS1_LS2High { get; set; }
+        public  bool MesTest { get; set; }
 
-        /// <summary>
-        /// LS1_LS2下限设置
-        /// </summary>
-        public decimal LS1_LS2Low { get; set; }
+
+
+
+        public List<GMXHParameter> GMXHParameterList { get; set; }
 
     }
 

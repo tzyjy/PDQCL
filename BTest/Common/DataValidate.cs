@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BTest.Common
@@ -10,7 +11,7 @@ namespace BTest.Common
     /// <summary>
     /// 通用验证类
     /// </summary>
-    public class DataValidate
+    public class CommonMethod
     {
         /// <summary>
         /// 验证正整数
@@ -43,6 +44,17 @@ namespace BTest.Common
         {
             Regex objReg = new Regex(@"^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$");
             return objReg.IsMatch(txt);
+        }
+
+        public static string MutMessge {  get; set; }
+        public static void InnerExDeal(Exception ex)
+        {
+            if (ex.InnerException!=null)
+            {
+                MutMessge += ex.InnerException.Message+"||";
+                InnerExDeal(ex.InnerException);
+            }
+            
         }
     }
 }
