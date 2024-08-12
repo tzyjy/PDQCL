@@ -168,6 +168,9 @@
     <Compile Include="InterfaceData\IShowLogon.cs" />
     <Compile Include="Common\JsonSaveHelper.cs" />
     <Compile Include="Common\PassWordBoxHelper.cs" />
+    <Compile Include="MyUseControl\AutomationBtn.xaml.cs">
+      <DependentUpon>AutomationBtn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyUseControl\Led.xaml.cs">
       <DependentUpon>Led.xaml</DependentUpon>
     </Compile>
@@ -244,6 +247,7 @@
     <Compile Include="Views\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ZModels\RequestWorkOrderInfoPra.cs" />
     <Compile Include="ZModels\LogInfo.cs" />
     <Compile Include="ZModels\OperateLog.cs" />
     <Compile Include="ZModels\ReadDataInfo.cs" />
@@ -254,6 +258,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ZModels\WonoInfo.cs" />
+    <Page Include="MyUseControl\AutomationBtn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyUseControl\Led.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

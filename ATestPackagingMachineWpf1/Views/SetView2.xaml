@@ -19,29 +19,40 @@
             Height="200"
             Header="参数设置"
             Visibility="{Binding IsEnable1}">
-            <UniformGrid Columns="3">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="WebApi_IP:" />
-                    <TextBox
+            <StackPanel>
+                <UniformGrid Columns="3">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Text="WebApi_IP:" />
+                        <TextBox
+                            Width="100"
+                            VerticalAlignment="Center"
+                            Text="{Binding DeviceParameterJson.WebApi_Ipadress}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Text="WebApi_端口:" />
+                        <TextBox
+                            Width="100"
+                            VerticalAlignment="Center"
+                            Text="{Binding DeviceParameterJson.WebApi_Port}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Text="NTP_IP:" />
+                        <TextBox
+                            Width="100"
+                            VerticalAlignment="Center"
+                            Text="{Binding DeviceParameterJson.NTP_Ipadress}" />
+                    </StackPanel>
+                </UniformGrid>
+                <StackPanel>
+                    <Button
                         Width="100"
-                        VerticalAlignment="Center"
-                        Text="{Binding DeviceParameterJson.WebApi_Ipadress}" />
+                        Margin="0,30,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Command="{Binding SaveData}"
+                        Content="保存" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="WebApi_端口:" />
-                    <TextBox
-                        Width="100"
-                        VerticalAlignment="Center"
-                        Text="{Binding DeviceParameterJson.WebApi_Port}" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="NTP_IP:" />
-                    <TextBox
-                        Width="100"
-                        VerticalAlignment="Center"
-                        Text="{Binding DeviceParameterJson.NTP_Ipadress}" />
-                </StackPanel>
-            </UniformGrid>
+            </StackPanel>
         </GroupBox>
 
         <GroupBox
@@ -108,66 +119,63 @@
         </GroupBox>
         <GroupBox
             Grid.Row="2"
-            Height="600"
             Header="型号参数设置_工程师"
-            Visibility="Collapsed">
-            <DataGrid
-                AutoGenerateColumns="False"
-                CanUserAddRows="True"
-                CanUserDeleteRows="True"
-                ColumnHeaderHeight="60"
-                FontSize="22"
-                HeadersVisibility="All"
-                ItemsSource="{Binding DeviceParameterJson.GMXHParameterList}"
-                RowHeaderWidth="50"
-                SelectionMode="Extended"
-                SelectionUnit="FullRow">
-                <DataGrid.Columns>
+            Visibility="{Binding ShowDataGridGCS}">
+            <StackPanel>
+                <WrapPanel>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="板长：" />
+                    <TextBox
+                        Width="130"
 
-                    <DataGridTextColumn
-                        Width="*"
-                        Binding="{Binding GMMode}"
-                        Header="干膜型号 " />
+                        Text="{Binding Data[0]}" />
+                    <TextBlock Margin="3,0,0,0" Text="MM" />
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="板宽：" />
+                    <TextBox
+                        Width="130"
 
-                    <DataGridTextColumn
-                        Width="*"
-                        Binding="{Binding GMValue}"
-                        Header="对应参数 " />
-                    <DataGridTextColumn
-                        Width="*"
-                        Binding="{Binding LowLimit}"
-                        Header="下限 " />
-                    <DataGridTextColumn
-                        Width="*"
-                        Binding="{Binding UpLimit}"
-                        Header="上限" />
+                        Text="{Binding Data[1]}" />
+                    <TextBlock Margin="3,0,0,0" Text="MM" />
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="刷轮使用：" />
+                    <TextBox
+                        Width="130"
 
-                    <DataGridTemplateColumn Width="*" Header="操作">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <StackPanel Orientation="Horizontal">
+                        Text="{Binding Data[2]}" />
+                    <TextBlock Margin="3,0,0,0" Text="1：使用 2：不使用" />
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="微蚀：" />
+                    <TextBox
+                        Width="130"
 
-                                        <Button
-                                            Margin="0,0,10,0"
-                                            Command="{Binding DataContext.Remove, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"
-                                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"
-                                            Content="删除" />
-                                    </StackPanel>
-                                </Grid>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+                        Text="{Binding Data[3]}" />
+                    <TextBlock Margin="3,0,0,0" Text="1：使用 2：不使用" />
+                </WrapPanel>
+                <StackPanel>
+                    <Button
+                        Width="100"
+                        Margin="0,30,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Command="{Binding SavePLC}"
+                        Content="保存" />
+                </StackPanel>
+            </StackPanel>
         </GroupBox>
-
-        <StackPanel Grid.Row="3">
-            <Button
-                Width="100"
-                HorizontalAlignment="Center"
-                Command="{Binding SaveData}"
-                Content="保存" />
-        </StackPanel>
     </Grid>
 </UserControl>

@@ -5,7 +5,7 @@
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:prism="http://prismlibrary.com/"
-    Title="PD影像软件"
+    Title="PD前处理软件"
     Width="1024"
     Height="768"
     prism:ViewModelLocator.AutoWireViewModel="True"

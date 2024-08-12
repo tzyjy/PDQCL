@@ -34,6 +34,14 @@ namespace ATestPackagingMachineWpf1.ViewModels
             set { SetProperty(ref _Data, value); }
         }
 
+        private string _Wo;
+
+        public string Wo
+        {
+            get { return _Wo; }
+            set { SetProperty(ref _Wo, value); }
+        }
+
         private string CurrentTime
         {
             get { return DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); }
@@ -58,6 +66,14 @@ namespace ATestPackagingMachineWpf1.ViewModels
             set { SetProperty(ref _AalrmInfo, value); }
         }
 
+        private int _CGOpen;
+
+        public int CGOpen
+        {
+            get { return _CGOpen; }
+            set { SetProperty(ref _CGOpen, value); }
+        }
+
         private decimal _MatchedData;
 
         public decimal MatchedData
@@ -79,6 +95,17 @@ namespace ATestPackagingMachineWpf1.ViewModels
         /// </summary>
         public bool ShowAlarmInfo { get; set; }
 
+        /// <summary>
+        /// 重工模式开启  扫工单禁用
+        /// </summary>
+        private bool _SendEnable;
+
+        public bool SendEnable
+        {
+            get { return _SendEnable; }
+            set { SetProperty(ref _SendEnable, value); }
+        }
+
         public HomeViewModel(IDialogService dialogService)
         {
             Data = new ObservableCollection<short>();
@@ -87,7 +114,8 @@ namespace ATestPackagingMachineWpf1.ViewModels
             LoadDevice();
             RequestWorkOrderInfoPra = new RequestWorkOrderInfoPra();
             RequestWorkOrderInfoPra.mach_code = JsonSaveEXT.deviceParameterJsonGv.EquipmentNum;
-
+            //订阅事件
+            GV.Event.GetEvent<MessageEvent>().Subscribe(AddLog);
             //Task.Run(() => { ReadPLCData(); });
             Task.Run(() => { ReadPDQCLData(); });
         }
@@ -102,18 +130,31 @@ namespace ATestPackagingMachineWpf1.ViewModels
                 {
                     lock (myobject)
                     {
-                        Data.Clear();
                         var RESULT = DV.PLC.plc.ReadInt16("D7220", 3);
                         if (RESULT.IsSuccess)
                         {
+                            Data.Clear();
                             Data.Add(RESULT.Content[0]);
                             Data.Add(RESULT.Content[1]);
                             Data.Add(RESULT.Content[2]);
                         }
+
+                        try
+                        {
+                            var RESULT2 = DV.PLC.plc.ReadInt16("D7212");
+                            if (RESULT2.IsSuccess)
+                            {
+                                CGOpen = RESULT2.Content;
+                                SendEnable = CGOpen == 1 ? false : true;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            AddLog(new LogInfo() { OK = false, InfoText = "读取PLC数据发生错误：，详情：" + ex.Message });
+                        }
                     }
                 }
-
-                Thread.Sleep(1000);
+                Thread.Sleep(300);
             }
         }
 
@@ -149,6 +190,7 @@ namespace ATestPackagingMachineWpf1.ViewModels
                             BorderColor = Brushes.Red;
                             AalrmInfo = $"参数未导入！";
                             AddLog(new LogInfo() { OK = false, InfoText = $" 作业员工号：{RequestWorkOrderInfoPra.op_name} 批号：{RequestWorkOrderInfoPra.wo}  参数未导入！" });
+
                             stopwatch.Reset();
                             stopwatch.Stop();
                         }
@@ -214,8 +256,17 @@ namespace ATestPackagingMachineWpf1.ViewModels
 
         public RequestWorkOrderInfoPra RequestWorkOrderInfoPra
         {
-            get { return _RequestWorkOrderInfoPra; }
-            set { SetProperty(ref _RequestWorkOrderInfoPra, value); }
+            get
+            {
+                GV.OpName = _RequestWorkOrderInfoPra.op_name;
+
+                return _RequestWorkOrderInfoPra;
+            }
+            set
+            {
+                SetProperty(ref _RequestWorkOrderInfoPra, value);
+                GV.OpName = _RequestWorkOrderInfoPra.op_name;
+            }
         }
 
         #region 加载设备配置
@@ -264,8 +315,10 @@ namespace ATestPackagingMachineWpf1.ViewModels
                     var result2 = DV.PLC.plc.Write("D7210", 1);
 
                     if (!result1.IsSuccess || !result2.IsSuccess) throw new Exception("PLC写入失败" + result2.Message);
-                    AddLog(new LogInfo() { OK = true, InfoText = $"获取Mes数据成功！并写入PLC：，详情：板长{ReturnPDQCLInfo.bc} 板宽{ReturnPDQCLInfo.bk}  开刷提示{ReturnPDQCLInfo.ksts}" });
-                    //解析是否开刷
+                    AddLog(new LogInfo() { OK = true, InfoText = $"获取Mes数据成功！并写入PLC：，详情：批号 {RequestWorkOrderInfoPra.wo}    板长{ReturnPDQCLInfo.bc} 板宽{ReturnPDQCLInfo.bk}  开刷提示{ReturnPDQCLInfo.ksts} 作业员:{RequestWorkOrderInfoPra.op_name} " });
+                    //清空界面数据。
+                    Wo = RequestWorkOrderInfoPra.wo;
+                    RequestWorkOrderInfoPra.wo = "";
                 }
                 else
                 {
@@ -275,7 +328,7 @@ namespace ATestPackagingMachineWpf1.ViewModels
             catch (Exception ex)
             {
                 MessageBox.Show("发生错误：，详情：" + ex.Message, "提示", MessageBoxButton.OK, MessageBoxImage.Warning);
-                AddLog(new LogInfo() { OK = false, InfoText = "发生错误：，详情：" + ex.Message });
+                AddLog(new LogInfo() { OK = false, InfoText = "Mes发送工单发生错误：，详情：" + ex.Message });
             }
         }
 
@@ -294,11 +347,10 @@ namespace ATestPackagingMachineWpf1.ViewModels
 
         #region 日志显示
 
-        private void AddLog(LogInfo logInfo)
+        public void AddLog(LogInfo logInfo)
         {
             System.Windows.Application.Current.Dispatcher.Invoke(() =>
             {
-                LOG.WriteLog(logInfo.InfoText);
                 if (logInfo.OK)
                 {
                     OperateLogList.Add(new OperateLog() { IconColor = "Green", LogIcon = "InformationSlabCircleOutline", OperateInfo = logInfo.InfoText, OperateTime = CurrentTime });
@@ -307,6 +359,8 @@ namespace ATestPackagingMachineWpf1.ViewModels
                 {
                     OperateLogList.Add(new OperateLog() { IconColor = "Red", LogIcon = "InformationSlabCircleOutline", OperateInfo = logInfo.InfoText, OperateTime = CurrentTime });
                 }
+                LOG.WriteLog(logInfo.InfoText);
+
                 //SetBar();
             });
         }

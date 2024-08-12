@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,17 +29,22 @@ namespace ATestPackagingMachineWpf1
 
     public partial class App : PrismApplication
     {
-
         protected override Window CreateShell()
         {
             // 启动一个窗体MainWindow
-                 return Container.Resolve<MainWindow>();
-                
-                ;
+            return Container.Resolve<MainWindow>();
+
+            ;
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            string processName = Process.GetCurrentProcess().ProcessName;
+            if (Process.GetProcessesByName(processName).Length > 1)
+            {
+                MessageBox.Show("软件已经运行！", "系统运行", MessageBoxButton.OK, MessageBoxImage.Error);
+                Environment.Exit(0);
+            }
             //containerRegistry.Register<MainWindow>();
             LoadConfig();
             //注册导航
@@ -55,17 +61,16 @@ namespace ATestPackagingMachineWpf1
             containerRegistry.RegisterForNavigation<SetView2, SetView2Model>();
             containerRegistry.RegisterForNavigation<DeviceParameterView, DeviceParameterViewModel>();
 
-
             //注册对话框
             containerRegistry.RegisterDialog<EditView>();
             containerRegistry.RegisterDialog<LogonView>();
-      
+
             containerRegistry.RegisterDialog<MinLoginView>();
-   
+
             containerRegistry.RegisterDialog<AboutView>();
             containerRegistry.RegisterDialog<LoadShowView>();
-
         }
+
         protected override void OnInitialized()
         {
             bool result = true;
@@ -98,23 +103,16 @@ namespace ATestPackagingMachineWpf1
                 }
                 base.OnInitialized();
             }
-
         }
 
         //加载参数
         private void LoadConfig()
         {
             JsonSaveEXT.deviceParameterJsonGv = JsonSaveEXT.ReadDeviceJson() == null ? new DeviceParameterJson() : JsonSaveEXT.ReadDeviceJson();
-           Activation();
-
-       
+            Activation();
         }
 
-
-
-
-
-        static void Activation()
+        private static void Activation()
         {
             //try
             //{
@@ -123,10 +121,9 @@ namespace ATestPackagingMachineWpf1
             //}
             //catch (Exception ex)
             //{
-
             //    throw;
             //}
-       
+
             if (HslCommunication.Authorization.SetAuthorizationCode("8cb26b16-6848-46b8-a9e4-6f57336b2872"))
             {
                 Console.WriteLine("激活成功！");
@@ -135,15 +132,6 @@ namespace ATestPackagingMachineWpf1
                 Console.WriteLine("Authorization failed! The current program can only be used for 8 hours!");
                 return;
             }
- 
-
-
         }
     }
-
-
-
-
-
-
 }

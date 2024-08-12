@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZModels;
+using ATestPackagingMachineWpf1.ZModels;
 
 namespace ATestPackagingMachineWpf1.DeviceFile
 {

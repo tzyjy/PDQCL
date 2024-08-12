@@ -6,25 +6,6 @@ using System.Threading.Tasks;
 
 namespace ZModels
 {
-    [Serializable]
-    public class RequestWorkOrderInfoPra
-    {
-        /// <summary>
-        /// 厂内批号
-        /// </summary>
-        public string wo { get; set; }
-
-        /// <summary>
-        /// 设备编码
-        /// </summary>
-        public string mach_code { get; set; }
-
-        /// <summary>
-        /// 当前作业员工号
-        /// </summary>
-        public string op_name { get; set; }
-    }
-
     /// <summary>
     /// 获取Mes返回参数
     /// </summary>

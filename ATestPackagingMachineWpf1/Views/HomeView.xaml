@@ -8,7 +8,7 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:myusecontrol="clr-namespace:ATestPackagingMachineWpf1.MyUseControl"
-    xmlns:prism="http://prismlibrary.com/"
+    xmlns:prism="http://prismlibrary.com/" xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
     d:DesignHeight="768"
     d:DesignWidth="1024"
     prism:ViewModelLocator.AutoWireViewModel="True"
@@ -16,17 +16,22 @@
     <UserControl.Resources>
         <Style TargetType="TextBlock" />
         <Style BasedOn="{StaticResource MaterialDesignGroupBox}" TargetType="GroupBox">
-            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontSize" Value="16" />
             <Setter Property="Margin" Value="2" />
         </Style>
         <Style BasedOn="{StaticResource MaterialDesignRaisedButton}" TargetType="Button">
-            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontSize" Value="16" />
         </Style>
         <local:ProportionConverter x:Key="Proportion" />
+        <CollectionViewSource x:Key="OperateLogListKey" Source="{Binding OperateLogList}">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription Direction="Descending" PropertyName="OperateTime" />
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*" />
+            <RowDefinition Height="2*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
@@ -36,101 +41,96 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <StackPanel>
-                <GroupBox Height="350" Header="操作">
+                <GroupBox Header="操作">
 
                     <UniformGrid Columns="1">
-
+                        <UniformGrid.Resources>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Margin" Value="0,15,0,0" />
+                            </Style>
+                        </UniformGrid.Resources>
                         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                             <TextBlock
+                                Width="100"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
-                                Text="批号："
-                                TextAlignment="Center" />
-                            <StackPanel
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Orientation="Horizontal">
+                                Text="批号:" />
 
-                                <TextBox
-                                    Width="300"
-                                    Margin="0,5,0,0"
-                                    VerticalAlignment="Top"
-                                    VerticalContentAlignment="Bottom"
-                                    materialDesign:HintAssist.Background="#FFFFFF "
-                                    materialDesign:HintAssist.Foreground="#12226c"
-                                    materialDesign:HintAssist.HelperTextFontSize="14"
-                                    materialDesign:HintAssist.Hint="请输入批号"
-                                    BorderBrush="#12226c"
-                                    Foreground="Black"
-                                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                    Text="{Binding RequestWorkOrderInfoPra.wo}" />
-                            </StackPanel>
+                            <TextBox
+                                Width="260"
+                                Margin="0,5,0,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                VerticalContentAlignment="Bottom"
+                                materialDesign:HintAssist.Background="#FFFFFF "
+                                materialDesign:HintAssist.Foreground="#12226c"
+                                materialDesign:HintAssist.HelperTextFontSize="14"
+                                materialDesign:HintAssist.Hint="请输入批号"
+                                BorderBrush="#12226c"
+                                Foreground="Black"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                Text="{Binding RequestWorkOrderInfoPra.wo}" />
                         </StackPanel>
 
                         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
 
                             <TextBlock
+                                Width="100"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Text="设备编码：" />
-                            <StackPanel
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Orientation="Horizontal">
+                                Text="设备编码：   " />
 
-                                <TextBox
-                                    Width="300"
-                                    Margin="0,5,0,0"
-                                    VerticalAlignment="Top"
-                                    VerticalContentAlignment="Bottom"
-                                    materialDesign:HintAssist.Background="#FFFFFF "
-                                    materialDesign:HintAssist.Foreground="#12226c"
-                                    materialDesign:HintAssist.HelperTextFontSize="14"
-                                    materialDesign:HintAssist.Hint="请输入设备编码"
-                                    BorderBrush="#12226c"
-                                    Foreground="Black"
-                                    IsEnabled="False"
-                                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                    Text="{Binding RequestWorkOrderInfoPra.mach_code}" />
-                            </StackPanel>
+                            <TextBox
+                                Width="260"
+                                Margin="0,5,0,0"
+                                VerticalAlignment="Top"
+                                VerticalContentAlignment="Bottom"
+                                materialDesign:HintAssist.Background="#FFFFFF "
+                                materialDesign:HintAssist.Foreground="#12226c"
+                                materialDesign:HintAssist.HelperTextFontSize="14"
+                                materialDesign:HintAssist.Hint="请输入设备编码"
+                                BorderBrush="#12226c"
+                                Foreground="Black"
+                                IsEnabled="False"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                Text="{Binding RequestWorkOrderInfoPra.mach_code}" />
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                             <TextBlock
+                                Width="100"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Text="作业员工号：" />
-                            <StackPanel
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Orientation="Horizontal">
 
-                                <TextBox
-                                    Width="300"
-                                    Margin="0,5,0,0"
-                                    VerticalAlignment="Top"
-                                    VerticalContentAlignment="Bottom"
-                                    materialDesign:HintAssist.Background="#FFFFFF "
-                                    materialDesign:HintAssist.Foreground="#12226c"
-                                    materialDesign:HintAssist.HelperTextFontSize="14"
-                                    materialDesign:HintAssist.Hint="请输入作业员工号"
-                                    BorderBrush="#12226c"
-                                    Foreground="Black"
-                                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                    Text="{Binding RequestWorkOrderInfoPra.op_name}" />
-                            </StackPanel>
+                            <TextBox
+                                Width="260"
+                                Margin="0,5,0,0"
+                                VerticalAlignment="Top"
+                                VerticalContentAlignment="Bottom"
+                                materialDesign:HintAssist.Background="#FFFFFF "
+                                materialDesign:HintAssist.Foreground="#12226c"
+                                materialDesign:HintAssist.HelperTextFontSize="14"
+                                materialDesign:HintAssist.Hint="请输入作业员工号"
+                                BorderBrush="#12226c"
+                                Foreground="Black"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                Text="{Binding RequestWorkOrderInfoPra.op_name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                             <TextBlock
+                                Width="100"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Text="发送数据：" />
+                                Text="发送数据：   " />
                             <Button
                                 Width="100"
                                 Height="50"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Command="{Binding Send}"
-                                Content="发送" />
+                                Content="发送"
+                                IsEnabled="{Binding SendEnable}" />
+                            <myusecontrol:AutomationBtn Margin="160,0,0,0" Open="{Binding CGOpen}" />
                         </StackPanel>
                     </UniformGrid>
                 </GroupBox>
@@ -206,12 +206,7 @@
                         <StackPanel>
                             <StackPanel.Resources>
                                 <Style TargetType="WrapPanel">
-                                    <Setter Property="Margin" Value="0,10,0,0" />
-                                </Style>
-                                <Style TargetType="UniformGrid">
-                                    <Setter Property="Margin" Value="0,10,0,0" />
-                                    <Setter Property="Columns" Value="2" />
-                                    <Setter Property="HorizontalAlignment" Value="Left" />
+                                    <Setter Property="Margin" Value="0,2,0,0" />
                                 </Style>
                             </StackPanel.Resources>
                             <WrapPanel>
@@ -252,21 +247,23 @@
                                     Text="{Binding ReturnPDQCLInfo.ksts}" />
                                 <TextBlock Margin="3,0,0,0" Text="1：使用 2：不使用" />
                             </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock VerticalAlignment="Center" Text="批号：" />
+                                <TextBox
+                                    Width="150"
+                                    IsReadOnly="True"
+                                    Text="{Binding Wo}" />
+                            </WrapPanel>
                         </StackPanel>
                     </GroupBox>
                     <GroupBox Header="实时数据">
                         <StackPanel>
                             <StackPanel.Resources>
                                 <Style TargetType="WrapPanel">
-                                    <Setter Property="Margin" Value="0,10,0,0" />
-                                </Style>
-                                <Style TargetType="UniformGrid">
-                                    <Setter Property="Margin" Value="0,10,0,0" />
-                                    <Setter Property="Columns" Value="2" />
-                                    <Setter Property="HorizontalAlignment" Value="Left" />
+                                    <Setter Property="Margin" Value="0,2,0,0" />
                                 </Style>
                             </StackPanel.Resources>
-                            <UniformGrid Columns="3" Rows="1">
+                            <WrapPanel>
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
@@ -276,8 +273,8 @@
                                     IsReadOnly="True"
                                     Text="{Binding Data[0]}" />
                                 <TextBlock Margin="3,0,0,0" Text="MM" />
-                            </UniformGrid>
-                            <UniformGrid Columns="3" Rows="1">
+                            </WrapPanel>
+                            <WrapPanel>
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
@@ -287,8 +284,8 @@
                                     IsReadOnly="True"
                                     Text="{Binding Data[1]}" />
                                 <TextBlock Margin="3,0,0,0" Text="MM" />
-                            </UniformGrid>
-                            <UniformGrid Columns="3" Rows="1">
+                            </WrapPanel>
+                            <WrapPanel>
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
@@ -298,7 +295,7 @@
                                     IsReadOnly="True"
                                     Text="{Binding Data[2]}" />
                                 <TextBlock Margin="3,0,0,0" Text="1：使用 2：不使用" />
-                            </UniformGrid>
+                            </WrapPanel>
                         </StackPanel>
                     </GroupBox>
                     <Button
@@ -310,21 +307,6 @@
                         Command="{Binding Import}"
                         Content="导入"
                         Visibility="Collapsed" />
-                    <GroupBox
-                        Grid.Column="2"
-                        Header="报警提示"
-                        Visibility="Collapsed">
-
-                        <Border Background="{Binding BorderColor}">
-                            <TextBlock
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                FontSize="40"
-                                FontWeight="Bold"
-                                Foreground="Black"
-                                Text="{Binding AalrmInfo}" />
-                        </Border>
-                    </GroupBox>
                 </StackPanel>
             </GroupBox>
         </Grid>
@@ -370,36 +352,36 @@
                     Header="干膜厚度" />
             </DataGrid.Columns>
         </DataGrid>
-        <GroupBox Grid.Row="1" Header=" 日志">
+        <GroupBox  x:Name="groupx" Grid.Row="3" Header="日志">
             <StackPanel>
 
-                <ScrollViewer Height="200" Margin="0,15,0,0">
-                    <ListBox
-                        FontSize="16"
-                        IsSynchronizedWithCurrentItem="True"
-                        ItemsSource="{Binding OperateLogList}"
-                        Loaded="ListBox_Loaded">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Loaded">
-                                <i:InvokeCommandAction Command="{Binding ListBoxLoaded}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
+                <ScrollViewer  Height="{Binding ElementName=groupx,Path=ActualHeight}"  Margin="0,15,0,0">
+                    <ListBox ItemsSource="{Binding Source={StaticResource OperateLogListKey}}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                                    <TextBlock
-                                        Margin="15,0,15,0"
-                                        VerticalAlignment="Center"
-                                        Text="{Binding Path=OperateTime}" />
+                                <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon
-                                        Margin="0,0,10,0"
+                                        Margin="0,0,15,0"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
                                         materialDesign:Foreground="{Binding Path=IconColor}"
-                                        materialDesign:Height="20"
-                                        materialDesign:Width="20"
+                                        materialDesign:Height="12"
+                                        materialDesign:Width="12"
                                         Kind="{Binding LogIcon}" />
-                                    <TextBlock VerticalAlignment="Center" Text="{Binding Path=OperateInfo}" />
+                                    <TextBlock
+                                        Width="150"
+                                        Height="15"
+                                        Margin="15,0,0,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Text="{Binding Path=OperateTime}" />
+                                    <TextBlock
+                                        Height="15"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Text="{Binding Path=OperateInfo}" />
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
